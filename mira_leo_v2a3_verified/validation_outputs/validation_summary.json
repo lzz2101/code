@@ -1,0 +1,47 @@
+{
+  "status": "BLOCKED",
+  "execution_status": "PASS",
+  "python_version": "3.12.13",
+  "source_version": "mira_leo_v2a3",
+  "validated_version": "mira_leo_v2a3_verified",
+  "config": {
+    "T": 50,
+    "seeds": [
+      42
+    ],
+    "slot_time_s": 0.01,
+    "handover_delay_ms": 25.0,
+    "handover_delay_slots": 2.5
+  },
+  "unit_tests": {
+    "run": 57,
+    "passed": 57,
+    "failed": 0,
+    "errors": 0
+  },
+  "violations": {
+    "stale_sw_ucb_observations": 0,
+    "reward_out_of_bounds": 0,
+    "nonfinite_rewards": 0,
+    "negative_power": 0,
+    "satellite_power_overflow": 0,
+    "unscheduled_positive_power": 0,
+    "power_floor_infeasible_success": 0,
+    "sic_power_order": 0,
+    "sic_decoding": 0,
+    "time_unit": 0,
+    "repeated_handover_charge": 0
+  },
+  "coverage": {
+    "edge_only_tested": true,
+    "nonedge_only_tested": true,
+    "mixed_edge_nonedge_tested": true,
+    "interleaved_csi_tested": true,
+    "handover_event_tested": true,
+    "multi_satellite_policy_tested": true
+  },
+  "blocked_items": [
+    "The paper does not provide an explicit numerical reward-normalization bound; the fixed linear mapping is an implementation choice.",
+    "The T=1000, seeds 0-4 validation run was not executed in this no-simulation delivery."
+  ]
+}

@@ -1,0 +1,8 @@
+scenario_id,status,details
+INT-01,PASS,"{""nonedge_power"": 1.0, ""reward"": 0.9931129476584022, ""total_power"": 1.0}"
+INT-02,PASS,"{""edge_power"": 1.0, ""total_power"": 1.0}"
+INT-03,PASS,"{""edge_power"": 0.7, ""nonedge_power"": 0.3, ""sic_power_order_violations"": 0}"
+INT-04,PASS,"{""reason"": ""Algorithm 3 violates global SIC power order (15c): satellite=0, slot=0, weaker=(message=0, group=2, gain=0.2, power=0.15025), stronger=(message=0, group=1, gain=0.8, power=0.34975)"", ""rejected"": true}"
+INT-05,PASS,"{""handover_delay_slots"": 2.5}"
+INT-06,PASS,"{""sat0_arm1_mean"": 0.9, ""sat0_arm2_count"": 0, ""sat1_arm1_count"": 0, ""sat1_arm2_mean"": 0.10000000000000002}"
+INT-07,PASS,"{""detected"": true, ""reason"": ""satellite_power_overflow: satellite=0, slot=None, allocated=1.01, budget=1.0""}"
