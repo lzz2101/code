@@ -1,0 +1,12 @@
+{
+  "communication_slot_count": 96000,
+  "device_count": 300,
+  "geometry_time_count": 481,
+  "grid_point_count": 2601,
+  "grid_visible_max": 4,
+  "grid_visible_mean": 3.414307307040871,
+  "grid_visible_min": 2,
+  "layout_hash": "feff6400a01f2801dc8921a50685b08db705103727bfa0cf82b4d91c1a3366bf",
+  "satellite_count": 8,
+  "subscription_hash": "9383b9554ba7946c473328573e7b8bdfdc7cf8b08e0bb244e677e79a4d775cb8"
+}

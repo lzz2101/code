@@ -1,0 +1,4 @@
+policy,label,status,aoi_unit,final_running_mean_aoi,mean_aoi_all_slots,median_aoi_all_slots,mean_aoi_last_20pct_slots,std_aoi_last_20pct_slots,mean_scheduled_groups,mean_successful_groups,invalid_power_or_sic_count,post_schedule_power_drop_count,max_transmitted_power_normalized,sic_projection_count,power_infeasible_cohort_slots,power_outage_slots,seed,slots
+mira_sw_ucb,MIRA-LEO (SW-UCB),COMPLETED,slots,153.57886980802894,153.57886980802883,153.22092790922727,153.71801357482417,2.8219481046783748,34.2,34.059,0,0,1.0,0,0,0,0,1000
+random_grouping,Random grouping,COMPLETED,slots,153.49886941491508,153.49886941491494,153.21944606445493,153.71801357482417,2.8219481046783748,30.299,30.143,0,0,1.0,0,0,0,0,1000
+fixed_grouping,Fixed grouping (a=4),COMPLETED,slots,153.53886997408222,153.5388699740821,153.22018694929633,153.71801357482417,2.8219481046783748,24.0,23.904,0,0,1.0,0,0,0,0,1000

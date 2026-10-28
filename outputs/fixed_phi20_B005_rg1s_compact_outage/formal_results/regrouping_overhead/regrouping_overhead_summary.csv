@@ -1,0 +1,4 @@
+policy,tau_s,status,total_regrouping_events,eligible_device_service_count,evaluated_duration_s,evaluated_duration_min,events_per_device_per_min,action_change_events
+mira_sw_ucb,10.0,REWARD_RANGE_MISMATCH,114960,240,480.0,8.0,59.875,873
+aim_static,,NOT_IMPLEMENTED,,,,,,
+ga_grouping,,NOT_IMPLEMENTED,,,,,,

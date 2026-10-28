@@ -1,0 +1,793 @@
+{
+  "allowed_source_labels": [
+    "paper",
+    "user",
+    "reference",
+    "prior_proposal",
+    "new_design",
+    "derived"
+  ],
+  "parameters": {
+    "algorithm.B0_calibration_quantile": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.75
+    },
+    "algorithm.B_penalty": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": null
+    },
+    "algorithm.R_theta": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.03
+    },
+    "algorithm.V_c": {
+      "is_new_assumption": false,
+      "reference": "Reference [3] baseline; sensitivity variable",
+      "source": "reference",
+      "value": 0.7
+    },
+    "algorithm.V_nc": {
+      "is_new_assumption": false,
+      "reference": "1 - V_c",
+      "source": "derived",
+      "value": 0.3
+    },
+    "algorithm.V_phi": {
+      "is_new_assumption": false,
+      "reference": "Equation (36)",
+      "source": "paper",
+      "value": 0.0005
+    },
+    "algorithm.action_set": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        20,
+        40
+      ]
+    },
+    "algorithm.action_set_name": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "full"
+    },
+    "algorithm.beta_B": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "algorithm.phi_theta_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 30.0
+    },
+    "algorithm.power_mode": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "literal_with_checks"
+    },
+    "algorithm.reward_bounds.identity": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": null
+    },
+    "algorithm.reward_bounds.lower": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": null
+    },
+    "algorithm.reward_bounds.upper": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": null
+    },
+    "algorithm.reward_normalization": {
+      "is_new_assumption": true,
+      "reference": "Pilot-frozen learner scaling",
+      "source": "new_design",
+      "value": "pilot_fixed_clip"
+    },
+    "algorithm.reward_time_convention": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "post_update"
+    },
+    "algorithm.sw_ucb_window_s": {
+      "is_new_assumption": true,
+      "reference": "Finite global-slot window",
+      "source": "new_design",
+      "value": 10.0
+    },
+    "algorithm.sw_ucb_xi": {
+      "is_new_assumption": false,
+      "reference": "Algorithm 1",
+      "source": "paper",
+      "value": 0.7071067811865476
+    },
+    "association.hysteresis_score_deg": {
+      "is_new_assumption": true,
+      "reference": "Injective cohort association policy",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "association.initial_acquisition_is_handover": {
+      "is_new_assumption": true,
+      "reference": "Injective cohort association policy",
+      "source": "new_design",
+      "value": false
+    },
+    "association.mode": {
+      "is_new_assumption": true,
+      "reference": "Injective cohort association policy",
+      "source": "new_design",
+      "value": "distinct_satellites_for_fixed_cohorts"
+    },
+    "association.objective": {
+      "is_new_assumption": true,
+      "reference": "Injective cohort association policy",
+      "source": "new_design",
+      "value": "sum_of_cohort_minimum_elevations"
+    },
+    "association.time_to_trigger_s": {
+      "is_new_assumption": true,
+      "reference": "Injective cohort association policy",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "channel.carrier_hz": {
+      "is_new_assumption": false,
+      "reference": "Channel model",
+      "source": "paper",
+      "value": 20000000000.0
+    },
+    "channel.external_interference": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "expected_cross_link_power"
+    },
+    "channel.fading_model": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "iid_per_link_per_slot"
+    },
+    "channel.noise_model": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "normalized_reference_snr"
+    },
+    "channel.normalized_satellite_power": {
+      "is_new_assumption": false,
+      "reference": "Normalized per-satellite budget",
+      "source": "paper",
+      "value": 1.0
+    },
+    "channel.reference_bandwidth_hz": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 30000000.0
+    },
+    "channel.reference_snr_db": {
+      "is_new_assumption": true,
+      "reference": "Normalized link calibration",
+      "source": "new_design",
+      "value": 10.0
+    },
+    "channel.shadowed_rician.Omega": {
+      "is_new_assumption": false,
+      "reference": "Shadowed-Rician parameters",
+      "source": "paper",
+      "value": 0.835
+    },
+    "channel.shadowed_rician.b0": {
+      "is_new_assumption": false,
+      "reference": "Shadowed-Rician parameters",
+      "source": "paper",
+      "value": 0.126
+    },
+    "channel.shadowed_rician.m": {
+      "is_new_assumption": false,
+      "reference": "Shadowed-Rician parameters",
+      "source": "paper",
+      "value": 10.1
+    },
+    "channel.sr_mean_normalization": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": false
+    },
+    "constellation.actual_satellite_count": {
+      "is_new_assumption": false,
+      "reference": "Synthetic scenario: L=8",
+      "source": "paper",
+      "value": 8
+    },
+    "constellation.altitude_km": {
+      "is_new_assumption": false,
+      "reference": "Simulation geometry: H=800 km",
+      "source": "paper",
+      "value": 800.0
+    },
+    "constellation.center_overflight_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 240.0
+    },
+    "constellation.eccentricity": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.0
+    },
+    "constellation.inclination_deg": {
+      "is_new_assumption": true,
+      "reference": "Synthetic orbit design",
+      "source": "prior_proposal",
+      "value": 50.0
+    },
+    "constellation.omega_convention_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.0
+    },
+    "constellation.plane1_phase_offsets_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        -40,
+        -20,
+        0,
+        20,
+        40
+      ]
+    },
+    "constellation.plane2_phase_offsets_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        -10,
+        10,
+        30
+      ]
+    },
+    "constellation.plane_raan_difference_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 10.0
+    },
+    "constellation.reference_satellite": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "sat_03"
+    },
+    "constellation.template_phasing": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 18
+    },
+    "constellation.template_planes": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 36
+    },
+    "constellation.template_total_slots": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 648
+    },
+    "constellation.type": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "walker_derived_subset"
+    },
+    "delay.fixed_isl_per_hop_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.005
+    },
+    "delay.handover_mode": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "paper_additive"
+    },
+    "delay.handover_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.025
+    },
+    "delay.ingress_satellite": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "sat_03"
+    },
+    "delay.isl_max_link_distance_km": {
+      "is_new_assumption": true,
+      "reference": "Synthetic ISL graph rule",
+      "source": "new_design",
+      "value": 4000.0
+    },
+    "delay.isl_mode": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "fixed_per_hop"
+    },
+    "delay.isl_route_update_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "derived.fixed_isl_per_hop_slots": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 1.0
+    },
+    "derived.handover_delay_slots": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 5.0
+    },
+    "derived.handover_ttt_slots": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 200
+    },
+    "derived.mean_motion_rad_s": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 0.0010396790770031228
+    },
+    "derived.noise_power": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 2.4166360880136437e-19
+    },
+    "derived.orbital_period_s": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 6043.3892016860445
+    },
+    "derived.rate_required_bps_hz": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 0.02666666666666667
+    },
+    "derived.reference_path_gain": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 2.2232162723216594e-18
+    },
+    "derived.schedule_capacity": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 62
+    },
+    "derived.semi_major_axis_km": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 7171.0
+    },
+    "derived.shadowed_rician_mean_power": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 1.087
+    },
+    "derived.slot_count": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 96000
+    },
+    "derived.sw_ucb_window_slots": {
+      "is_new_assumption": false,
+      "reference": "Resolved from explicit inputs",
+      "source": "derived",
+      "value": 2000
+    },
+    "devices.distribution": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "iid_uniform_in_projected_square"
+    },
+    "devices.layout_seed": {
+      "is_new_assumption": true,
+      "reference": "Fixed layout seed",
+      "source": "prior_proposal/user",
+      "value": 42
+    },
+    "devices.stationary": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": true
+    },
+    "devices.subscription_seed": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1042
+    },
+    "devices.unique_count": {
+      "is_new_assumption": true,
+      "reference": "Fixed unique-device population",
+      "source": "prior_proposal/user",
+      "value": 300
+    },
+    "execution.max_parallel_workers": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 4
+    },
+    "execution.memory_budget_mib_per_worker": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 512
+    },
+    "execution.save_all_channel_samples": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": false
+    },
+    "execution.save_full_slot_trace": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": true
+    },
+    "execution.save_per_group_trace": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "finalists_only"
+    },
+    "execution.slot_chunk_size": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1000
+    },
+    "experiment.duration_s": {
+      "is_new_assumption": false,
+      "reference": "Synthetic observation window",
+      "source": "user",
+      "value": 480.0
+    },
+    "experiment.epoch_utc": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "2023-04-19T11:56:35Z"
+    },
+    "experiment.geometry_export_dt_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "experiment.name": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "mira_leo_synthetic_parameter_study"
+    },
+    "experiment.slot_dt_s": {
+      "is_new_assumption": true,
+      "reference": "Executable communication slot",
+      "source": "new_design",
+      "value": 0.005
+    },
+    "experiment.warmup_report_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 10.0
+    },
+    "geometry.center_handling": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "radial_projection_to_sphere"
+    },
+    "geometry.center_raw_ecef_km": {
+      "is_new_assumption": false,
+      "reference": "Taipei attachment data point",
+      "source": "reference/user",
+      "value": [
+        -3023.722874,
+        4928.116736,
+        2683.88077
+      ]
+    },
+    "geometry.earth_model": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "sphere"
+    },
+    "geometry.earth_radius_km": {
+      "is_new_assumption": true,
+      "reference": "Explicit spherical Earth model",
+      "source": "prior_proposal",
+      "value": 6371.0
+    },
+    "geometry.earth_rotation_rad_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 7.292115e-05
+    },
+    "geometry.grid_spacing_km": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 20.0
+    },
+    "geometry.light_speed_km_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 299792.458
+    },
+    "geometry.mu_km3_s2": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 398600.4418
+    },
+    "geometry.phi_min_deg": {
+      "is_new_assumption": false,
+      "reference": "Simulation geometry note",
+      "source": "paper",
+      "value": 10.0
+    },
+    "geometry.projection": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "spherical_aeqd"
+    },
+    "geometry.region_half_width_km": {
+      "is_new_assumption": false,
+      "reference": "1000 km projected square",
+      "source": "paper/user",
+      "value": 500.0
+    },
+    "geometry.terrain": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": false
+    },
+    "randomness.bootstrap_seed": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 20260930
+    },
+    "randomness.pilot_channel_seeds": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        0,
+        1,
+        2
+      ]
+    },
+    "randomness.robustness_layout_seeds": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        43,
+        44
+      ]
+    },
+    "randomness.test_channel_seeds": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    "randomness.validation_channel_seeds": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    "search.R_theta": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        0.01,
+        0.03,
+        0.05,
+        0.1,
+        0.2
+      ]
+    },
+    "search.V_c": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ]
+    },
+    "search.action_set_name": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        "full",
+        "compact",
+        "coarse"
+      ]
+    },
+    "search.beta_B": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        0.1,
+        0.3,
+        1.0,
+        3.0,
+        10.0
+      ]
+    },
+    "search.phi_theta_deg": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": [
+        15,
+        20,
+        30,
+        40,
+        50
+      ]
+    },
+    "services.bandwidth_hz": {
+      "is_new_assumption": false,
+      "reference": "Reference [4], Table I",
+      "source": "reference",
+      "value": 30000000.0
+    },
+    "services.cohort_count": {
+      "is_new_assumption": true,
+      "reference": "Non-duplicating active-load model",
+      "source": "new_design",
+      "value": 2
+    },
+    "services.delta_c_slots": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "services.generation": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": "generate_at_will"
+    },
+    "services.initial_age_slots": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 1.0
+    },
+    "services.messages_per_active_satellite": {
+      "is_new_assumption": false,
+      "reference": "VII-B baseline",
+      "source": "paper",
+      "value": 3
+    },
+    "services.payload_bytes": {
+      "is_new_assumption": true,
+      "reference": "Fixed state-update payload",
+      "source": "new_design",
+      "value": 500
+    },
+    "services.queue_delay_s": {
+      "is_new_assumption": true,
+      "reference": "Explicit implementation setting",
+      "source": "new_design",
+      "value": 0.0
+    },
+    "services.subscribers_per_message": {
+      "is_new_assumption": false,
+      "reference": "VII-B baseline",
+      "source": "paper",
+      "value": 40
+    },
+    "services.weights": {
+      "is_new_assumption": false,
+      "reference": "Message weight option",
+      "source": "paper",
+      "value": [
+        0.7,
+        0.2,
+        0.1
+      ]
+    }
+  }
+}

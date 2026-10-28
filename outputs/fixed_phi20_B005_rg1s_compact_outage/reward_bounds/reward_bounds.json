@@ -1,0 +1,38 @@
+{
+  "B_penalty": 0.05,
+  "action_set": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    10
+  ],
+  "infeasible_power_handling": "transmission_failure",
+  "phi_theta_deg": 20.0,
+  "power_allocator": "twc_aim_staircase",
+  "power_infeasible_samples": 8,
+  "regrouping_interval_s": 1.0,
+  "reward_context": "95aa623a678a4b63dd92b7de95244338eb0ab98e8dfe74122a1c0f973bd1c435",
+  "reward_identity": "716a1a0690420569a4822c9627855dc855b146dcbfbc8a40cc63cbd46ac50def",
+  "reward_lower": -160.85010921099578,
+  "reward_upper": 5.600151651895423,
+  "sample_count": 1080,
+  "scheduler_algorithm": "Algorithm2_strict",
+  "seed": 0,
+  "snapshot_interval_s": 1.0,
+  "windows_s": [
+    [
+      0.0,
+      30.0
+    ],
+    [
+      225.0,
+      255.0
+    ],
+    [
+      450.0,
+      480.0
+    ]
+  ]
+}

@@ -1,0 +1,2082 @@
+[
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0145,
+        "gain": 1.7565113623059556e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.017344827586206896
+      },
+      {
+        "floor": 0.014,
+        "gain": 4.358527385435713e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.016844827586206895
+      },
+      {
+        "floor": 0.0135,
+        "gain": 4.8376331748054736e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016344827586206895
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 1.2959479550295543e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015844827586206898
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.5091344704526136e-19,
+        "group_id": 1,
+        "is_edge": true,
+        "message_id": 2,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.0125,
+        "gain": 2.4196654655205576e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.015344827586206897
+      },
+      {
+        "floor": 0.012,
+        "gain": 2.646478671287954e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.014844827586206897
+      },
+      {
+        "floor": 0.0115,
+        "gain": 2.840474620524343e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014344827586206896
+      },
+      {
+        "floor": 0.011,
+        "gain": 3.0399668954374164e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013844827586206896
+      },
+      {
+        "floor": 0.0105,
+        "gain": 3.8042855371878803e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013344827586206897
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.8207001793951414e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012844827586206897
+      },
+      {
+        "floor": 0.0095,
+        "gain": 3.889656627758423e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.012344827586206896
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 4.0274128675756776e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.011844827586206898
+      },
+      {
+        "floor": 0.0085,
+        "gain": 4.2847116959241933e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011344827586206897
+      },
+      {
+        "floor": 0.008,
+        "gain": 5.034489171939524e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.010844827586206897
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.213024379740623e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010344827586206896
+      },
+      {
+        "floor": 0.007,
+        "gain": 5.863798725000671e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009844827586206896
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 6.1051884823601175e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.009344827586206897
+      },
+      {
+        "floor": 0.006,
+        "gain": 6.447088367487761e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008844827586206897
+      },
+      {
+        "floor": 0.0055,
+        "gain": 6.674655267544787e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008344827586206896
+      },
+      {
+        "floor": 0.005,
+        "gain": 7.284445273222528e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.007844827586206896
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 7.86260764516894e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.007344827586206897
+      },
+      {
+        "floor": 0.004,
+        "gain": 9.38377913095221e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.006844827586206897
+      },
+      {
+        "floor": 0.0035,
+        "gain": 9.886985486294144e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.006344827586206896
+      },
+      {
+        "floor": 0.003,
+        "gain": 1.0429631868987858e-18,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.005844827586206896
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.1571818446561433e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.005344827586206896
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.1910993207557477e-18,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004844827586206897
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.2850420185549668e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.004344827586206896
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.3318409238198375e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0038448275862068963
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.5430183417208934e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0033448275862068963
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 29,
+    "nonedge_floor_total": 0.2175,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 46200,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 462.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0145,
+        "gain": 7.286919266777571e-21,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.017344827586206896
+      },
+      {
+        "floor": 0.014,
+        "gain": 1.2355921006468183e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016844827586206895
+      },
+      {
+        "floor": 0.0135,
+        "gain": 1.0825333966338119e-19,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.016344827586206895
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 2.5048872434778944e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015844827586206898
+      },
+      {
+        "floor": 0.0005,
+        "gain": 2.916544778718943e-19,
+        "group_id": 1,
+        "is_edge": true,
+        "message_id": 2,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.0125,
+        "gain": 2.9634328612303833e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015344827586206897
+      },
+      {
+        "floor": 0.012,
+        "gain": 3.1916226917128867e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014844827586206897
+      },
+      {
+        "floor": 0.0115,
+        "gain": 3.5377490472967126e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.014344827586206896
+      },
+      {
+        "floor": 0.011,
+        "gain": 4.1445919320249544e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013844827586206896
+      },
+      {
+        "floor": 0.0105,
+        "gain": 4.2614240846507606e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.013344827586206897
+      },
+      {
+        "floor": 0.01,
+        "gain": 4.2870276396925087e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012844827586206897
+      },
+      {
+        "floor": 0.0095,
+        "gain": 4.895327592970363e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012344827586206896
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 5.053298913236651e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.011844827586206898
+      },
+      {
+        "floor": 0.0085,
+        "gain": 5.168203890810611e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011344827586206897
+      },
+      {
+        "floor": 0.008,
+        "gain": 5.651579923163647e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010844827586206897
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.9104853113733745e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.010344827586206896
+      },
+      {
+        "floor": 0.007,
+        "gain": 6.06685955823102e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.009844827586206896
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 6.382920381920826e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009344827586206897
+      },
+      {
+        "floor": 0.006,
+        "gain": 7.442988753597664e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008844827586206897
+      },
+      {
+        "floor": 0.0055,
+        "gain": 7.719131182262597e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.008344827586206896
+      },
+      {
+        "floor": 0.005,
+        "gain": 8.040062059722762e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.007844827586206896
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 8.599680480112244e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007344827586206897
+      },
+      {
+        "floor": 0.004,
+        "gain": 8.923667290299862e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.006844827586206897
+      },
+      {
+        "floor": 0.0035,
+        "gain": 9.9824189498002e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.006344827586206896
+      },
+      {
+        "floor": 0.003,
+        "gain": 1.0350042143929414e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.005844827586206896
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.117579130251447e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005344827586206896
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.1937354039047515e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.004844827586206897
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.224301493105797e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004344827586206896
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.808714490076827e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.0038448275862068963
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.9173181742502692e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0033448275862068963
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 29,
+    "nonedge_floor_total": 0.2175,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 46300,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 463.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0145,
+        "gain": 1.8029429585380653e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.017344827586206896
+      },
+      {
+        "floor": 0.014,
+        "gain": 3.2125244554491606e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.016844827586206895
+      },
+      {
+        "floor": 0.0135,
+        "gain": 4.446121437480142e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016344827586206895
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 7.716596198119954e-20,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.015844827586206898
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.5219050008519473e-19,
+        "group_id": 2,
+        "is_edge": true,
+        "message_id": 2,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.0125,
+        "gain": 1.992594344559088e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.015344827586206897
+      },
+      {
+        "floor": 0.012,
+        "gain": 2.170537221712654e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.014844827586206897
+      },
+      {
+        "floor": 0.0115,
+        "gain": 2.7030226371727847e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.014344827586206896
+      },
+      {
+        "floor": 0.011,
+        "gain": 2.783624919822099e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013844827586206896
+      },
+      {
+        "floor": 0.0105,
+        "gain": 3.1290027201304777e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013344827586206897
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.540337090050093e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012844827586206897
+      },
+      {
+        "floor": 0.0095,
+        "gain": 4.053504161941344e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012344827586206896
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 4.3087649061462875e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011844827586206898
+      },
+      {
+        "floor": 0.0085,
+        "gain": 4.793715352856115e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.011344827586206897
+      },
+      {
+        "floor": 0.008,
+        "gain": 5.020823229875951e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010844827586206897
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.351480760045064e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.010344827586206896
+      },
+      {
+        "floor": 0.007,
+        "gain": 6.173764139827556e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.009844827586206896
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 6.195453354642122e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.009344827586206897
+      },
+      {
+        "floor": 0.006,
+        "gain": 6.982384599162189e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008844827586206897
+      },
+      {
+        "floor": 0.0055,
+        "gain": 7.101889826654432e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008344827586206896
+      },
+      {
+        "floor": 0.005,
+        "gain": 7.807691960264412e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007844827586206896
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 9.044476800472935e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.007344827586206897
+      },
+      {
+        "floor": 0.004,
+        "gain": 9.079795904463135e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.006844827586206897
+      },
+      {
+        "floor": 0.0035,
+        "gain": 9.79660742876848e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.006344827586206896
+      },
+      {
+        "floor": 0.003,
+        "gain": 1.1892831426069907e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.005844827586206896
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.1994406894186613e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.005344827586206896
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.3009814273825338e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.004844827586206897
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.5477955811661584e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.004344827586206896
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.7764156530612572e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.0038448275862068963
+      },
+      {
+        "floor": 0.0005,
+        "gain": 2.0226353476329405e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0033448275862068963
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 29,
+    "nonedge_floor_total": 0.2175,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 46500,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 465.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0145,
+        "gain": 1.106734054957355e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.017344827586206896
+      },
+      {
+        "floor": 0.014,
+        "gain": 3.5741699864947636e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.016844827586206895
+      },
+      {
+        "floor": 0.0135,
+        "gain": 8.281904369750194e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016344827586206895
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 1.331780113677774e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.015844827586206898
+      },
+      {
+        "floor": 0.0125,
+        "gain": 1.9723713415183835e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015344827586206897
+      },
+      {
+        "floor": 0.012,
+        "gain": 2.32443601171787e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014844827586206897
+      },
+      {
+        "floor": 0.0005,
+        "gain": 2.4990575141913347e-19,
+        "group_id": 2,
+        "is_edge": true,
+        "message_id": 1,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.0115,
+        "gain": 3.1739848079967407e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014344827586206896
+      },
+      {
+        "floor": 0.011,
+        "gain": 3.3798321755849e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013844827586206896
+      },
+      {
+        "floor": 0.0105,
+        "gain": 3.524561365052367e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.013344827586206897
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.8084387633911516e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012844827586206897
+      },
+      {
+        "floor": 0.0095,
+        "gain": 4.387478570256749e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.012344827586206896
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 5.048096033015545e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011844827586206898
+      },
+      {
+        "floor": 0.0085,
+        "gain": 5.196876153313312e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.011344827586206897
+      },
+      {
+        "floor": 0.008,
+        "gain": 5.5714114496458005e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.010844827586206897
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.992432585498439e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010344827586206896
+      },
+      {
+        "floor": 0.007,
+        "gain": 6.652358865210091e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009844827586206896
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 6.917648122518216e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.009344827586206897
+      },
+      {
+        "floor": 0.006,
+        "gain": 7.50304879615117e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008844827586206897
+      },
+      {
+        "floor": 0.0055,
+        "gain": 8.0667001689887385e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008344827586206896
+      },
+      {
+        "floor": 0.005,
+        "gain": 8.301470337968531e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007844827586206896
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 8.621635793777607e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.007344827586206897
+      },
+      {
+        "floor": 0.004,
+        "gain": 9.353718024077599e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.006844827586206897
+      },
+      {
+        "floor": 0.0035,
+        "gain": 9.358829165880504e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.006344827586206896
+      },
+      {
+        "floor": 0.003,
+        "gain": 1.0121483652262378e-18,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005844827586206896
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.1611877180872503e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005344827586206896
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.2787216038011372e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004844827586206897
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.3097781742179252e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.004344827586206896
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.3415730097021588e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.0038448275862068963
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.4919623564082353e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0033448275862068963
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 29,
+    "nonedge_floor_total": 0.2175,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 47000,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 470.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 2,
+    "edge_floor_total": 0.0015,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.014,
+        "gain": 1.3013219009857279e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.017464285714285713
+      },
+      {
+        "floor": 0.0135,
+        "gain": 4.1482722944237773e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.016964285714285713
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 4.240868148427346e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.016464285714285716
+      },
+      {
+        "floor": 0.0125,
+        "gain": 1.6887640525150765e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015964285714285716
+      },
+      {
+        "floor": 0.012,
+        "gain": 1.704169407219694e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.015464285714285713
+      },
+      {
+        "floor": 0.0115,
+        "gain": 2.301977955543275e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014964285714285713
+      },
+      {
+        "floor": 0.011,
+        "gain": 2.401151547737503e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.014464285714285713
+      },
+      {
+        "floor": 0.0105,
+        "gain": 2.553962572946545e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013964285714285714
+      },
+      {
+        "floor": 0.001,
+        "gain": 3.089153068109583e-19,
+        "group_id": 3,
+        "is_edge": true,
+        "message_id": 1,
+        "target_power": 0.35025
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.2685462554868254e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013464285714285713
+      },
+      {
+        "floor": 0.0005,
+        "gain": 3.562533714425105e-19,
+        "group_id": 3,
+        "is_edge": true,
+        "message_id": 2,
+        "target_power": 0.34975
+      },
+      {
+        "floor": 0.0095,
+        "gain": 3.729920557605729e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012964285714285713
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 3.8142948381462745e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012464285714285714
+      },
+      {
+        "floor": 0.0085,
+        "gain": 4.493890424718101e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.011964285714285714
+      },
+      {
+        "floor": 0.008,
+        "gain": 4.559874014709653e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.011464285714285713
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.013667119724057e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.010964285714285713
+      },
+      {
+        "floor": 0.007,
+        "gain": 5.181580535522411e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010464285714285714
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 5.580978376691938e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.009964285714285714
+      },
+      {
+        "floor": 0.006,
+        "gain": 6.070991216177198e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009464285714285713
+      },
+      {
+        "floor": 0.0055,
+        "gain": 6.912181821131164e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008964285714285713
+      },
+      {
+        "floor": 0.005,
+        "gain": 7.332895140955665e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008464285714285714
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 7.43818409279386e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007964285714285714
+      },
+      {
+        "floor": 0.004,
+        "gain": 8.720560128806305e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.007464285714285713
+      },
+      {
+        "floor": 0.0035,
+        "gain": 8.7237113175827e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.006964285714285714
+      },
+      {
+        "floor": 0.003,
+        "gain": 9.319624596219843e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.006464285714285714
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.1013791098356505e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.005964285714285714
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.3304409922190779e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005464285714285713
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.4513122453213865e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.004964285714285714
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.8306454740759343e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004464285714285714
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.9400002738649625e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.003964285714285714
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 28,
+    "nonedge_floor_total": 0.203,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 2,
+    "slot": 47300,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 473.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 2,
+    "edge_floor_total": 0.0015,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.014,
+        "gain": 4.2528511941492735e-21,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.017464285714285713
+      },
+      {
+        "floor": 0.001,
+        "gain": 2.913537692563017e-20,
+        "group_id": 0,
+        "is_edge": true,
+        "message_id": 0,
+        "target_power": 0.35025
+      },
+      {
+        "floor": 0.0135,
+        "gain": 5.70247007898517e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016964285714285713
+      },
+      {
+        "floor": 0.0005,
+        "gain": 8.74420824697483e-20,
+        "group_id": 1,
+        "is_edge": true,
+        "message_id": 1,
+        "target_power": 0.34975
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 1.5963294811693876e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016464285714285716
+      },
+      {
+        "floor": 0.0125,
+        "gain": 1.8364302695634756e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015964285714285716
+      },
+      {
+        "floor": 0.012,
+        "gain": 2.1438199508338456e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015464285714285713
+      },
+      {
+        "floor": 0.0115,
+        "gain": 2.2923587032123796e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014964285714285713
+      },
+      {
+        "floor": 0.011,
+        "gain": 2.4912059974550827e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.014464285714285713
+      },
+      {
+        "floor": 0.0105,
+        "gain": 3.002425326725656e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.013964285714285714
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.2616994447317977e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013464285714285713
+      },
+      {
+        "floor": 0.0095,
+        "gain": 3.712176706358858e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.012964285714285713
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 4.1056580499893763e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012464285714285714
+      },
+      {
+        "floor": 0.0085,
+        "gain": 4.502001279191563e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011964285714285714
+      },
+      {
+        "floor": 0.008,
+        "gain": 4.981201353057983e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.011464285714285713
+      },
+      {
+        "floor": 0.0075,
+        "gain": 5.696424999201948e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.010964285714285713
+      },
+      {
+        "floor": 0.007,
+        "gain": 5.81683146695946e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010464285714285714
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 6.380859572030291e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.009964285714285714
+      },
+      {
+        "floor": 0.006,
+        "gain": 6.910023072934529e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009464285714285713
+      },
+      {
+        "floor": 0.0055,
+        "gain": 7.109406529395344e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008964285714285713
+      },
+      {
+        "floor": 0.005,
+        "gain": 7.376733865723405e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.008464285714285714
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 7.86330434969819e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.007964285714285714
+      },
+      {
+        "floor": 0.004,
+        "gain": 8.301958653156897e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007464285714285713
+      },
+      {
+        "floor": 0.0035,
+        "gain": 8.546696769970347e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.006964285714285714
+      },
+      {
+        "floor": 0.003,
+        "gain": 8.893807480347645e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.006464285714285714
+      },
+      {
+        "floor": 0.0025,
+        "gain": 1.0397831565341566e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.005964285714285714
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.0622177478255386e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005464285714285713
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.1608565080412132e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004964285714285714
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.2303175938849048e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.004464285714285714
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.23718003265105e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.003964285714285714
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 28,
+    "nonedge_floor_total": 0.203,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 2,
+    "slot": 47500,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 475.0,
+    "valid": false
+  },
+  {
+    "action": 8,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 24,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0115,
+        "gain": 1.1328192751574351e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.018543478260869564
+      },
+      {
+        "floor": 0.0005,
+        "gain": 5.375833610074931e-20,
+        "group_id": 0,
+        "is_edge": true,
+        "message_id": 0,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.011,
+        "gain": 5.623344974033275e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.018043478260869564
+      },
+      {
+        "floor": 0.0105,
+        "gain": 1.3994968832990862e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.017543478260869563
+      },
+      {
+        "floor": 0.01,
+        "gain": 1.5249984266120997e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.017043478260869563
+      },
+      {
+        "floor": 0.0095,
+        "gain": 1.7377849339183593e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016543478260869562
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 2.733449889747212e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.016043478260869565
+      },
+      {
+        "floor": 0.0085,
+        "gain": 3.07881562209177e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015543478260869565
+      },
+      {
+        "floor": 0.008,
+        "gain": 3.472718331719327e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.015043478260869565
+      },
+      {
+        "floor": 0.0075,
+        "gain": 3.5450632870113866e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.014543478260869564
+      },
+      {
+        "floor": 0.007,
+        "gain": 3.801649588611846e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.014043478260869564
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 3.869474718150179e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013543478260869565
+      },
+      {
+        "floor": 0.006,
+        "gain": 4.393755062774876e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.013043478260869565
+      },
+      {
+        "floor": 0.0055,
+        "gain": 5.216361808731886e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012543478260869564
+      },
+      {
+        "floor": 0.005,
+        "gain": 5.394915474989568e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012043478260869565
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 5.67465389031243e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011543478260869565
+      },
+      {
+        "floor": 0.004,
+        "gain": 7.081940676340511e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.011043478260869564
+      },
+      {
+        "floor": 0.0035,
+        "gain": 7.2674106777595945e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.010543478260869564
+      },
+      {
+        "floor": 0.003,
+        "gain": 7.468889999564997e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.010043478260869564
+      },
+      {
+        "floor": 0.0025,
+        "gain": 8.310556742138519e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.009543478260869565
+      },
+      {
+        "floor": 0.002,
+        "gain": 8.990963537702754e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.009043478260869564
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.0541106722284259e-18,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.008543478260869564
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.0766642562599227e-18,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008043478260869565
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.4423423305931331e-18,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007543478260869565
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 23,
+    "nonedge_floor_total": 0.138,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 47800,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 478.0,
+    "valid": false
+  },
+  {
+    "action": 10,
+    "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+    "budget_violation_count": 0,
+    "candidate_groups": 30,
+    "cohort_id": 1,
+    "edge_budget": 0.7,
+    "edge_count": 1,
+    "edge_floor_total": 0.0005,
+    "floor_violation_count": 0,
+    "groups_by_current_csi": [
+      {
+        "floor": 0.0145,
+        "gain": 1.1328192751574351e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.017344827586206896
+      },
+      {
+        "floor": 0.0005,
+        "gain": 5.375833610074931e-20,
+        "group_id": 0,
+        "is_edge": true,
+        "message_id": 0,
+        "target_power": 0.7
+      },
+      {
+        "floor": 0.014,
+        "gain": 5.623344974033275e-20,
+        "group_id": 0,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.016844827586206895
+      },
+      {
+        "floor": 0.0135,
+        "gain": 1.3577339449554162e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.016344827586206895
+      },
+      {
+        "floor": 0.013000000000000001,
+        "gain": 1.5001036272243654e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.015844827586206898
+      },
+      {
+        "floor": 0.0125,
+        "gain": 1.6705103485193349e-19,
+        "group_id": 1,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.015344827586206897
+      },
+      {
+        "floor": 0.012,
+        "gain": 1.812549619364114e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.014844827586206897
+      },
+      {
+        "floor": 0.0115,
+        "gain": 2.480866762886231e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.014344827586206896
+      },
+      {
+        "floor": 0.011,
+        "gain": 3.1975729582582063e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.013844827586206896
+      },
+      {
+        "floor": 0.0105,
+        "gain": 3.2798770115926043e-19,
+        "group_id": 2,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.013344827586206897
+      },
+      {
+        "floor": 0.01,
+        "gain": 3.346879124469955e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.012844827586206897
+      },
+      {
+        "floor": 0.0095,
+        "gain": 3.605527254113489e-19,
+        "group_id": 3,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.012344827586206896
+      },
+      {
+        "floor": 0.009000000000000001,
+        "gain": 3.64422177456895e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.011844827586206898
+      },
+      {
+        "floor": 0.0085,
+        "gain": 3.9988870099751213e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.011344827586206897
+      },
+      {
+        "floor": 0.008,
+        "gain": 4.393755062774876e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.010844827586206897
+      },
+      {
+        "floor": 0.0075,
+        "gain": 4.548761580705815e-19,
+        "group_id": 4,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.010344827586206896
+      },
+      {
+        "floor": 0.007,
+        "gain": 4.969041411806169e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.009844827586206896
+      },
+      {
+        "floor": 0.006500000000000001,
+        "gain": 5.394915474989568e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.009344827586206897
+      },
+      {
+        "floor": 0.006,
+        "gain": 5.67465389031243e-19,
+        "group_id": 5,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.008844827586206897
+      },
+      {
+        "floor": 0.0055,
+        "gain": 6.448256410536514e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.008344827586206896
+      },
+      {
+        "floor": 0.005,
+        "gain": 6.800123979683969e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.007844827586206896
+      },
+      {
+        "floor": 0.0045000000000000005,
+        "gain": 7.431939917984938e-19,
+        "group_id": 6,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.007344827586206897
+      },
+      {
+        "floor": 0.004,
+        "gain": 7.961600387835592e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.006844827586206897
+      },
+      {
+        "floor": 0.0035,
+        "gain": 8.165761000154973e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.006344827586206896
+      },
+      {
+        "floor": 0.003,
+        "gain": 9.052238815850631e-19,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.005844827586206896
+      },
+      {
+        "floor": 0.0025,
+        "gain": 9.804677100340939e-19,
+        "group_id": 7,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.005344827586206896
+      },
+      {
+        "floor": 0.002,
+        "gain": 1.1588700641661102e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 1,
+        "target_power": 0.004844827586206897
+      },
+      {
+        "floor": 0.0015,
+        "gain": 1.2019786059026168e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 2,
+        "target_power": 0.004344827586206896
+      },
+      {
+        "floor": 0.001,
+        "gain": 1.3087610112255682e-18,
+        "group_id": 8,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0038448275862068963
+      },
+      {
+        "floor": 0.0005,
+        "gain": 1.503209179373671e-18,
+        "group_id": 9,
+        "is_edge": false,
+        "message_id": 0,
+        "target_power": 0.0033448275862068963
+      }
+    ],
+    "lp_infeasible": true,
+    "lp_status": 2,
+    "nonedge_budget": 0.3,
+    "nonedge_count": 29,
+    "nonedge_floor_total": 0.2175,
+    "satellite_id": "sat_06",
+    "seed": 0,
+    "sic_projection_used": true,
+    "sic_violation_after_count": 1,
+    "slot": 47800,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "time_s": 478.0,
+    "valid": false
+  }
+]

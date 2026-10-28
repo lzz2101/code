@@ -1,0 +1,5 @@
+numpy>=1.26
+scipy>=1.11
+pyarrow>=14
+PyYAML>=6
+matplotlib>=3.8

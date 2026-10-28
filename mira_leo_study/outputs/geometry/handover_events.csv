@@ -1,0 +1,6 @@
+slot,time_s,cohort_id,satellite_id,handover,initial_acquisition,outage_receivers,fallback_used,assignment_score_deg,reason
+0,0.0,0,sat_04,0,1,0,0,44.372534062052736,initial_acquisition
+0,0.0,1,sat_07,0,1,0,0,44.372534062052736,initial_acquisition
+13811,69.055,0,sat_03,1,0,0,0,34.392020011666666,hysteresis_ttt
+27763,138.815,1,sat_06,1,0,0,0,38.67681236210004,hysteresis_ttt
+84150,420.75,0,sat_02,1,0,0,0,35.4354455808754,hysteresis_ttt

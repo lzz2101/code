@@ -1,0 +1,6 @@
+# Preserve the published source snapshot and scientific exports byte for byte.
+* -text
+*.parquet binary
+*.npz binary
+*.png binary
+*.pdf binary

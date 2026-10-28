@@ -1,0 +1,1149 @@
+{
+  "mira_sw_ucb": {
+    "slots": 48000,
+    "mean_aoi": 147.18109772698818,
+    "median_aoi": 135.62075925055896,
+    "peak_aoi": 3297.492929318993,
+    "peak_slot": 9388,
+    "power_outage_slots": 615,
+    "mean_aoi_in_power_outage_slots": 728.4509250413229,
+    "mean_aoi_outside_power_outage_slots": 139.6369182651687,
+    "cum_validation_max_absolute_error": 0.0,
+    "largest_one_slot_cum_increase": {
+      "slot": 118,
+      "increase": 0.33648399293059583,
+      "aoi": 192.9382007319298
+    },
+    "outage_episode_count": 65,
+    "largest_cumulative_outage_rises": [
+      {
+        "start_slot": 9310,
+        "end_slot": 9388,
+        "start_time_s": 93.1,
+        "duration_slots": 79,
+        "aoi_peak": 3297.492929318993,
+        "cum_before": 157.80939155779785,
+        "cum_after": 171.1012181810685,
+        "cum_rise": 13.291826623270651,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 6125,
+        "end_slot": 6172,
+        "start_time_s": 61.25,
+        "duration_slots": 48,
+        "aoi_peak": 2078.456861258629,
+        "cum_before": 156.38106582059146,
+        "cum_after": 164.0174166663665,
+        "cum_rise": 7.636350845775041,
+        "cohort_actions": [
+          [
+            0,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 46326,
+        "end_slot": 46387,
+        "start_time_s": 463.26,
+        "duration_slots": 62,
+        "aoi_peak": 2636.5675045443863,
+        "cum_before": 144.6842653357403,
+        "cum_after": 146.38422791490885,
+        "cum_rise": 1.699962579168556,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12669,
+        "end_slot": 12694,
+        "start_time_s": 126.69,
+        "duration_slots": 26,
+        "aoi_peak": 1177.3363736675096,
+        "cum_before": 164.31591299628235,
+        "cum_after": 165.3666185666822,
+        "cum_rise": 1.050705570399856,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12612,
+        "end_slot": 12634,
+        "start_time_s": 126.12,
+        "duration_slots": 23,
+        "aoi_peak": 1057.3361201288512,
+        "cum_before": 162.87422006235383,
+        "cum_after": 163.70150622223386,
+        "cum_rise": 0.8272861598800318,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 6174,
+        "end_slot": 6187,
+        "start_time_s": 61.74,
+        "duration_slots": 14,
+        "aoi_peak": 718.4971332848334,
+        "cum_before": 164.01652165332692,
+        "cum_after": 164.68276157394186,
+        "cum_rise": 0.6662399206149416,
+        "cohort_actions": [
+          [
+            0,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 13814,
+        "end_slot": 13833,
+        "start_time_s": 138.14,
+        "duration_slots": 20,
+        "aoi_peak": 937.4158141015369,
+        "cum_before": 164.43464277829247,
+        "cum_after": 165.0027877847558,
+        "cum_rise": 0.5681450064633395,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 6189,
+        "end_slot": 6199,
+        "start_time_s": 61.89,
+        "duration_slots": 11,
+        "aoi_peak": 598.5123994576962,
+        "cum_before": 164.68176388288947,
+        "cum_after": 165.09662118104058,
+        "cum_rise": 0.41485729815110517,
+        "cohort_actions": [
+          [
+            0,
+            10
+          ]
+        ]
+      }
+    ],
+    "longest_outage_episodes": [
+      {
+        "start_slot": 9310,
+        "end_slot": 9388,
+        "start_time_s": 93.1,
+        "duration_slots": 79,
+        "aoi_peak": 3297.492929318993,
+        "cum_before": 157.80939155779785,
+        "cum_after": 171.1012181810685,
+        "cum_rise": 13.291826623270651,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 46326,
+        "end_slot": 46387,
+        "start_time_s": 463.26,
+        "duration_slots": 62,
+        "aoi_peak": 2636.5675045443863,
+        "cum_before": 144.6842653357403,
+        "cum_after": 146.38422791490885,
+        "cum_rise": 1.699962579168556,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 6125,
+        "end_slot": 6172,
+        "start_time_s": 61.25,
+        "duration_slots": 48,
+        "aoi_peak": 2078.456861258629,
+        "cum_before": 156.38106582059146,
+        "cum_after": 164.0174166663665,
+        "cum_rise": 7.636350845775041,
+        "cohort_actions": [
+          [
+            0,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12669,
+        "end_slot": 12694,
+        "start_time_s": 126.69,
+        "duration_slots": 26,
+        "aoi_peak": 1177.3363736675096,
+        "cum_before": 164.31591299628235,
+        "cum_after": 165.3666185666822,
+        "cum_rise": 1.050705570399856,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12612,
+        "end_slot": 12634,
+        "start_time_s": 126.12,
+        "duration_slots": 23,
+        "aoi_peak": 1057.3361201288512,
+        "cum_before": 162.87422006235383,
+        "cum_after": 163.70150622223386,
+        "cum_rise": 0.8272861598800318,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      }
+    ],
+    "by_action": {
+      "1": {
+        "cohort_slots": 9200,
+        "occupancy_pct": 9.583333333333334,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 70.17880897070214,
+        "non_power_outage_mean_cohort_aoi": 70.17880897070214,
+        "mean_successful_groups": 2.996413043478261,
+        "mean_successful_user_updates": 119.85652173913043,
+        "mean_raw_reward": -67.18239592722387,
+        "unclipped_linear_normalized_mean": 0.5627369569635466,
+        "clipped_normalized_mean": 0.5627369569635466
+      },
+      "2": {
+        "cohort_slots": 17400,
+        "occupancy_pct": 18.125,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 69.81187501222128,
+        "non_power_outage_mean_cohort_aoi": 69.81187501222128,
+        "mean_successful_groups": 5.982413793103448,
+        "mean_successful_user_updates": 119.64827586206897,
+        "mean_raw_reward": -63.82946121911783,
+        "unclipped_linear_normalized_mean": 0.5828807205763169,
+        "clipped_normalized_mean": 0.5828807205763169
+      },
+      "4": {
+        "cohort_slots": 17500,
+        "occupancy_pct": 18.229166666666664,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 69.9039718728955,
+        "non_power_outage_mean_cohort_aoi": 69.9039718728955,
+        "mean_successful_groups": 11.928685714285715,
+        "mean_successful_user_updates": 119.28685714285714,
+        "mean_raw_reward": -57.97528615860979,
+        "unclipped_linear_normalized_mean": 0.6180514378233765,
+        "clipped_normalized_mean": 0.6180514378233763
+      },
+      "5": {
+        "cohort_slots": 17600,
+        "occupancy_pct": 18.333333333333332,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 69.81319541792449,
+        "non_power_outage_mean_cohort_aoi": 69.81319541792449,
+        "mean_successful_groups": 14.919034090909092,
+        "mean_successful_user_updates": 119.35227272727273,
+        "mean_raw_reward": -54.894161327015404,
+        "unclipped_linear_normalized_mean": 0.6365622218595298,
+        "clipped_normalized_mean": 0.6365622218595299
+      },
+      "8": {
+        "cohort_slots": 17200,
+        "occupancy_pct": 17.916666666666668,
+        "power_outage_cohort_slots": 83,
+        "mean_cohort_aoi": 70.68771963562337,
+        "non_power_outage_mean_cohort_aoi": 69.76306572477668,
+        "mean_successful_groups": 23.674883720930232,
+        "mean_successful_user_updates": 118.37441860465117,
+        "mean_raw_reward": -47.082603356553605,
+        "unclipped_linear_normalized_mean": 0.6834925055969423,
+        "clipped_normalized_mean": 0.686904313802821
+      },
+      "10": {
+        "cohort_slots": 17100,
+        "occupancy_pct": 17.8125,
+        "power_outage_cohort_slots": 532,
+        "mean_cohort_aoi": 89.85149112798001,
+        "non_power_outage_mean_cohort_aoi": 69.43079904899733,
+        "mean_successful_groups": 28.79298245614035,
+        "mean_successful_user_updates": 115.1719298245614,
+        "mean_raw_reward": -61.36482446131335,
+        "unclipped_linear_normalized_mean": 0.5976877671079812,
+        "clipped_normalized_mean": 0.7054469361134065
+      }
+    },
+    "mean_successful_user_updates_total": 237.045,
+    "handover_events": [
+      {
+        "slot": 6905,
+        "time_s": 69.05,
+        "cohort": 0,
+        "action": 5,
+        "aoi": 138.0435353597796
+      },
+      {
+        "slot": 13881,
+        "time_s": 138.81,
+        "cohort": 1,
+        "action": 10,
+        "aoi": 137.07619857753014
+      },
+      {
+        "slot": 42075,
+        "time_s": 420.75,
+        "cohort": 0,
+        "action": 4,
+        "aoi": 157.15467681076836
+      }
+    ],
+    "coverage_outage_receiver_slots": 0,
+    "route_unreachable_cohort_slots": 0
+  },
+  "random_grouping": {
+    "slots": 48000,
+    "mean_aoi": 145.9119851917872,
+    "median_aoi": 135.60884365182113,
+    "peak_aoi": 2377.3646626908576,
+    "peak_slot": 13499,
+    "power_outage_slots": 559,
+    "mean_aoi_in_power_outage_slots": 671.8784186922773,
+    "mean_aoi_outside_power_outage_slots": 139.71449280489037,
+    "cum_validation_max_absolute_error": 0.0,
+    "largest_one_slot_cum_increase": {
+      "slot": 78,
+      "increase": 0.5066805238219843,
+      "aoi": 192.910209287384
+    },
+    "outage_episode_count": 44,
+    "largest_cumulative_outage_rises": [
+      {
+        "start_slot": 13444,
+        "end_slot": 13499,
+        "start_time_s": 134.44,
+        "duration_slots": 56,
+        "aoi_peak": 2377.3646626908576,
+        "cum_before": 160.608436733278,
+        "cum_after": 165.24096527724205,
+        "cum_rise": 4.6325285439640425,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9916,
+        "end_slot": 9962,
+        "start_time_s": 99.16,
+        "duration_slots": 47,
+        "aoi_peak": 2017.4349093777141,
+        "cum_before": 155.3582186535571,
+        "cum_after": 159.80249010570628,
+        "cum_rise": 4.444271452149195,
+        "cohort_actions": [
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      {
+        "start_slot": 14614,
+        "end_slot": 14659,
+        "start_time_s": 146.14,
+        "duration_slots": 46,
+        "aoi_peak": 1976.2471595873562,
+        "cum_before": 163.35890058639833,
+        "cum_after": 166.22338502546356,
+        "cum_rise": 2.8644844390652224,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9647,
+        "end_slot": 9679,
+        "start_time_s": 96.47,
+        "duration_slots": 33,
+        "aoi_peak": 1457.4761288965817,
+        "cum_before": 152.47334397202516,
+        "cum_after": 154.7404332180272,
+        "cum_rise": 2.2670892460020298,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12454,
+        "end_slot": 12485,
+        "start_time_s": 124.54,
+        "duration_slots": 32,
+        "aoi_peak": 1417.326964740809,
+        "cum_before": 158.1845123783558,
+        "cum_after": 159.82577699688815,
+        "cum_rise": 1.6412646185323467,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9975,
+        "end_slot": 9999,
+        "start_time_s": 99.75,
+        "duration_slots": 25,
+        "aoi_peak": 1137.4419453691823,
+        "cum_before": 159.8197193214592,
+        "cum_after": 161.06379350170258,
+        "cum_rise": 1.2440741802433877,
+        "cohort_actions": [
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      {
+        "start_slot": 12426,
+        "end_slot": 12452,
+        "start_time_s": 124.26,
+        "duration_slots": 27,
+        "aoi_peak": 1217.3290847144226,
+        "cum_before": 157.0146865659135,
+        "cum_after": 158.18618587530622,
+        "cum_rise": 1.1714993093927148,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9600,
+        "end_slot": 9620,
+        "start_time_s": 96.0,
+        "duration_slots": 21,
+        "aoi_peak": 977.4897571005496,
+        "cum_before": 151.15916897102454,
+        "cum_after": 152.08974528180516,
+        "cum_rise": 0.9305763107806229,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      }
+    ],
+    "longest_outage_episodes": [
+      {
+        "start_slot": 13444,
+        "end_slot": 13499,
+        "start_time_s": 134.44,
+        "duration_slots": 56,
+        "aoi_peak": 2377.3646626908576,
+        "cum_before": 160.608436733278,
+        "cum_after": 165.24096527724205,
+        "cum_rise": 4.6325285439640425,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9916,
+        "end_slot": 9962,
+        "start_time_s": 99.16,
+        "duration_slots": 47,
+        "aoi_peak": 2017.4349093777141,
+        "cum_before": 155.3582186535571,
+        "cum_after": 159.80249010570628,
+        "cum_rise": 4.444271452149195,
+        "cohort_actions": [
+          [
+            1,
+            5
+          ]
+        ]
+      },
+      {
+        "start_slot": 14614,
+        "end_slot": 14659,
+        "start_time_s": 146.14,
+        "duration_slots": 46,
+        "aoi_peak": 1976.2471595873562,
+        "cum_before": 163.35890058639833,
+        "cum_after": 166.22338502546356,
+        "cum_rise": 2.8644844390652224,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 9647,
+        "end_slot": 9679,
+        "start_time_s": 96.47,
+        "duration_slots": 33,
+        "aoi_peak": 1457.4761288965817,
+        "cum_before": 152.47334397202516,
+        "cum_after": 154.7404332180272,
+        "cum_rise": 2.2670892460020298,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      },
+      {
+        "start_slot": 12454,
+        "end_slot": 12485,
+        "start_time_s": 124.54,
+        "duration_slots": 32,
+        "aoi_peak": 1417.326964740809,
+        "cum_before": 158.1845123783558,
+        "cum_after": 159.82577699688815,
+        "cum_rise": 1.6412646185323467,
+        "cohort_actions": [
+          [
+            1,
+            10
+          ]
+        ]
+      }
+    ],
+    "by_action": {
+      "1": {
+        "cohort_slots": 19000,
+        "occupancy_pct": 19.791666666666664,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 68.62955790949293,
+        "non_power_outage_mean_cohort_aoi": 68.62955790949293,
+        "mean_successful_groups": 2.995578947368421,
+        "mean_successful_user_updates": 119.82315789473684,
+        "mean_raw_reward": -65.63397896212452
+      },
+      "2": {
+        "cohort_slots": 15400,
+        "occupancy_pct": 16.041666666666668,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 70.06658235167662,
+        "non_power_outage_mean_cohort_aoi": 70.06658235167662,
+        "mean_successful_groups": 5.983246753246753,
+        "mean_successful_user_updates": 119.66493506493507,
+        "mean_raw_reward": -64.08333559842985
+      },
+      "4": {
+        "cohort_slots": 14300,
+        "occupancy_pct": 14.895833333333334,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 71.53406887585429,
+        "non_power_outage_mean_cohort_aoi": 71.53406887585429,
+        "mean_successful_groups": 11.932027972027972,
+        "mean_successful_user_updates": 119.32027972027971,
+        "mean_raw_reward": -59.60204090382632
+      },
+      "5": {
+        "cohort_slots": 17000,
+        "occupancy_pct": 17.708333333333336,
+        "power_outage_cohort_slots": 93,
+        "mean_cohort_aoi": 73.87679263794615,
+        "non_power_outage_mean_cohort_aoi": 70.22283537492993,
+        "mean_successful_groups": 14.81735294117647,
+        "mean_successful_user_updates": 118.53882352941176,
+        "mean_raw_reward": -59.09473381441674
+      },
+      "8": {
+        "cohort_slots": 15700,
+        "occupancy_pct": 16.354166666666668,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 69.00318541396005,
+        "non_power_outage_mean_cohort_aoi": 69.00318541396005,
+        "mean_successful_groups": 23.819554140127387,
+        "mean_successful_user_updates": 119.09777070063694,
+        "mean_raw_reward": -45.18363127383265
+      },
+      "10": {
+        "cohort_slots": 14600,
+        "occupancy_pct": 15.208333333333332,
+        "power_outage_cohort_slots": 466,
+        "mean_cohort_aoi": 86.20518150278265,
+        "non_power_outage_mean_cohort_aoi": 69.53513584362139,
+        "mean_successful_groups": 28.75890410958904,
+        "mean_successful_user_updates": 115.03561643835616,
+        "mean_raw_reward": -57.73394862607031
+      }
+    },
+    "mean_successful_user_updates_total": 237.29739583333333,
+    "handover_events": [
+      {
+        "slot": 6905,
+        "time_s": 69.05,
+        "cohort": 0,
+        "action": 5,
+        "aoi": 138.0435353597796
+      },
+      {
+        "slot": 13881,
+        "time_s": 138.81,
+        "cohort": 1,
+        "action": 1,
+        "aoi": 137.07619857753014
+      },
+      {
+        "slot": 42075,
+        "time_s": 420.75,
+        "cohort": 0,
+        "action": 2,
+        "aoi": 157.15467681076836
+      }
+    ],
+    "coverage_outage_receiver_slots": 0,
+    "route_unreachable_cohort_slots": 0
+  },
+  "fixed_grouping": {
+    "slots": 48000,
+    "mean_aoi": 139.68036971610843,
+    "median_aoi": 135.60211902914347,
+    "peak_aoi": 238.77604261479655,
+    "peak_slot": 6432,
+    "power_outage_slots": 0,
+    "mean_aoi_in_power_outage_slots": null,
+    "mean_aoi_outside_power_outage_slots": 139.68036971610843,
+    "cum_validation_max_absolute_error": 0.0,
+    "largest_one_slot_cum_increase": {
+      "slot": 118,
+      "increase": 0.33648399293059583,
+      "aoi": 192.9382007319298
+    },
+    "outage_episode_count": 0,
+    "largest_cumulative_outage_rises": [],
+    "longest_outage_episodes": [],
+    "by_action": {
+      "4": {
+        "cohort_slots": 96000,
+        "occupancy_pct": 100.0,
+        "power_outage_cohort_slots": 0,
+        "mean_cohort_aoi": 69.8401848580542,
+        "non_power_outage_mean_cohort_aoi": 69.8401848580542,
+        "mean_successful_groups": 11.935625,
+        "mean_successful_user_updates": 119.35625,
+        "mean_raw_reward": -57.904559858054206
+      }
+    },
+    "mean_successful_user_updates_total": 238.7125,
+    "handover_events": [
+      {
+        "slot": 6905,
+        "time_s": 69.05,
+        "cohort": 0,
+        "action": 4,
+        "aoi": 138.0435353597796
+      },
+      {
+        "slot": 13881,
+        "time_s": 138.81,
+        "cohort": 1,
+        "action": 4,
+        "aoi": 137.07619857753014
+      },
+      {
+        "slot": 42075,
+        "time_s": 420.75,
+        "cohort": 0,
+        "action": 4,
+        "aoi": 157.15467681076836
+      }
+    ],
+    "coverage_outage_receiver_slots": 0,
+    "route_unreachable_cohort_slots": 0
+  },
+  "gap_mira_vs_fixed": {
+    "mean_gap": 7.500728010879752,
+    "percent_gap": 5.369922793105795,
+    "gap_integral_in_outage_slots": 357794.9466286794,
+    "gap_integral_other_slots": 2239.9978935486424,
+    "fraction_gap_in_outage_slots": 0.9937783875492386,
+    "mean_gap_outside_outage_slots": 0.0472722991146701,
+    "mean_gap_contribution_from_outage_slots": 7.454061388097488,
+    "same_non_outage_slots_mira_mean": 139.6369182651687,
+    "same_non_outage_slots_fixed_mean": 139.589645966054,
+    "mean_gap_contribution_from_other_slots": 0.046666622782263384
+  },
+  "bandit": {
+    "decision_count": 960,
+    "selection_replay": {
+      "empty_history_decisions": 5,
+      "window_missing_action": 114,
+      "mismatch": 0,
+      "ucb_score": 846
+    },
+    "mode_action_counts": {
+      "window_missing_action_a1": 86,
+      "window_missing_action_a2": 5,
+      "window_missing_action_a4": 5,
+      "window_missing_action_a5": 5,
+      "window_missing_action_a8": 5,
+      "window_missing_action_a10": 8,
+      "ucb_score_a10": 163,
+      "ucb_score_a8": 167,
+      "ucb_score_a5": 171,
+      "ucb_score_a4": 170,
+      "ucb_score_a2": 169,
+      "ucb_score_a1": 6
+    },
+    "mean_bonus_spread_on_scored_decisions": 0.31246255826607156,
+    "epoch_reward_by_action": {
+      "1": {
+        "n": 92,
+        "mean": 0.5627369569635466
+      },
+      "2": {
+        "n": 174,
+        "mean": 0.5828807205763169
+      },
+      "4": {
+        "n": 175,
+        "mean": 0.6180514378233763
+      },
+      "5": {
+        "n": 176,
+        "mean": 0.6365622218595299
+      },
+      "8": {
+        "n": 172,
+        "mean": 0.686904313802821
+      },
+      "10": {
+        "n": 171,
+        "mean": 0.7054469361134065
+      }
+    }
+  },
+  "clipping": {
+    "lower": -160.85010921099578,
+    "upper": 5.600151651895423,
+    "clipped_cohort_slots": 550,
+    "overall_rate": 0.005729166666666666,
+    "low_clips": 550,
+    "high_clips": 0,
+    "power_outage_clips": 550,
+    "mean_epoch_reward_by_power_failure": {},
+    "by_action_owner_satellite": {
+      "sat_04": {
+        "samples": 7000,
+        "clipped": 86,
+        "rate": 0.012285714285714285
+      },
+      "sat_07": {
+        "samples": 13900,
+        "clipped": 298,
+        "rate": 0.02143884892086331
+      },
+      "sat_03": {
+        "samples": 35100,
+        "clipped": 0,
+        "rate": 0.0
+      },
+      "sat_06": {
+        "samples": 34100,
+        "clipped": 166,
+        "rate": 0.004868035190615836
+      },
+      "sat_02": {
+        "samples": 5900,
+        "clipped": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "selected_slot_details": {
+    "9300_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.344725879970426",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.344725879970426",
+      "normalized_reward": "0.6578865227566533"
+    },
+    "9300_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "120.19933046251444",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-126.19933046251444",
+      "normalized_reward": "0.20817497412649874"
+    },
+    "9309_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.3389859341049",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.3389859341049",
+      "normalized_reward": "0.6579210072076584"
+    },
+    "9309_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "80.2042429307906",
+      "transmission_failure_power": "0",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "30",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-56.2042429307906",
+      "normalized_reward": "0.6286915126339412"
+    },
+    "9310_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.3383482834264",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.3383482834264",
+      "normalized_reward": "0.6579248380858752"
+    },
+    "9310_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "120.2042429307906",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-126.2042429307906",
+      "normalized_reward": "0.20814546099596537"
+    },
+    "9388_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.288686388202805",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.288686388202805",
+      "normalized_reward": "0.6582231968566343"
+    },
+    "9388_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "3240.2042429307903",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-3246.2042429307903",
+      "normalized_reward": "0.0"
+    },
+    "9389_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.28805065981909",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.28805065981909",
+      "normalized_reward": "0.6582270161860869"
+    },
+    "9389_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "80.24364204650686",
+      "transmission_failure_power": "0",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "30",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-56.243642046506864",
+      "normalized_reward": "0.6284548105974769"
+    },
+    "9399_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "2",
+      "weighted_aoi_slots": "57.28169472073268",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "6",
+      "successful_groups": "6",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-51.28169472073268",
+      "normalized_reward": "0.658265201401619"
+    },
+    "9399_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "10",
+      "weighted_aoi_slots": "480.2436420465068",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-486.2436420465068",
+      "normalized_reward": "0.0"
+    },
+    "9400_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "4",
+      "weighted_aoi_slots": "57.28105926135922",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-45.28105926135922",
+      "normalized_reward": "0.6943158235410238"
+    },
+    "9400_cohort1": {
+      "satellite_id": "sat_07",
+      "action": "1",
+      "weighted_aoi_slots": "80.24907320619992",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "3",
+      "successful_groups": "3",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-77.24907320619992",
+      "normalized_reward": "0.5022583657808737"
+    },
+    "42074_cohort0": {
+      "satellite_id": "sat_03",
+      "action": "4",
+      "weighted_aoi_slots": "60.16903625789509",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "0",
+      "route_hops": "0",
+      "raw_reward": "-48.16903625789509",
+      "normalized_reward": "0.6769654332108173"
+    },
+    "42074_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "10",
+      "weighted_aoi_slots": "78.27048552137174",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "30",
+      "successful_groups": "30",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-48.27048552137174",
+      "normalized_reward": "0.6763559462508646"
+    },
+    "42075_cohort0": {
+      "satellite_id": "sat_02",
+      "action": "4",
+      "weighted_aoi_slots": "78.88374470123873",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "1",
+      "route_hops": "1",
+      "raw_reward": "-66.88374470123873",
+      "normalized_reward": "0.5645311940193307"
+    },
+    "42075_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "10",
+      "weighted_aoi_slots": "78.27093210952964",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "30",
+      "successful_groups": "30",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-48.27093210952964",
+      "normalized_reward": "0.6763532632382001"
+    },
+    "42076_cohort0": {
+      "satellite_id": "sat_02",
+      "action": "4",
+      "weighted_aoi_slots": "78.88305863358794",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-66.88305863358794",
+      "normalized_reward": "0.5645353157770693"
+    },
+    "42076_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "10",
+      "weighted_aoi_slots": "78.27137873063147",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "30",
+      "successful_groups": "30",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-48.27137873063147",
+      "normalized_reward": "0.6763505800276151"
+    },
+    "42100_cohort0": {
+      "satellite_id": "sat_02",
+      "action": "1",
+      "weighted_aoi_slots": "78.8665985825169",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "3",
+      "successful_groups": "3",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-75.8665985825169",
+      "normalized_reward": "0.5105639978448678"
+    },
+    "42100_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "8",
+      "weighted_aoi_slots": "78.28210751416088",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "24",
+      "successful_groups": "24",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-54.282107514160884",
+      "normalized_reward": "0.6402393192079004"
+    },
+    "46326_cohort0": {
+      "satellite_id": "sat_02",
+      "action": "4",
+      "weighted_aoi_slots": "76.1658403290076",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-64.1658403290076",
+      "normalized_reward": "0.5808598219117792"
+    },
+    "46326_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "10",
+      "weighted_aoi_slots": "120.43727249881576",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-126.43727249881576",
+      "normalized_reward": "0.2067454657852813"
+    },
+    "46387_cohort0": {
+      "satellite_id": "sat_02",
+      "action": "4",
+      "weighted_aoi_slots": "76.13023204557041",
+      "transmission_failure_power": "0",
+      "edge_groups": "0",
+      "scheduled_groups": "12",
+      "successful_groups": "12",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-64.13023204557041",
+      "normalized_reward": "0.5810737493832808"
+    },
+    "46387_cohort1": {
+      "satellite_id": "sat_06",
+      "action": "10",
+      "weighted_aoi_slots": "2560.437272498816",
+      "transmission_failure_power": "1",
+      "edge_groups": "1",
+      "scheduled_groups": "30",
+      "successful_groups": "0",
+      "handover": "0",
+      "route_hops": "1",
+      "raw_reward": "-2566.437272498816",
+      "normalized_reward": "0.0"
+    }
+  },
+  "window_bonus_example": {
+    "one_sample": 1.0729830131446738,
+    "two_samples": 0.7587135646925732,
+    "difference": 0.3142694484521006
+  }
+}

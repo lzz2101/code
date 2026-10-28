@@ -1,0 +1,207 @@
+{
+  "algorithm": {
+    "B_penalty": 0.05,
+    "R_theta": 1e-05,
+    "V_c": 0.7,
+    "V_nc": 0.3,
+    "V_phi": 0.0005,
+    "action_set": [
+      1,
+      2,
+      4,
+      5,
+      8,
+      10
+    ],
+    "action_set_name": "compact",
+    "infeasible_power_handling": "transmission_failure",
+    "phi_theta_deg": 20.0,
+    "power_mode": "twc_aim_staircase",
+    "regrouping_interval_s": 1.0,
+    "reward_bounds": {
+      "context": "95aa623a678a4b63dd92b7de95244338eb0ab98e8dfe74122a1c0f973bd1c435",
+      "identity": "716a1a0690420569a4822c9627855dc855b146dcbfbc8a40cc63cbd46ac50def",
+      "lower": -160.85010921099578,
+      "upper": 5.600151651895423
+    },
+    "reward_normalization": "pilot_fixed_clip",
+    "reward_time_convention": "post_update",
+    "sw_ucb_window_s": 10.0,
+    "sw_ucb_xi": 0.7071067811865476
+  },
+  "association": {
+    "hysteresis_score_deg": 1.0,
+    "initial_acquisition_is_handover": false,
+    "mode": "distinct_satellites_for_fixed_cohorts",
+    "objective": "sum_of_cohort_minimum_elevations",
+    "time_to_trigger_s": 1.0
+  },
+  "channel": {
+    "carrier_hz": 20000000000.0,
+    "external_interference": "expected_cross_link_power",
+    "fading_model": "iid_per_link_per_slot",
+    "noise_model": "normalized_reference_snr",
+    "normalized_satellite_power": 1.0,
+    "reference_bandwidth_hz": 50000000.0,
+    "reference_snr_db": 10.0,
+    "shadowed_rician": {
+      "Omega": 0.835,
+      "b0": 0.126,
+      "m": 10.1
+    },
+    "sr_mean_normalization": false
+  },
+  "constellation": {
+    "actual_satellite_count": 8,
+    "altitude_km": 800.0,
+    "center_overflight_s": 240.0,
+    "eccentricity": 0.0,
+    "inclination_deg": 50.0,
+    "omega_convention_deg": 0.0,
+    "plane1_phase_offsets_deg": [
+      -40,
+      -20,
+      0,
+      20,
+      40
+    ],
+    "plane2_phase_offsets_deg": [
+      -10,
+      10,
+      30
+    ],
+    "plane_raan_difference_deg": 10.0,
+    "reference_satellite": "sat_03",
+    "template_phasing": 18,
+    "template_planes": 36,
+    "template_total_slots": 648,
+    "type": "walker_derived_subset"
+  },
+  "delay": {
+    "fixed_isl_per_hop_s": 0.005,
+    "handover_mode": "paper_additive",
+    "handover_s": 0.025,
+    "ingress_satellite": "sat_03",
+    "isl_max_link_distance_km": 4000.0,
+    "isl_mode": "fixed_per_hop",
+    "isl_route_update_s": 1.0
+  },
+  "derived": {
+    "algorithm2_U": 62,
+    "fixed_isl_per_hop_slots": 0.5,
+    "handover_delay_slots": 2.5,
+    "handover_ttt_slots": 100,
+    "legal_actions": [
+      1,
+      2,
+      4,
+      5,
+      8,
+      10,
+      20,
+      40
+    ],
+    "mean_motion_rad_s": 0.0010396790770031228,
+    "noise_power": 2.4166360880136437e-19,
+    "orbital_period_s": 6043.3892016860445,
+    "reference_path_gain": 2.2232162723216594e-18,
+    "regrouping_interval_slots": 100,
+    "schedule_capacity": 62,
+    "schedule_capacity_continuous": 62.74752959602454,
+    "schedule_capacity_edge_when_mixed_floor_only": 52,
+    "schedule_capacity_integer": 62,
+    "schedule_capacity_nonedge_when_mixed_floor_only": 34,
+    "schedule_capacity_paper_approximation": 63,
+    "schedule_capacity_semantics": "Algorithm 2 per-satellite cap U; mixed 52/34 limits are diagnostics only",
+    "schedule_capacity_single_class_floor_only": 62,
+    "semi_major_axis_km": 7171.0,
+    "shadowed_rician_mean_power": 1.087,
+    "slot_count": 48000,
+    "sw_ucb_window_epochs": 10,
+    "sw_ucb_window_slots": 1000
+  },
+  "devices": {
+    "distribution": "iid_uniform_in_projected_square",
+    "layout_seed": 42,
+    "stationary": true,
+    "subscription_seed": 1042,
+    "unique_count": 300
+  },
+  "execution": {
+    "max_parallel_workers": 4,
+    "memory_budget_mib_per_worker": 512,
+    "save_all_channel_samples": false,
+    "save_full_slot_trace": true,
+    "save_per_group_trace": "finalists_only",
+    "slot_chunk_size": 1000
+  },
+  "experiment": {
+    "duration_s": 480.0,
+    "epoch_utc": "2023-04-19T11:56:35Z",
+    "geometry_export_dt_s": 1.0,
+    "name": "mira_leo_phi20_B005_rg1s_compact_power_outage",
+    "slot_dt_s": 0.01,
+    "warmup_report_s": 10.0
+  },
+  "formal_results": {
+    "fixed_action": 4,
+    "regrouping_overhead_tau_s": [
+      10.0
+    ],
+    "reward_pilot_snapshot_interval_s": 1.0,
+    "reward_pilot_windows_s": [
+      [
+        0.0,
+        30.0
+      ],
+      [
+        225.0,
+        255.0
+      ],
+      [
+        450.0,
+        480.0
+      ]
+    ]
+  },
+  "geometry": {
+    "center_handling": "radial_projection_to_sphere",
+    "center_raw_ecef_km": [
+      -3023.722874,
+      4928.116736,
+      2683.88077
+    ],
+    "earth_model": "sphere",
+    "earth_radius_km": 6371.0,
+    "earth_rotation_rad_s": 7.292115e-05,
+    "grid_spacing_km": 20.0,
+    "light_speed_km_s": 299792.458,
+    "mu_km3_s2": 398600.4418,
+    "phi_min_deg": 10.0,
+    "projection": "spherical_aeqd",
+    "region_half_width_km": 500.0,
+    "terrain": false
+  },
+  "radio": {
+    "scs_hz": 60000.0
+  },
+  "randomness": {
+    "fixed_channel_seed": 0,
+    "policy_seed": 0
+  },
+  "services": {
+    "bandwidth_hz": 50000000.0,
+    "cohort_count": 2,
+    "delta_c_slots": 1.0,
+    "generation": "generate_at_will",
+    "initial_age_slots": 1.0,
+    "messages_per_active_satellite": 3,
+    "queue_delay_s": 0.0,
+    "subscribers_per_message": 40,
+    "weights": [
+      0.7,
+      0.2,
+      0.1
+    ]
+  }
+}

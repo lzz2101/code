@@ -1,0 +1,7884 @@
+{
+  "B_penalty": 0.05,
+  "V_c": 0.7,
+  "V_nc": 0.3,
+  "V_phi": 0.0005,
+  "action_change_events": 873,
+  "action_decision_count": {
+    "sat_02:a=1": 6,
+    "sat_02:a=10": 10,
+    "sat_02:a=2": 11,
+    "sat_02:a=4": 11,
+    "sat_02:a=5": 11,
+    "sat_02:a=8": 10,
+    "sat_03:a=1": 32,
+    "sat_03:a=10": 64,
+    "sat_03:a=2": 63,
+    "sat_03:a=4": 64,
+    "sat_03:a=5": 64,
+    "sat_03:a=8": 64,
+    "sat_04:a=1": 7,
+    "sat_04:a=10": 12,
+    "sat_04:a=2": 13,
+    "sat_04:a=4": 13,
+    "sat_04:a=5": 13,
+    "sat_04:a=8": 12,
+    "sat_06:a=1": 32,
+    "sat_06:a=10": 61,
+    "sat_06:a=2": 62,
+    "sat_06:a=4": 62,
+    "sat_06:a=5": 62,
+    "sat_06:a=8": 62,
+    "sat_07:a=1": 15,
+    "sat_07:a=10": 24,
+    "sat_07:a=2": 25,
+    "sat_07:a=4": 25,
+    "sat_07:a=5": 26,
+    "sat_07:a=8": 24
+  },
+  "action_histogram": {
+    "sat_02:a=1": 600,
+    "sat_02:a=10": 1000,
+    "sat_02:a=2": 1100,
+    "sat_02:a=4": 1125,
+    "sat_02:a=5": 1100,
+    "sat_02:a=8": 1000,
+    "sat_03:a=1": 3200,
+    "sat_03:a=10": 6400,
+    "sat_03:a=2": 6300,
+    "sat_03:a=4": 6375,
+    "sat_03:a=5": 6495,
+    "sat_03:a=8": 6400,
+    "sat_04:a=1": 700,
+    "sat_04:a=10": 1200,
+    "sat_04:a=2": 1300,
+    "sat_04:a=4": 1300,
+    "sat_04:a=5": 1205,
+    "sat_04:a=8": 1200,
+    "sat_06:a=1": 3200,
+    "sat_06:a=10": 6119,
+    "sat_06:a=2": 6200,
+    "sat_06:a=4": 6200,
+    "sat_06:a=5": 6200,
+    "sat_06:a=8": 6200,
+    "sat_07:a=1": 1500,
+    "sat_07:a=10": 2381,
+    "sat_07:a=2": 2500,
+    "sat_07:a=4": 2500,
+    "sat_07:a=5": 2600,
+    "sat_07:a=8": 2400
+  },
+  "action_occupancy_slots": {
+    "sat_02:a=1": 600,
+    "sat_02:a=10": 1000,
+    "sat_02:a=2": 1100,
+    "sat_02:a=4": 1125,
+    "sat_02:a=5": 1100,
+    "sat_02:a=8": 1000,
+    "sat_03:a=1": 3200,
+    "sat_03:a=10": 6400,
+    "sat_03:a=2": 6300,
+    "sat_03:a=4": 6375,
+    "sat_03:a=5": 6495,
+    "sat_03:a=8": 6400,
+    "sat_04:a=1": 700,
+    "sat_04:a=10": 1200,
+    "sat_04:a=2": 1300,
+    "sat_04:a=4": 1300,
+    "sat_04:a=5": 1205,
+    "sat_04:a=8": 1200,
+    "sat_06:a=1": 3200,
+    "sat_06:a=10": 6119,
+    "sat_06:a=2": 6200,
+    "sat_06:a=4": 6200,
+    "sat_06:a=5": 6200,
+    "sat_06:a=8": 6200,
+    "sat_07:a=1": 1500,
+    "sat_07:a=10": 2381,
+    "sat_07:a=2": 2500,
+    "sat_07:a=4": 2500,
+    "sat_07:a=5": 2600,
+    "sat_07:a=8": 2400
+  },
+  "action_set": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    10
+  ],
+  "action_set_name": "compact",
+  "aggregated_weighted_sum_aoi_mean_ms": 1471.8109772698795,
+  "aoi_p50_ms": 18.76787662506104,
+  "aoi_p95_ms": 21.007847785949707,
+  "aoi_p99_ms": 28.767822122573847,
+  "bandit_observation_count": 960,
+  "bandit_observations": [
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 0,
+      "epoch_reward": 0.5290992530392377,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 0,
+      "epoch_reward": 0.5211243015885926,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 1,
+      "epoch_reward": 0.5440239796188958,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 1,
+      "epoch_reward": 0.5362926462393782,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 2,
+      "epoch_reward": 0.5793732706417242,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 2,
+      "epoch_reward": 0.5718848254668453,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 3,
+      "epoch_reward": 0.6001817442222586,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 3,
+      "epoch_reward": 0.5896311644230097,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 4,
+      "epoch_reward": 0.6539111129579999,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 4,
+      "epoch_reward": 0.6392161919440675,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 5,
+      "epoch_reward": 0.6896152117405261,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 5,
+      "epoch_reward": 0.6828508083390723,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 6,
+      "epoch_reward": 0.6892706571891359,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 6,
+      "epoch_reward": 0.6785405546866633,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 7,
+      "epoch_reward": 0.6528774680465674,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 7,
+      "epoch_reward": 0.6465917531963877,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 8,
+      "epoch_reward": 0.5984590651759117,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 8,
+      "epoch_reward": 0.5924114637708683,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 9,
+      "epoch_reward": 0.5769616523950727,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 9,
+      "epoch_reward": 0.5742753508022895,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 10,
+      "epoch_reward": 0.5436871056474729,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 10,
+      "epoch_reward": 0.5381132155899992,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 11,
+      "epoch_reward": 0.5253101835868166,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 11,
+      "epoch_reward": 0.5199718706566504,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 12,
+      "epoch_reward": 0.5429783280521435,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 12,
+      "epoch_reward": 0.5378747264672813,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 13,
+      "epoch_reward": 0.5786681549741585,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 13,
+      "epoch_reward": 0.5706743453719618,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 14,
+      "epoch_reward": 0.5963328779614213,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 14,
+      "epoch_reward": 0.5883917853723382,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 15,
+      "epoch_reward": 0.6461977652939733,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 15,
+      "epoch_reward": 0.6379480043702062,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 16,
+      "epoch_reward": 0.6815220727584145,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 16,
+      "epoch_reward": 0.6773484447676686,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 17,
+      "epoch_reward": 0.6853638196803375,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 17,
+      "epoch_reward": 0.677215009176664,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 18,
+      "epoch_reward": 0.6350137561434569,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 18,
+      "epoch_reward": 0.6413926862507177,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 19,
+      "epoch_reward": 0.5879060720823571,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 19,
+      "epoch_reward": 0.5910289297772452,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 20,
+      "epoch_reward": 0.5761226598569437,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 20,
+      "epoch_reward": 0.5666163821221295,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 21,
+      "epoch_reward": 0.5397057594870648,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 21,
+      "epoch_reward": 0.536674078256343,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 22,
+      "epoch_reward": 0.5213106996948005,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 22,
+      "epoch_reward": 0.5185045789713185,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 23,
+      "epoch_reward": 0.5389608996512123,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 23,
+      "epoch_reward": 0.5363793806949781,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 24,
+      "epoch_reward": 0.5746329739728808,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 24,
+      "epoch_reward": 0.562902967422706,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 25,
+      "epoch_reward": 0.5922801349335659,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 25,
+      "epoch_reward": 0.5901449158484234,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 26,
+      "epoch_reward": 0.6382826965088979,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 26,
+      "epoch_reward": 0.6440590716604315,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 27,
+      "epoch_reward": 0.6816401961932224,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 27,
+      "epoch_reward": 0.6799473621745815,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 28,
+      "epoch_reward": 0.6770540979526913,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 28,
+      "epoch_reward": 0.6713755068900601,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 29,
+      "epoch_reward": 0.644830594468901,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 29,
+      "epoch_reward": 0.6435761822513504,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 30,
+      "epoch_reward": 0.5903768367074965,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 30,
+      "epoch_reward": 0.5893401350855288,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 31,
+      "epoch_reward": 0.56884445176274,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 31,
+      "epoch_reward": 0.5680244319283471,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 32,
+      "epoch_reward": 0.5355353023614731,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 32,
+      "epoch_reward": 0.529403853091831,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 33,
+      "epoch_reward": 0.5171241549457374,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 33,
+      "epoch_reward": 0.5167345220459987,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 34,
+      "epoch_reward": 0.5319948956963905,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 34,
+      "epoch_reward": 0.5345824649282668,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 35,
+      "epoch_reward": 0.5641667513812818,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 35,
+      "epoch_reward": 0.5704514327566477,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 36,
+      "epoch_reward": 0.5847421369833853,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 36,
+      "epoch_reward": 0.5849903600179035,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 37,
+      "epoch_reward": 0.6417234736244759,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 37,
+      "epoch_reward": 0.6344923332068758,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 38,
+      "epoch_reward": 0.6689650084743949,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 38,
+      "epoch_reward": 0.6696333009206101,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 39,
+      "epoch_reward": 0.6769801314455803,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 39,
+      "epoch_reward": 0.6778569513280582,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 40,
+      "epoch_reward": 0.6405363310366117,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 40,
+      "epoch_reward": 0.6377756196181936,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 41,
+      "epoch_reward": 0.5860678660124948,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 41,
+      "epoch_reward": 0.5840542522470276,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 42,
+      "epoch_reward": 0.5645209410298997,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 42,
+      "epoch_reward": 0.5691409604791611,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 43,
+      "epoch_reward": 0.5284338645087534,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 43,
+      "epoch_reward": 0.5328977096996712,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 44,
+      "epoch_reward": 0.5101887364287164,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 44,
+      "epoch_reward": 0.5146755870947515,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 45,
+      "epoch_reward": 0.5276287389369502,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 45,
+      "epoch_reward": 0.5324980066995697,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 46,
+      "epoch_reward": 0.5629107177579664,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 46,
+      "epoch_reward": 0.5683415781835192,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 47,
+      "epoch_reward": 0.5836525997107721,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 47,
+      "epoch_reward": 0.5861595090605626,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 48,
+      "epoch_reward": 0.6373161054236952,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 48,
+      "epoch_reward": 0.640022017964879,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 49,
+      "epoch_reward": 0.6687496378519588,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 49,
+      "epoch_reward": 0.6758589103045736,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 50,
+      "epoch_reward": 0.6683406473616319,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 50,
+      "epoch_reward": 0.6714413566783959,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 51,
+      "epoch_reward": 0.6322441953974303,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 51,
+      "epoch_reward": 0.6393856870854695,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 52,
+      "epoch_reward": 0.5783034632161799,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 52,
+      "epoch_reward": 0.585098998071853,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 53,
+      "epoch_reward": 0.55692395293031,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 53,
+      "epoch_reward": 0.5606088789335055,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 54,
+      "epoch_reward": 0.5267117649770011,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 54,
+      "epoch_reward": 0.5305893418755757,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 55,
+      "epoch_reward": 0.5082738749879566,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 55,
+      "epoch_reward": 0.5123429970551436,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 56,
+      "epoch_reward": 0.5258817277745217,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 56,
+      "epoch_reward": 0.5273777621915289,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 57,
+      "epoch_reward": 0.5615119334036975,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 57,
+      "epoch_reward": 0.5628369108599071,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 58,
+      "epoch_reward": 0.5791176995947144,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 58,
+      "epoch_reward": 0.5837550549400069,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 59,
+      "epoch_reward": 0.6289242944186666,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 59,
+      "epoch_reward": 0.622214001293418,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 60,
+      "epoch_reward": 0.6641909563672536,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 60,
+      "epoch_reward": 0.6734072201430473,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 61,
+      "epoch_reward": 0.0590413374884535,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 61,
+      "epoch_reward": 0.6731716910012231,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 62,
+      "epoch_reward": 0.6238173275795823,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 62,
+      "epoch_reward": 0.6368873032785684,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 63,
+      "epoch_reward": 0.5770143768601127,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 63,
+      "epoch_reward": 0.5792732052749883,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 64,
+      "epoch_reward": 0.5523193349196894,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 64,
+      "epoch_reward": 0.5611883832774797,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 65,
+      "epoch_reward": 0.5220959907706403,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 65,
+      "epoch_reward": 0.5280219403723796,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 66,
+      "epoch_reward": 0.5010637643554108,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 66,
+      "epoch_reward": 0.5097528635007209,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 67,
+      "epoch_reward": 0.5184804862972602,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 67,
+      "epoch_reward": 0.52752859958783,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 68,
+      "epoch_reward": 0.5568634669955586,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 68,
+      "epoch_reward": 0.5633257589858315,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 69,
+      "epoch_reward": 0.6928904226217079,
+      "owner_satellite": 3,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 69,
+      "epoch_reward": 0.5810975498380063,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 70,
+      "epoch_reward": 0.6308998994432234,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 70,
+      "epoch_reward": 0.6349141913550349,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 71,
+      "epoch_reward": 0.64933481602942,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 71,
+      "epoch_reward": 0.6707054894693277,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 72,
+      "epoch_reward": 0.6857919996780402,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 72,
+      "epoch_reward": 0.6662426198107692,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 73,
+      "epoch_reward": 0.7009203013351825,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 73,
+      "epoch_reward": 0.6302969327614345,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 74,
+      "epoch_reward": 0.7587029078117711,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 74,
+      "epoch_reward": 0.5798104380050465,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 75,
+      "epoch_reward": 0.795156605090888,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 75,
+      "epoch_reward": 0.5615238903684712,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 76,
+      "epoch_reward": 0.7955623083809311,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 76,
+      "epoch_reward": 0.5252120621184286,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 77,
+      "epoch_reward": 0.7560749708312904,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 77,
+      "epoch_reward": 0.5069217702117147,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 78,
+      "epoch_reward": 0.702948748552536,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 78,
+      "epoch_reward": 0.5246764293786882,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 79,
+      "epoch_reward": 0.6855076307854264,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 79,
+      "epoch_reward": 0.5573286206931823,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 80,
+      "epoch_reward": 0.6502220986303437,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 80,
+      "epoch_reward": 0.574899376795699,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 81,
+      "epoch_reward": 0.635361868170646,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 81,
+      "epoch_reward": 0.6281546533913093,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 82,
+      "epoch_reward": 0.6537835383528484,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 82,
+      "epoch_reward": 0.663564958258298,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 83,
+      "epoch_reward": 0.6902273205629642,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 83,
+      "epoch_reward": 0.6674925685136178,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 84,
+      "epoch_reward": 0.7086463954413036,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 84,
+      "epoch_reward": 0.6234762339595216,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 85,
+      "epoch_reward": 0.7631109545547929,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 85,
+      "epoch_reward": 0.5702060643309492,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 86,
+      "epoch_reward": 0.7953452762827936,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 86,
+      "epoch_reward": 0.5553840370577741,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 87,
+      "epoch_reward": 0.7915314430508943,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 87,
+      "epoch_reward": 0.5194128377502966,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 88,
+      "epoch_reward": 0.7642859380416932,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 88,
+      "epoch_reward": 0.503866403095953,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 89,
+      "epoch_reward": 0.7106046496381947,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 89,
+      "epoch_reward": 0.5216014959862197,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 90,
+      "epoch_reward": 0.6929687680507078,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 90,
+      "epoch_reward": 0.5542342589353103,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 91,
+      "epoch_reward": 0.6573080707502096,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 91,
+      "epoch_reward": 0.5750899817654348,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 92,
+      "epoch_reward": 0.6396693461398641,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 92,
+      "epoch_reward": 0.621176875021749,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 93,
+      "epoch_reward": 0.6580759802778274,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 93,
+      "epoch_reward": 0.027182302023110793,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 94,
+      "epoch_reward": 0.6913804601429728,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 94,
+      "epoch_reward": 0.5021112184580455,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 95,
+      "epoch_reward": 0.7096039201279681,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 95,
+      "epoch_reward": 0.6241317153899931,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 96,
+      "epoch_reward": 0.7635122214434672,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 96,
+      "epoch_reward": 0.5703022228212574,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 97,
+      "epoch_reward": 0.8037813412590631,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 97,
+      "epoch_reward": 0.5552814726134826,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 98,
+      "epoch_reward": 0.7957461019313246,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 98,
+      "epoch_reward": 0.5189314515003915,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 99,
+      "epoch_reward": 0.7684845049009776,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 99,
+      "epoch_reward": 0.49801991236913523,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 100,
+      "epoch_reward": 0.714786947302766,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 100,
+      "epoch_reward": 0.5183202406684468,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 101,
+      "epoch_reward": 0.6940105211621926,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 101,
+      "epoch_reward": 0.5509350490307999,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 102,
+      "epoch_reward": 0.6614572829695708,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 102,
+      "epoch_reward": 0.5717729451902371,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 103,
+      "epoch_reward": 0.6438017393544335,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 103,
+      "epoch_reward": 0.617842148303583,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 104,
+      "epoch_reward": 0.6621913684938245,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 104,
+      "epoch_reward": 0.6486499690545315,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 105,
+      "epoch_reward": 0.6954786577360501,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 105,
+      "epoch_reward": 0.6525412537358342,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 106,
+      "epoch_reward": 0.7169890634008518,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 106,
+      "epoch_reward": 0.6130547653324969,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 107,
+      "epoch_reward": 0.7714204958276477,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 107,
+      "epoch_reward": 0.5668980201582526,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 108,
+      "epoch_reward": 0.8078268232670739,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 108,
+      "epoch_reward": 0.5456121733719117,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 109,
+      "epoch_reward": 0.8039791293419699,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 109,
+      "epoch_reward": 0.515493283469753,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 110,
+      "epoch_reward": 0.7724938843095979,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 110,
+      "epoch_reward": 0.4971482778779642,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 111,
+      "epoch_reward": 0.7187779837660244,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 111,
+      "epoch_reward": 0.5120850631296097,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 112,
+      "epoch_reward": 0.7011071121606259,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 112,
+      "epoch_reward": 0.5505709160328953,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 113,
+      "epoch_reward": 0.6626474211444426,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 113,
+      "epoch_reward": 0.5682683755366837,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 114,
+      "epoch_reward": 0.6477365665518456,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 114,
+      "epoch_reward": 0.6104763364282082,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 115,
+      "epoch_reward": 0.6661070621153293,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 115,
+      "epoch_reward": 0.645112957091786,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 116,
+      "epoch_reward": 0.6962509285764188,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 116,
+      "epoch_reward": 0.6531936303181588,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 117,
+      "epoch_reward": 0.7175615631311093,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 117,
+      "epoch_reward": 0.6056408431509005,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 118,
+      "epoch_reward": 0.7752775826847161,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 118,
+      "epoch_reward": 0.5666175201558101,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 119,
+      "epoch_reward": 0.8116639692730777,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 119,
+      "epoch_reward": 0.5482597950872483,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 120,
+      "epoch_reward": 0.8120016264568091,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 120,
+      "epoch_reward": 0.5091137544048471,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 121,
+      "epoch_reward": 0.7762905352346976,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 121,
+      "epoch_reward": 0.4935168774264562,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 122,
+      "epoch_reward": 0.722554078760878,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 122,
+      "epoch_reward": 0.5112019128212313,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 123,
+      "epoch_reward": 0.7048624445617709,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 123,
+      "epoch_reward": 0.5437850013003463,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 124,
+      "epoch_reward": 0.6663817856606644,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 124,
+      "epoch_reward": 0.5612871599014497,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 125,
+      "epoch_reward": 0.6514497508000126,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 125,
+      "epoch_reward": 0.6144743490826101,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 126,
+      "epoch_reward": 0.6697988594178761,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 126,
+      "epoch_reward": 0.06529178120325257,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 127,
+      "epoch_reward": 0.7030452225268905,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 127,
+      "epoch_reward": 0.4914669849055349,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 128,
+      "epoch_reward": 0.7212099598054462,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 128,
+      "epoch_reward": 0.11839879351958976,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 129,
+      "epoch_reward": 0.7789039602338996,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 129,
+      "epoch_reward": 0.5628669878557837,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 130,
+      "epoch_reward": 0.8152681187835431,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 130,
+      "epoch_reward": 0.5444948960240833,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 131,
+      "epoch_reward": 0.8071723524523615,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 131,
+      "epoch_reward": 0.5025710511592071,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 132,
+      "epoch_reward": 0.7798495936845324,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 132,
+      "epoch_reward": 0.48714026810350575,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 133,
+      "epoch_reward": 0.7260902734139546,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 133,
+      "epoch_reward": 0.5046310438383677,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 134,
+      "epoch_reward": 0.7083755628013002,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 134,
+      "epoch_reward": 0.5399637733112292,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 135,
+      "epoch_reward": 0.6726352357743106,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 135,
+      "epoch_reward": 0.5607563849003694,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 136,
+      "epoch_reward": 0.6549160773279041,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 136,
+      "epoch_reward": 0.5570961237305375,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 137,
+      "epoch_reward": 0.673241470250395,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 137,
+      "epoch_reward": 0.6417493484096538,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 138,
+      "epoch_reward": 0.7064639066485893,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 138,
+      "epoch_reward": 0.2221556229989703,
+      "owner_satellite": 6,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 139,
+      "epoch_reward": 0.7279088214975837,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 139,
+      "epoch_reward": 0.48987763968001746,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 140,
+      "epoch_reward": 0.7822741432594139,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 140,
+      "epoch_reward": 0.5082773267462931,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 141,
+      "epoch_reward": 0.8144082425611774,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 141,
+      "epoch_reward": 0.5415752367550948,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 142,
+      "epoch_reward": 0.8189041668078175,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 142,
+      "epoch_reward": 0.5630968373887165,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 143,
+      "epoch_reward": 0.7831454277683976,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 143,
+      "epoch_reward": 0.617540044269267,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 144,
+      "epoch_reward": 0.7293608980524406,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 144,
+      "epoch_reward": 0.6455477397804321,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 145,
+      "epoch_reward": 0.7084966805337274,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 145,
+      "epoch_reward": 0.6459185027412683,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 146,
+      "epoch_reward": 0.6758548030876906,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 146,
+      "epoch_reward": 0.6109622642523403,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 147,
+      "epoch_reward": 0.6581097973594862,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 147,
+      "epoch_reward": 0.564950602942904,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 148,
+      "epoch_reward": 0.6764091310703697,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 148,
+      "epoch_reward": 0.5410463483364395,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 149,
+      "epoch_reward": 0.7127293830191236,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 149,
+      "epoch_reward": 0.5060866511778074,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 150,
+      "epoch_reward": 0.7244150952930155,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 150,
+      "epoch_reward": 0.4939554969479343,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 151,
+      "epoch_reward": 0.7815173402216888,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 151,
+      "epoch_reward": 0.512342714528427,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 152,
+      "epoch_reward": 0.8216750461524773,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 152,
+      "epoch_reward": 0.5487521413686932,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 153,
+      "epoch_reward": 0.8219383692839248,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 153,
+      "epoch_reward": 0.5572239834403705,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 154,
+      "epoch_reward": 0.7823072917177679,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 154,
+      "epoch_reward": 0.6138773184329852,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 155,
+      "epoch_reward": 0.7323402524569445,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 155,
+      "epoch_reward": 0.6495621690475718,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 156,
+      "epoch_reward": 0.7145723843953603,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 156,
+      "epoch_reward": 0.6541254134062818,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 157,
+      "epoch_reward": 0.6760148674605436,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 157,
+      "epoch_reward": 0.6226406083535673,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 158,
+      "epoch_reward": 0.6610053284566088,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 158,
+      "epoch_reward": 0.5689256496245714,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 159,
+      "epoch_reward": 0.679276310858117,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 159,
+      "epoch_reward": 0.5450080460026041,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 160,
+      "epoch_reward": 0.7155680079711695,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 160,
+      "epoch_reward": 0.512798506972699,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 161,
+      "epoch_reward": 0.7338335974655851,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 161,
+      "epoch_reward": 0.49530675698658305,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 162,
+      "epoch_reward": 0.7881432681942955,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 162,
+      "epoch_reward": 0.5162636684211874,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 163,
+      "epoch_reward": 0.8244267958537425,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 163,
+      "epoch_reward": 0.5495351923803478,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 164,
+      "epoch_reward": 0.8204552769678449,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 164,
+      "epoch_reward": 0.5710301764696486,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 165,
+      "epoch_reward": 0.7888451453010602,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 165,
+      "epoch_reward": 0.6177564884421747,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 166,
+      "epoch_reward": 0.7350033346178158,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 166,
+      "epoch_reward": 0.6492216793585653,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 167,
+      "epoch_reward": 0.717205518143788,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 167,
+      "epoch_reward": 0.6537706384306984,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 168,
+      "epoch_reward": 0.6813814722429852,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 168,
+      "epoch_reward": 0.6187868692112432,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 169,
+      "epoch_reward": 0.6635779844894968,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 169,
+      "epoch_reward": 0.5628344654696448,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 170,
+      "epoch_reward": 0.68181844039279,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 170,
+      "epoch_reward": 0.5488151912853406,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 171,
+      "epoch_reward": 0.7180794211882303,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 171,
+      "epoch_reward": 0.519354503836527,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 172,
+      "epoch_reward": 0.7363141060536623,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 172,
+      "epoch_reward": 0.5016676275317269,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 173,
+      "epoch_reward": 0.7867476720991994,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 173,
+      "epoch_reward": 0.5144988900199998,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 174,
+      "epoch_reward": 0.8226394557082927,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 174,
+      "epoch_reward": 0.5470343388872151,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 175,
+      "epoch_reward": 0.8270474412193347,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 175,
+      "epoch_reward": 0.5714579111179325,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 176,
+      "epoch_reward": 0.7912001838481957,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 176,
+      "epoch_reward": 0.6253181829549476,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 177,
+      "epoch_reward": 0.7373265510192363,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 177,
+      "epoch_reward": 0.6613338174365384,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 178,
+      "epoch_reward": 0.7194967339796604,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 178,
+      "epoch_reward": 0.6532506479621887,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 179,
+      "epoch_reward": 0.6836405108769871,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 179,
+      "epoch_reward": 0.6186115716031989,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 180,
+      "epoch_reward": 0.6658046711057604,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 180,
+      "epoch_reward": 0.5697926129219937,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 181,
+      "epoch_reward": 0.6840126020322523,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 181,
+      "epoch_reward": 0.552452980083701,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 182,
+      "epoch_reward": 0.7171168123168428,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 182,
+      "epoch_reward": 0.5229761243959593,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 183,
+      "epoch_reward": 0.7318340903630502,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 183,
+      "epoch_reward": 0.5052729518545632,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 184,
+      "epoch_reward": 0.7849982336721577,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 184,
+      "epoch_reward": 0.5236150296099942,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 185,
+      "epoch_reward": 0.8289073070041931,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 185,
+      "epoch_reward": 0.5599789430693335,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 186,
+      "epoch_reward": 0.8290764510477713,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 186,
+      "epoch_reward": 0.5717092316299606,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 187,
+      "epoch_reward": 0.7893506630355226,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 187,
+      "epoch_reward": 0.6327020206414365,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 188,
+      "epoch_reward": 0.7392883583033469,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 188,
+      "epoch_reward": 0.6648556680149881,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 189,
+      "epoch_reward": 0.721424703630366,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 189,
+      "epoch_reward": 0.656755403235038,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 190,
+      "epoch_reward": 0.685534488187552,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 190,
+      "epoch_reward": 0.6336341619937783,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 191,
+      "epoch_reward": 0.6676645035587068,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 191,
+      "epoch_reward": 0.5765670810144526,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 192,
+      "epoch_reward": 0.6830745360339473,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 192,
+      "epoch_reward": 0.5590297048218138,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 193,
+      "epoch_reward": 0.7220319808780158,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 193,
+      "epoch_reward": 0.523647492928734,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 194,
+      "epoch_reward": 0.7368949070408576,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 194,
+      "epoch_reward": 0.5086901530484245,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 195,
+      "epoch_reward": 0.7867200136901067,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 195,
+      "epoch_reward": 0.5270143055063858,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 196,
+      "epoch_reward": 0.8263887320863347,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 196,
+      "epoch_reward": 0.56336015371334,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 197,
+      "epoch_reward": 0.8307283378525251,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 197,
+      "epoch_reward": 0.5783765601341488,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 198,
+      "epoch_reward": 0.7948124100161283,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 198,
+      "epoch_reward": 0.6168215687781385,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 199,
+      "epoch_reward": 0.7408698137806767,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 199,
+      "epoch_reward": 0.6639763491711544,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 200,
+      "epoch_reward": 0.7229707449667744,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 200,
+      "epoch_reward": 0.6726794159228163,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 201,
+      "epoch_reward": 0.6870449863532082,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 201,
+      "epoch_reward": 0.6330779050379866,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 202,
+      "epoch_reward": 0.6691393320227867,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 202,
+      "epoch_reward": 0.576532610817334,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 203,
+      "epoch_reward": 0.6872771740861998,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 203,
+      "epoch_reward": 0.5654045777440132,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 204,
+      "epoch_reward": 0.7234351004711256,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 204,
+      "epoch_reward": 0.5268790752233472,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 205,
+      "epoch_reward": 0.7415662971374339,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 205,
+      "epoch_reward": 0.5119023829502448,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 206,
+      "epoch_reward": 0.7918959585299363,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 206,
+      "epoch_reward": 0.5302070394427986,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 207,
+      "epoch_reward": 0.8318888773753602,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 207,
+      "epoch_reward": 0.563409161603232,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 208,
+      "epoch_reward": 0.8319866341118671,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 208,
+      "epoch_reward": 0.5848341840228314,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 209,
+      "epoch_reward": 0.796034222955039,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 209,
+      "epoch_reward": 0.6353350273143367,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 210,
+      "epoch_reward": 0.7420550377613986,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 210,
+      "epoch_reward": 0.6755006153670905,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 211,
+      "epoch_reward": 0.7241192770711611,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 211,
+      "epoch_reward": 0.6715669847842528,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 212,
+      "epoch_reward": 0.6881567264057584,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 212,
+      "epoch_reward": 0.6323055661753942,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 213,
+      "epoch_reward": 0.6702141826134078,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 213,
+      "epoch_reward": 0.5795847669576878,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 214,
+      "epoch_reward": 0.6883150405926994,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 214,
+      "epoch_reward": 0.5653119716996382,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 215,
+      "epoch_reward": 0.7244358910814437,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 215,
+      "epoch_reward": 0.5326533445706956,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 216,
+      "epoch_reward": 0.7425299228716074,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 216,
+      "epoch_reward": 0.5148920617669943,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 217,
+      "epoch_reward": 0.7966673360895022,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 217,
+      "epoch_reward": 0.5331755947312238,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 218,
+      "epoch_reward": 0.8285724509872968,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 218,
+      "epoch_reward": 0.5694805274997057,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 219,
+      "epoch_reward": 0.8286327937004893,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 219,
+      "epoch_reward": 0.5811514098978457,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 220,
+      "epoch_reward": 0.7968483567810728,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 220,
+      "epoch_reward": 0.642084330738164,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 221,
+      "epoch_reward": 0.7428316050433709,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 221,
+      "epoch_reward": 0.678383173643673,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 222,
+      "epoch_reward": 0.7248582062682467,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 222,
+      "epoch_reward": 0.6702221839623165,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 223,
+      "epoch_reward": 0.688857948955584,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 223,
+      "epoch_reward": 0.6428342597754846,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 224,
+      "epoch_reward": 0.6708776329518578,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 224,
+      "epoch_reward": 0.5857055626740906,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 225,
+      "epoch_reward": 0.6889406561734368,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 225,
+      "epoch_reward": 0.5681061202534632,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 226,
+      "epoch_reward": 0.7250236123951271,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 226,
+      "epoch_reward": 0.5326613968990395,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 227,
+      "epoch_reward": 0.7430796934647959,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 227,
+      "epoch_reward": 0.5176410933092735,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 228,
+      "epoch_reward": 0.7933341072638957,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 228,
+      "epoch_reward": 0.5359018414197164,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 229,
+      "epoch_reward": 0.8332516299620799,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 229,
+      "epoch_reward": 0.5690597579285035,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 230,
+      "epoch_reward": 0.8290684078240156,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 230,
+      "epoch_reward": 0.5904402637079379,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 231,
+      "epoch_reward": 0.793400827626165,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 231,
+      "epoch_reward": 0.6447413125670467,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 232,
+      "epoch_reward": 0.7431908834709879,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 232,
+      "epoch_reward": 0.668400314064473,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 233,
+      "epoch_reward": 0.7251792604453589,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 233,
+      "epoch_reward": 0.6728322353825957,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 234,
+      "epoch_reward": 0.6891407443208206,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 234,
+      "epoch_reward": 0.6377305824343371,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 235,
+      "epoch_reward": 0.6711221381383053,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 235,
+      "epoch_reward": 0.5882680712828402,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 236,
+      "epoch_reward": 0.6891468430241356,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 236,
+      "epoch_reward": 0.5706446315473044,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 237,
+      "epoch_reward": 0.7251914559781085,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 237,
+      "epoch_reward": 0.5379393698060252,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 238,
+      "epoch_reward": 0.7432091720876371,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 238,
+      "epoch_reward": 0.5201311547365122,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 239,
+      "epoch_reward": 0.7972701978071123,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 239,
+      "epoch_reward": 0.5383674532069559,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 240,
+      "epoch_reward": 0.8290988676984048,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 240,
+      "epoch_reward": 0.5746248494988656,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 241,
+      "epoch_reward": 0.8248772389426868,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 241,
+      "epoch_reward": 0.5895522147165576,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 242,
+      "epoch_reward": 0.7972216888487069,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 242,
+      "epoch_reward": 0.6432876622299097,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 243,
+      "epoch_reward": 0.7398240382063227,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 243,
+      "epoch_reward": 0.6749721160773613,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 244,
+      "epoch_reward": 0.7250782768827593,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 244,
+      "epoch_reward": 0.6667623960065053,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 245,
+      "epoch_reward": 0.6862377506319249,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 245,
+      "epoch_reward": 0.643891370047157,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 246,
+      "epoch_reward": 0.670944309280289,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 246,
+      "epoch_reward": 0.5872540402376459,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 247,
+      "epoch_reward": 0.688930601887406,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 247,
+      "epoch_reward": 0.5760333449625389,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 248,
+      "epoch_reward": 0.7249368139439563,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 248,
+      "epoch_reward": 0.5401782168991356,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 249,
+      "epoch_reward": 0.7363075723537815,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 249,
+      "epoch_reward": 0.5223440674261848,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 250,
+      "epoch_reward": 0.7930938140307907,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 250,
+      "epoch_reward": 0.5405542858264952,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 251,
+      "epoch_reward": 0.8329345838239618,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 251,
+      "epoch_reward": 0.5767854570326942,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 252,
+      "epoch_reward": 0.8328800922360222,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 252,
+      "epoch_reward": 0.5949907638437623,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 253,
+      "epoch_reward": 0.7967753309207634,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 253,
+      "epoch_reward": 0.6415503796399578,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 254,
+      "epoch_reward": 0.7393394223606328,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 254,
+      "epoch_reward": 0.6812586689015447,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 255,
+      "epoch_reward": 0.7245554303721182,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 255,
+      "epoch_reward": 0.6856385891263979,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 256,
+      "epoch_reward": 0.6884403009030124,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 256,
+      "epoch_reward": 0.6420736955499496,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 257,
+      "epoch_reward": 0.6703451278736986,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 257,
+      "epoch_reward": 0.5892542986020619,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 258,
+      "epoch_reward": 0.6882933191493507,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 258,
+      "epoch_reward": 0.5748823060295055,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 259,
+      "epoch_reward": 0.7242614784761285,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 259,
+      "epoch_reward": 0.5421238935055256,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 260,
+      "epoch_reward": 0.7422028076935852,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 260,
+      "epoch_reward": 0.5242622492330778,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 261,
+      "epoch_reward": 0.7961875200122535,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 261,
+      "epoch_reward": 0.5396812321959893,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 262,
+      "epoch_reward": 0.8321454156691754,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 262,
+      "epoch_reward": 0.5786482409768725,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 263,
+      "epoch_reward": 0.8320530996313965,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 263,
+      "epoch_reward": 0.5935213411158216,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 264,
+      "epoch_reward": 0.7959105793818493,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 264,
+      "epoch_reward": 0.6510472492664755,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 265,
+      "epoch_reward": 0.741741264918182,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 265,
+      "epoch_reward": 0.678831879486439,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 266,
+      "epoch_reward": 0.7236153709645463,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 266,
+      "epoch_reward": 0.6831835005964707,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 267,
+      "epoch_reward": 0.6874626992657639,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 267,
+      "epoch_reward": 0.6476406681874903,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 268,
+      "epoch_reward": 0.6693300629294531,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 268,
+      "epoch_reward": 0.5975563192600993,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 269,
+      "epoch_reward": 0.6872408731460934,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 269,
+      "epoch_reward": 0.5796711042268137,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 270,
+      "epoch_reward": 0.7231717369742583,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 270,
+      "epoch_reward": 0.5437598125148533,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 271,
+      "epoch_reward": 0.7410758595518503,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 271,
+      "epoch_reward": 0.5258692379689017,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 272,
+      "epoch_reward": 0.7950234573725069,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 272,
+      "epoch_reward": 0.5440227723724872,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 273,
+      "epoch_reward": 0.830944333939939,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 273,
+      "epoch_reward": 0.5801970032385186,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 274,
+      "epoch_reward": 0.8308150974702262,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 274,
+      "epoch_reward": 0.5983451160259079,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 275,
+      "epoch_reward": 0.7869458005748189,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 275,
+      "epoch_reward": 0.6525373074214528,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 276,
+      "epoch_reward": 0.7371254539922394,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 276,
+      "epoch_reward": 0.6802924162732673,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 277,
+      "epoch_reward": 0.7222672316533838,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 277,
+      "epoch_reward": 0.6846143930368872,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 278,
+      "epoch_reward": 0.6860780662482463,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 278,
+      "epoch_reward": 0.6528868097717511,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 279,
+      "epoch_reward": 0.667909050801431,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 279,
+      "epoch_reward": 0.5989275884678045,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 280,
+      "epoch_reward": 0.6830200262836287,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 280,
+      "epoch_reward": 0.5747642643502776,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 281,
+      "epoch_reward": 0.7216783228576665,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 281,
+      "epoch_reward": 0.5423074257895781,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 282,
+      "epoch_reward": 0.739546428713047,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 282,
+      "epoch_reward": 0.5271502620776026,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 283,
+      "epoch_reward": 0.7896131601136388,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 283,
+      "epoch_reward": 0.5452735048743566,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 284,
+      "epoch_reward": 0.8293432533779331,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 284,
+      "epoch_reward": 0.5814173423802349,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 285,
+      "epoch_reward": 0.8291783898879449,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 285,
+      "epoch_reward": 0.5995349620299713,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 286,
+      "epoch_reward": 0.7929635599024192,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 286,
+      "epoch_reward": 0.6498515611488592,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 287,
+      "epoch_reward": 0.7354179063035414,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 287,
+      "epoch_reward": 0.6856264602417282,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 288,
+      "epoch_reward": 0.7205244695835741,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 288,
+      "epoch_reward": 0.6857121843408394,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 289,
+      "epoch_reward": 0.6843002377880653,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 289,
+      "epoch_reward": 0.6539537262321611,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 290,
+      "epoch_reward": 0.6660963032041614,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 290,
+      "epoch_reward": 0.5999635437984949,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 291,
+      "epoch_reward": 0.6839360829040139,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 291,
+      "epoch_reward": 0.5820173055966348,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 292,
+      "epoch_reward": 0.7197961897625109,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 292,
+      "epoch_reward": 0.5460447983027709,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 293,
+      "epoch_reward": 0.7376298346661754,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 293,
+      "epoch_reward": 0.5280928198771471,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 294,
+      "epoch_reward": 0.7876622666924936,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 294,
+      "epoch_reward": 0.5461847662882531,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 295,
+      "epoch_reward": 0.8273582142357152,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 295,
+      "epoch_reward": 0.5760491037703424,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 296,
+      "epoch_reward": 0.8271593717593514,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 296,
+      "epoch_reward": 0.5970791022271479,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 297,
+      "epoch_reward": 0.790910728526125,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 297,
+      "epoch_reward": 0.6468234790689016,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 298,
+      "epoch_reward": 0.7300271633137787,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 298,
+      "epoch_reward": 0.6822063156483132,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 299,
+      "epoch_reward": 0.7152804833926926,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 299,
+      "epoch_reward": 0.6822603768997917,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 300,
+      "epoch_reward": 0.6821469855317104,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 300,
+      "epoch_reward": 0.6508306547885024,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 301,
+      "epoch_reward": 0.6639099248485532,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 301,
+      "epoch_reward": 0.6006536768332275,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 302,
+      "epoch_reward": 0.6817167560441106,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 302,
+      "epoch_reward": 0.5826755846241413,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 303,
+      "epoch_reward": 0.7175440942168996,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 303,
+      "epoch_reward": 0.5439075722972384,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 304,
+      "epoch_reward": 0.7353451524257543,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 304,
+      "epoch_reward": 0.5286872177145908,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 305,
+      "epoch_reward": 0.7853451850343082,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 305,
+      "epoch_reward": 0.5467471420748048,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 306,
+      "epoch_reward": 0.8208034755627572,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 306,
+      "epoch_reward": 0.5828275321911858,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 307,
+      "epoch_reward": 0.8247780423157285,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 307,
+      "epoch_reward": 0.5975772871556628,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 308,
+      "epoch_reward": 0.7884975610191328,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 308,
+      "epoch_reward": 0.6511344956061798,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 309,
+      "epoch_reward": 0.727582356373548,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 309,
+      "epoch_reward": 0.6910510532742314,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 310,
+      "epoch_reward": 0.7159282531239946,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 310,
+      "epoch_reward": 0.6742510134744344,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 311,
+      "epoch_reward": 0.6796394634942875,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 311,
+      "epoch_reward": 0.6511999258832466,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 312,
+      "epoch_reward": 0.6613713438242482,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 312,
+      "epoch_reward": 0.6009906224637802,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 313,
+      "epoch_reward": 0.6791473151363715,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 313,
+      "epoch_reward": 0.5767320607788889,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 314,
+      "epoch_reward": 0.7149439941471681,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 314,
+      "epoch_reward": 0.546943371926173,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 315,
+      "epoch_reward": 0.7327145954746881,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 315,
+      "epoch_reward": 0.5289270142750477,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 316,
+      "epoch_reward": 0.7788394113915373,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 316,
+      "epoch_reward": 0.5441909153726878,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 317,
+      "epoch_reward": 0.8223180550744987,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 317,
+      "epoch_reward": 0.5830024384824434,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 318,
+      "epoch_reward": 0.8178519089050412,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 318,
+      "epoch_reward": 0.6010240126333855,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 319,
+      "epoch_reward": 0.7742123305222612,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 319,
+      "epoch_reward": 0.6550894330248824,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 320,
+      "epoch_reward": 0.7281068690505473,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 320,
+      "epoch_reward": 0.6869230334815225,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 321,
+      "epoch_reward": 0.7131192825822277,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 321,
+      "epoch_reward": 0.6911177910621743,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 322,
+      "epoch_reward": 0.6740379295995202,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 322,
+      "epoch_reward": 0.6550573274625674,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 323,
+      "epoch_reward": 0.6585045813115004,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 323,
+      "epoch_reward": 0.5976662168677815,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 324,
+      "epoch_reward": 0.6762519765411676,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 324,
+      "epoch_reward": 0.5829275326297764,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 325,
+      "epoch_reward": 0.7088962656623938,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 325,
+      "epoch_reward": 0.5440946179240718,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 326,
+      "epoch_reward": 0.7264584871273334,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 326,
+      "epoch_reward": 0.5288093252210724,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 327,
+      "epoch_reward": 0.7797046049978843,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 327,
+      "epoch_reward": 0.5468043007212932,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 328,
+      "epoch_reward": 0.815105134526386,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 328,
+      "epoch_reward": 0.5828197303016813,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 329,
+      "epoch_reward": 0.8106114963129833,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 329,
+      "epoch_reward": 0.5975045249927381,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 330,
+      "epoch_reward": 0.7788400049145519,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 330,
+      "epoch_reward": 0.6433067889847738,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 331,
+      "epoch_reward": 0.7283218150105728,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 331,
+      "epoch_reward": 0.6908483552627637,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 332,
+      "epoch_reward": 0.7068790999919752,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 332,
+      "epoch_reward": 0.6908052141440147,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 333,
+      "epoch_reward": 0.67365871666661,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 333,
+      "epoch_reward": 0.6470223594669049,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 334,
+      "epoch_reward": 0.6527520854117296,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 334,
+      "epoch_reward": 0.6005931231529744,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 335,
+      "epoch_reward": 0.6730566278583363,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 335,
+      "epoch_reward": 0.5793937385186978,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 336,
+      "epoch_reward": 0.708798989385931,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 336,
+      "epoch_reward": 0.5464161316238606,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 337,
+      "epoch_reward": 0.7232114503185565,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 337,
+      "epoch_reward": 0.5283349579913513,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 338,
+      "epoch_reward": 0.7802770162590563,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 338,
+      "epoch_reward": 0.5407705114477978,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 339,
+      "epoch_reward": 0.8076018633125734,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 339,
+      "epoch_reward": 0.5791568367060623,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 340,
+      "epoch_reward": 0.811494015578375,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 340,
+      "epoch_reward": 0.6002377922619374,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 341,
+      "epoch_reward": 0.7754922440178721,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 341,
+      "epoch_reward": 0.6503936185673873,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 342,
+      "epoch_reward": 0.7249494245240636,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 342,
+      "epoch_reward": 0.6818022146361905,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 343,
+      "epoch_reward": 0.7066063304292668,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 343,
+      "epoch_reward": 0.6901379465792923,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 344,
+      "epoch_reward": 0.6702377359048648,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 344,
+      "epoch_reward": 0.6540130867522822,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 345,
+      "epoch_reward": 0.65189046531797,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 345,
+      "epoch_reward": 0.5998619499211437,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 346,
+      "epoch_reward": 0.6668243852173396,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 346,
+      "epoch_reward": 0.5786307013687744,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 347,
+      "epoch_reward": 0.7021827564205466,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 347,
+      "epoch_reward": 0.5456212843601405,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 348,
+      "epoch_reward": 0.723000198052638,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 348,
+      "epoch_reward": 0.5275083668795312,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 349,
+      "epoch_reward": 0.7767384215921597,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 349,
+      "epoch_reward": 0.542675826921695,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 350,
+      "epoch_reward": 0.808245836566976,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 350,
+      "epoch_reward": 0.5782669599122113,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 351,
+      "epoch_reward": 0.8037044877050421,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 351,
+      "epoch_reward": 0.5993163719665446,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 352,
+      "epoch_reward": 0.7680407570848413,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 352,
+      "epoch_reward": 0.6455957517468395,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 353,
+      "epoch_reward": 0.7213206842280462,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 353,
+      "epoch_reward": 0.6892288407877787,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 354,
+      "epoch_reward": 0.7029555971223919,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 354,
+      "epoch_reward": 0.6891223513879159,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 355,
+      "epoch_reward": 0.6665652255881299,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 355,
+      "epoch_reward": 0.6452762934487711,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 356,
+      "epoch_reward": 0.6481963932363477,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 356,
+      "epoch_reward": 0.5987839663618196,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 357,
+      "epoch_reward": 0.6658725213741795,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 357,
+      "epoch_reward": 0.5650254729706768,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 358,
+      "epoch_reward": 0.7015702267885028,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 358,
+      "epoch_reward": 0.5444812496607649,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 359,
+      "epoch_reward": 0.7192427239558488,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 359,
+      "epoch_reward": 0.5263374386280296,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 360,
+      "epoch_reward": 0.7691152812195314,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 360,
+      "epoch_reward": 0.5442376750633372,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 361,
+      "epoch_reward": 0.8044471569375073,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 361,
+      "epoch_reward": 0.5770345225646192,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 362,
+      "epoch_reward": 0.7998855215794795,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 362,
+      "epoch_reward": 0.5947490396274862,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 363,
+      "epoch_reward": 0.7718916245533738,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 363,
+      "epoch_reward": 0.6519921441409611,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 364,
+      "epoch_reward": 0.7174617626265034,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 364,
+      "epoch_reward": 0.6836994036821552,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 365,
+      "epoch_reward": 0.6990770103017765,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 365,
+      "epoch_reward": 0.6877680446130596,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 366,
+      "epoch_reward": 0.6599036271374079,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 366,
+      "epoch_reward": 0.6515817361138092,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 367,
+      "epoch_reward": 0.6442790914184906,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 367,
+      "epoch_reward": 0.59736933782688,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 368,
+      "epoch_reward": 0.661936167425886,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 368,
+      "epoch_reward": 0.5792010669545575,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 369,
+      "epoch_reward": 0.6944910031780543,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 369,
+      "epoch_reward": 0.5430067275735522,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 370,
+      "epoch_reward": 0.7086603637325642,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 370,
+      "epoch_reward": 0.5222497958702945,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 371,
+      "epoch_reward": 0.7689679347330448,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 371,
+      "epoch_reward": 0.5399401293781446,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 372,
+      "epoch_reward": 0.8046420264768556,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 372,
+      "epoch_reward": 0.578595038739902,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 373,
+      "epoch_reward": 0.8042677606728145,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 373,
+      "epoch_reward": 0.5931560765537848,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 374,
+      "epoch_reward": 0.7678451544586704,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 374,
+      "epoch_reward": 0.6465248805758652,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 375,
+      "epoch_reward": 0.7100933744176295,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 375,
+      "epoch_reward": 0.6862533618172328,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 376,
+      "epoch_reward": 0.694995401961489,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 376,
+      "epoch_reward": 0.6752734838256019,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 377,
+      "epoch_reward": 0.6585682892819633,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 377,
+      "epoch_reward": 0.6498722081789812,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 378,
+      "epoch_reward": 0.6401631100360389,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 378,
+      "epoch_reward": 0.5923267025528262,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 379,
+      "epoch_reward": 0.6578032828950644,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 379,
+      "epoch_reward": 0.5774339960551282,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 380,
+      "epoch_reward": 0.690341404049474,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 380,
+      "epoch_reward": 0.5384475043283136,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 381,
+      "epoch_reward": 0.7111027389984091,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 381,
+      "epoch_reward": 0.5230090289705258,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 382,
+      "epoch_reward": 0.7570955492956624,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 382,
+      "epoch_reward": 0.5380877026489805,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 383,
+      "epoch_reward": 0.7920325412003315,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 383,
+      "epoch_reward": 0.5767144166558759,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 384,
+      "epoch_reward": 0.8000531352514731,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 384,
+      "epoch_reward": 0.5879431253533713,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 385,
+      "epoch_reward": 0.759769772037798,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 385,
+      "epoch_reward": 0.6484332483797364,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 386,
+      "epoch_reward": 0.7091515720909872,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 386,
+      "epoch_reward": 0.6758780791796302,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 387,
+      "epoch_reward": 0.6813618469128531,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 387,
+      "epoch_reward": 0.6840954193942949,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 388,
+      "epoch_reward": 0.6542915102650356,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 388,
+      "epoch_reward": 0.6478526343959955,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 389,
+      "epoch_reward": 0.6358712296544856,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 389,
+      "epoch_reward": 0.5902797514199516,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 390,
+      "epoch_reward": 0.6534964728339686,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 390,
+      "epoch_reward": 0.5753598018896864,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 391,
+      "epoch_reward": 0.6860198359283909,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 391,
+      "epoch_reward": 0.5391097807095335,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 392,
+      "epoch_reward": 0.7067665783277195,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 392,
+      "epoch_reward": 0.5208807761343711,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 393,
+      "epoch_reward": 0.7565899197074651,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 393,
+      "epoch_reward": 0.5386962037232035,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 394,
+      "epoch_reward": 0.7960785407423572,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 394,
+      "epoch_reward": 0.5745326746757395,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 395,
+      "epoch_reward": 0.7914687767519003,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 395,
+      "epoch_reward": 0.5923433980421499,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 396,
+      "epoch_reward": 0.7592218540494494,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 396,
+      "epoch_reward": 0.6461985939981326,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 397,
+      "epoch_reward": 0.7014406789035028,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 397,
+      "epoch_reward": 0.6694117536414503,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 398,
+      "epoch_reward": 0.6863136408879988,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 398,
+      "epoch_reward": 0.6818084359761687,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 399,
+      "epoch_reward": 0.6498577977770359,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 399,
+      "epoch_reward": 0.6416947370194664,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 400,
+      "epoch_reward": 0.631424217163921,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 400,
+      "epoch_reward": 0.5813324953909046,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 401,
+      "epoch_reward": 0.6462727674219576,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 401,
+      "epoch_reward": 0.5729954317710909,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 402,
+      "epoch_reward": 0.6846707009140771,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 402,
+      "epoch_reward": 0.5367199128780243,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 403,
+      "epoch_reward": 0.7022805848107458,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 403,
+      "epoch_reward": 0.5184655605349482,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 404,
+      "epoch_reward": 0.7559361857645713,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 404,
+      "epoch_reward": 0.5362557908589413,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 405,
+      "epoch_reward": 0.791567309869465,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 405,
+      "epoch_reward": 0.5720672155730508,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 406,
+      "epoch_reward": 0.7827397299044435,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 406,
+      "epoch_reward": 0.5898530442163737,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 407,
+      "epoch_reward": 0.7546859711256765,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 407,
+      "epoch_reward": 0.6436834974194635,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 408,
+      "epoch_reward": 0.6968926867522035,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 408,
+      "epoch_reward": 0.6710775101224944,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 409,
+      "epoch_reward": 0.681753678719661,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 409,
+      "epoch_reward": 0.6708334394212294,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 410,
+      "epoch_reward": 0.6452860069100468,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 410,
+      "epoch_reward": 0.6352613628179595,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 411,
+      "epoch_reward": 0.6268407361592476,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 411,
+      "epoch_reward": 0.5886327589550181,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 412,
+      "epoch_reward": 0.6444412804484716,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 412,
+      "epoch_reward": 0.5703589145601955,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 413,
+      "epoch_reward": 0.6800642491983087,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 413,
+      "epoch_reward": 0.534059572424233,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 414,
+      "epoch_reward": 0.6943586015707033,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 414,
+      "epoch_reward": 0.5131982223006257,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 415,
+      "epoch_reward": 0.7474623494987648,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 415,
+      "epoch_reward": 0.5335482668065622,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 416,
+      "epoch_reward": 0.7785165676733533,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 416,
+      "epoch_reward": 0.5693363315255497,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 417,
+      "epoch_reward": 0.7822943525319296,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 417,
+      "epoch_reward": 0.5870989548996601,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 418,
+      "epoch_reward": 0.7461794616470637,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 418,
+      "epoch_reward": 0.6370613914890226,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 419,
+      "epoch_reward": 0.6889162445239743,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 419,
+      "epoch_reward": 0.6766883472712953,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 420,
+      "epoch_reward": 0.6489887856376155,
+      "owner_satellite": 2,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 420,
+      "epoch_reward": 0.668010668186694,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 421,
+      "epoch_reward": 0.510767705351141,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 421,
+      "epoch_reward": 0.6401059366885938,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 422,
+      "epoch_reward": 0.5292018896849889,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 422,
+      "epoch_reward": 0.5857649668412587,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 423,
+      "epoch_reward": 0.5625342410954289,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 423,
+      "epoch_reward": 0.5612207885792359,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 424,
+      "epoch_reward": 0.5840902336605002,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 424,
+      "epoch_reward": 0.531147383736473,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 425,
+      "epoch_reward": 0.6385677686333618,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 425,
+      "epoch_reward": 0.5128473962958122,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 426,
+      "epoch_reward": 0.6666097209282533,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 426,
+      "epoch_reward": 0.530592300602683,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 427,
+      "epoch_reward": 0.6754256808113243,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 427,
+      "epoch_reward": 0.5663587084028479,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 428,
+      "epoch_reward": 0.6359375953596197,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 428,
+      "epoch_reward": 0.5807955670872326,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 429,
+      "epoch_reward": 0.5861149529922612,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 429,
+      "epoch_reward": 0.637885883546134,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 430,
+      "epoch_reward": 0.568492847959138,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 430,
+      "epoch_reward": 0.6694412467747118,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 431,
+      "epoch_reward": 0.5300824636699911,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 431,
+      "epoch_reward": 0.6691533944714863,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 432,
+      "epoch_reward": 0.5126380809662572,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 432,
+      "epoch_reward": 0.629332413163068,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 433,
+      "epoch_reward": 0.5336423847483397,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 433,
+      "epoch_reward": 0.5826606358870362,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 434,
+      "epoch_reward": 0.5700854040653974,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 434,
+      "epoch_reward": 0.5612199075215397,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 435,
+      "epoch_reward": 0.588503713697566,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 435,
+      "epoch_reward": 0.5280020425574568,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 436,
+      "epoch_reward": 0.6429675052490321,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 436,
+      "epoch_reward": 0.5096817784187052,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 437,
+      "epoch_reward": 0.6794065569089834,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 437,
+      "epoch_reward": 0.5274065578151133,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 438,
+      "epoch_reward": 0.6713864521635603,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 438,
+      "epoch_reward": 0.5631529921005909,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 439,
+      "epoch_reward": 0.6364501098708195,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 439,
+      "epoch_reward": 0.5775700302300252,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 440,
+      "epoch_reward": 0.5871537785677412,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 440,
+      "epoch_reward": 0.6269507487228905,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 441,
+      "epoch_reward": 0.569697352554222,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 441,
+      "epoch_reward": 0.6577656563984214,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 442,
+      "epoch_reward": 0.5371599697109732,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 442,
+      "epoch_reward": 0.6700747212759885,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 443,
+      "epoch_reward": 0.5195204624948804,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 443,
+      "epoch_reward": 0.6236259995978375,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 444,
+      "epoch_reward": 0.5379263120628743,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 444,
+      "epoch_reward": 0.5793382334382327,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 445,
+      "epoch_reward": 0.5649818167871019,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 445,
+      "epoch_reward": 0.5516305305367541,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 446,
+      "epoch_reward": 0.5894526771313476,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 446,
+      "epoch_reward": 0.5246419350738855,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 447,
+      "epoch_reward": 0.6433601884452347,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 447,
+      "epoch_reward": 0.5063030392524955,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 448,
+      "epoch_reward": 0.6836285161623421,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 448,
+      "epoch_reward": 0.524009333437994,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 449,
+      "epoch_reward": 0.6840034792506519,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 449,
+      "epoch_reward": 0.559737428401941,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 450,
+      "epoch_reward": 0.6483300909744557,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 450,
+      "epoch_reward": 0.5774405326424364,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 451,
+      "epoch_reward": 0.5946317365682119,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 451,
+      "epoch_reward": 0.6196539851281793,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 452,
+      "epoch_reward": 0.5769786055745936,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 452,
+      "epoch_reward": 0.6627068055388686,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 453,
+      "epoch_reward": 0.5385368489400687,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 453,
+      "epoch_reward": 0.6581763911481552,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 454,
+      "epoch_reward": 0.5236441293703924,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 454,
+      "epoch_reward": 0.6302139185989643,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 455,
+      "epoch_reward": 0.5420329560348738,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 455,
+      "epoch_reward": 0.5758156631119453,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 456,
+      "epoch_reward": 0.5784435343751746,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 456,
+      "epoch_reward": 0.551214652988495,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 457,
+      "epoch_reward": 0.5968290423109515,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 457,
+      "epoch_reward": 0.521084834379325,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 458,
+      "epoch_reward": 0.6512596687226205,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 458,
+      "epoch_reward": 0.5027288838003361,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 459,
+      "epoch_reward": 0.6750487000230849,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 459,
+      "epoch_reward": 0.5204182625739453,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 460,
+      "epoch_reward": 0.6880221833009516,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 460,
+      "epoch_reward": 0.5530055579841988,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 461,
+      "epoch_reward": 0.6407955494043326,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 461,
+      "epoch_reward": 0.573816046115651,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 462,
+      "epoch_reward": 0.5986139229843281,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 462,
+      "epoch_reward": 0.627547877422108,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 463,
+      "epoch_reward": 0.5809422409380784,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 463,
+      "epoch_reward": 0.0354212329505314,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 464,
+      "epoch_reward": 0.5424817389242519,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 464,
+      "epoch_reward": 0.4981197239202861,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 465,
+      "epoch_reward": 0.5275700725771388,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 465,
+      "epoch_reward": 0.6226792826678855,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 466,
+      "epoch_reward": 0.5459397559936675,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 466,
+      "epoch_reward": 0.5655015128566644,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 467,
+      "epoch_reward": 0.5792069009157867,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 467,
+      "epoch_reward": 0.5537412341373943,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 468,
+      "epoch_reward": 0.6006969563081315,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 468,
+      "epoch_reward": 0.5145841204869904,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 469,
+      "epoch_reward": 0.6512628116082753,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 1,
+      "epoch": 469,
+      "epoch_reward": 0.4963928413185122,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 470,
+      "epoch_reward": 0.6872879171781527,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 470,
+      "epoch_reward": 0.5166501076925928,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 0,
+      "epoch": 471,
+      "epoch_reward": 0.6876247612391033,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 471,
+      "epoch_reward": 0.5460980817228457,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 0,
+      "epoch": 472,
+      "epoch_reward": 0.6522733248837069,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 472,
+      "epoch_reward": 0.5667131622909447,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 473,
+      "epoch_reward": 0.6023810812283901,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 473,
+      "epoch_reward": 0.6198892480448304,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 474,
+      "epoch_reward": 0.5846886341290761,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 474,
+      "epoch_reward": 0.6552208668355485,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 475,
+      "epoch_reward": 0.5489707838184071,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 10,
+      "cohort_id": 1,
+      "epoch": 475,
+      "epoch_reward": 0.09208318445943686,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 1,
+      "cohort_id": 0,
+      "epoch": 476,
+      "epoch_reward": 0.5312743156086812,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 8,
+      "cohort_id": 1,
+      "epoch": 476,
+      "epoch_reward": 0.6188212440976025,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 0,
+      "epoch": 477,
+      "epoch_reward": 0.5496226125583275,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 1,
+      "epoch": 477,
+      "epoch_reward": 0.5682374471792861,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 0,
+      "epoch": 478,
+      "epoch_reward": 0.5859922532629509,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 4,
+      "cohort_id": 1,
+      "epoch": 478,
+      "epoch_reward": 0.5498542435739021,
+      "owner_satellite": 5,
+      "sample_count": 100
+    },
+    {
+      "action": 5,
+      "cohort_id": 0,
+      "epoch": 479,
+      "epoch_reward": 0.6043364140725409,
+      "owner_satellite": 1,
+      "sample_count": 100
+    },
+    {
+      "action": 2,
+      "cohort_id": 1,
+      "epoch": 479,
+      "epoch_reward": 0.507919289756303,
+      "owner_satellite": 5,
+      "sample_count": 100
+    }
+  ],
+  "bandwidth_hz": 50000000.0,
+  "capacity_goodput_bps": 19613689.603332613,
+  "channel_seed": 0,
+  "channel_trace_hash": "eadc7857ec4205e0a425e9ba4f5ddfa549c432764a0fd1de9842bfaac742290d",
+  "conditional_group_success_ratio": 0.9809087348217783,
+  "conditional_packet_success_ratio": 0.9876875,
+  "config_id": "8084b4b278a373d9",
+  "coverage_outage_receiver_slots": 0,
+  "device_layout_hash": "feff6400a01f2801dc8921a50685b08db705103727bfa0cf82b4d91c1a3366bf",
+  "duration_simulated_s": 480.0,
+  "edge_group_count": 1073,
+  "eligible_device_service_count": 240,
+  "environment_trace_hash": "282f9becd3805680e4c448f7eedd8aaa728c36dd99413bc596f591f4f01b9372",
+  "evaluated_duration_min": 8.0,
+  "evaluated_duration_s": 480.0,
+  "events_per_device_per_min": 59.875,
+  "fixed_action": null,
+  "goodput_under_deadlines_status": "NOT_EVALUATED_DEADLINE_RANGE_UNSPECIFIED",
+  "grouping_membership_changes": 2874,
+  "handover_count": 3,
+  "infeasible_power_handling": "transmission_failure",
+  "invalid_power_or_sic_count": 0,
+  "layout_hash": "feff6400a01f2801dc8921a50685b08db705103727bfa0cf82b4d91c1a3366bf",
+  "max_scheduled_groups": 60,
+  "max_transmitted_power_normalized": 1.0000000000000002,
+  "mean_interference_power": 1.5749214874134534e-18,
+  "mean_scheduled_R_bps_hz": 0.012509019114077091,
+  "mean_scheduled_groups": 31.9125,
+  "mean_transmitted_power_normalized": 0.99359375,
+  "min_scheduled_groups": 6,
+  "nonpositive_priority_rejected_group_count": 0,
+  "normalized_satellite_power": 1.0,
+  "p05_scheduled_R_bps_hz": 0.001216823817230761,
+  "p50_scheduled_R_bps_hz": 0.009169239550828934,
+  "p95_interference_power": 2.3605741176987157e-18,
+  "p95_scheduled_R_bps_hz": 0.03427377715706825,
+  "packet_success_ratio": 0.9876875,
+  "peak_traced_memory_mib": 45.661277770996094,
+  "phi_theta_deg": 20.0,
+  "policy": "mira_sw_ucb",
+  "policy_seed": 0,
+  "post_schedule_power_drop_count": 0,
+  "power_allocator": "twc_aim_staircase",
+  "power_failure_device_opportunities": 73800,
+  "power_failure_scheduled_groups": 17952,
+  "power_infeasible_cohort_slots": 615,
+  "power_outage_slots": 615,
+  "power_rejected_group_count": 0,
+  "rate_threshold_failure_count": 568,
+  "regrouping_events_total": 114960,
+  "regrouping_interval_s": 1.0,
+  "regrouping_interval_slots": 100,
+  "regrouping_runtime_s": 154.3442560870899,
+  "reward_bounds_identity": "716a1a0690420569a4822c9627855dc855b146dcbfbc8a40cc63cbd46ac50def",
+  "reward_clipping_rate_max": 0.02143884892086331,
+  "route_unreachable_slots": 0,
+  "runtime_s": 1880.4942458999576,
+  "schedule_capacity_continuous": 62.74752959602454,
+  "schedule_capacity_integer": 62,
+  "schedule_capacity_paper_approximation": 63,
+  "scheduled_group_count": 1531800,
+  "scheduler_algorithm": "Algorithm2_strict",
+  "scheduler_cap_rejected_group_count": 0,
+  "scheduler_runtime_s": 161.81023267935961,
+  "schema_version": 4,
+  "scs_hz": 60000.0,
+  "sic_failure_count": 11292,
+  "sic_projection_count": 662,
+  "slots_completed": 48000,
+  "spectral_efficiency_threshold_bps_hz": 1e-05,
+  "status": "REWARD_RANGE_MISMATCH",
+  "subscription_hash": "9383b9554ba7946c473328573e7b8bdfdc7cf8b08e0bb244e677e79a4d775cb8",
+  "successful_group_count": 1502556,
+  "sw_ucb_window_epochs": 10,
+  "tau_s": 10.0,
+  "total_regrouping_events": 114960,
+  "trajectory_hash": "18c2e32e3d406fd503060d2b5dd8f993a71535a20510dca900f05075b2354d26",
+  "transmitted_group_count": 1513848,
+  "violation_counts": {},
+  "weighted_mean_aoi_after_warmup_ms": 1470.4497491675327,
+  "weighted_mean_aoi_ms": 18.397637215873498,
+  "weighted_mean_aoi_per_weight_unit_after_warmup_ms": 18.38062186459416,
+  "weighted_sum_aoi_p50_ms": 1356.2075925055897,
+  "weighted_sum_aoi_p95_ms": 1578.4651080428466,
+  "weighted_sum_aoi_p99_ms": 2573.5506391650633
+}

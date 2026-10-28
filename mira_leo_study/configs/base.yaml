@@ -1,0 +1,172 @@
+{
+  "experiment": {
+    "name": "mira_leo_phi20_B005_rg1s_compact_power_outage",
+    "duration_s": 480.0,
+    "epoch_utc": "2023-04-19T11:56:35Z",
+    "geometry_export_dt_s": 1.0,
+    "slot_dt_s": 0.01,
+    "warmup_report_s": 10.0
+  },
+  "radio": {
+    "scs_hz": 60000.0
+  },
+  "geometry": {
+    "earth_model": "sphere",
+    "earth_radius_km": 6371.0,
+    "mu_km3_s2": 398600.4418,
+    "earth_rotation_rad_s": 7.292115e-05,
+    "light_speed_km_s": 299792.458,
+    "center_raw_ecef_km": [
+      -3023.722874,
+      4928.116736,
+      2683.88077
+    ],
+    "center_handling": "radial_projection_to_sphere",
+    "projection": "spherical_aeqd",
+    "region_half_width_km": 500.0,
+    "grid_spacing_km": 20.0,
+    "terrain": false,
+    "phi_min_deg": 10.0
+  },
+  "constellation": {
+    "type": "walker_derived_subset",
+    "actual_satellite_count": 8,
+    "template_total_slots": 648,
+    "template_planes": 36,
+    "template_phasing": 18,
+    "altitude_km": 800.0,
+    "eccentricity": 0.0,
+    "inclination_deg": 50.0,
+    "omega_convention_deg": 0.0,
+    "plane_raan_difference_deg": 10.0,
+    "plane1_phase_offsets_deg": [
+      -40,
+      -20,
+      0,
+      20,
+      40
+    ],
+    "plane2_phase_offsets_deg": [
+      -10,
+      10,
+      30
+    ],
+    "reference_satellite": "sat_03",
+    "center_overflight_s": 240.0
+  },
+  "devices": {
+    "unique_count": 300,
+    "stationary": true,
+    "layout_seed": 42,
+    "subscription_seed": 1042,
+    "distribution": "iid_uniform_in_projected_square"
+  },
+  "services": {
+    "cohort_count": 2,
+    "messages_per_active_satellite": 3,
+    "subscribers_per_message": 40,
+    "weights": [
+      0.7,
+      0.2,
+      0.1
+    ],
+    "bandwidth_hz": 50000000.0,
+    "generation": "generate_at_will",
+    "initial_age_slots": 1.0,
+    "delta_c_slots": 1.0,
+    "queue_delay_s": 0.0
+  },
+  "association": {
+    "mode": "distinct_satellites_for_fixed_cohorts",
+    "objective": "sum_of_cohort_minimum_elevations",
+    "hysteresis_score_deg": 1.0,
+    "time_to_trigger_s": 1.0,
+    "initial_acquisition_is_handover": false
+  },
+  "channel": {
+    "carrier_hz": 20000000000.0,
+    "shadowed_rician": {
+      "b0": 0.126,
+      "Omega": 0.835,
+      "m": 10.1
+    },
+    "sr_mean_normalization": false,
+    "fading_model": "iid_per_link_per_slot",
+    "noise_model": "normalized_reference_snr",
+    "reference_snr_db": 10.0,
+    "reference_bandwidth_hz": 50000000.0,
+    "external_interference": "expected_cross_link_power",
+    "normalized_satellite_power": 1.0
+  },
+  "delay": {
+    "handover_s": 0.025,
+    "handover_mode": "paper_additive",
+    "isl_mode": "fixed_per_hop",
+    "fixed_isl_per_hop_s": 0.005,
+    "ingress_satellite": "sat_03",
+    "isl_max_link_distance_km": 4000.0,
+    "isl_route_update_s": 1.0
+  },
+  "algorithm": {
+    "phi_theta_deg": 20.0,
+    "action_set_name": "compact",
+    "action_set": [
+      1,
+      2,
+      4,
+      5,
+      8,
+      10
+    ],
+    "V_c": 0.7,
+    "V_nc": 0.3,
+    "V_phi": 0.0005,
+    "R_theta": 1e-05,
+    "B_penalty": 0.05,
+    "power_mode": "twc_aim_staircase",
+    "sw_ucb_xi": 0.7071067811865476,
+    "sw_ucb_window_s": 10.0,
+    "reward_time_convention": "post_update",
+    "reward_normalization": "pilot_fixed_clip",
+    "reward_bounds": {
+      "lower": null,
+      "upper": null,
+      "identity": null
+    },
+    "regrouping_interval_s": 1.0,
+    "infeasible_power_handling": "transmission_failure"
+  },
+  "randomness": {
+    "fixed_channel_seed": 0,
+    "policy_seed": 0
+  },
+  "execution": {
+    "max_parallel_workers": 4,
+    "memory_budget_mib_per_worker": 512,
+    "slot_chunk_size": 1000,
+    "save_full_slot_trace": true,
+    "save_all_channel_samples": false,
+    "save_per_group_trace": "finalists_only"
+  },
+  "formal_results": {
+    "fixed_action": 4,
+    "regrouping_overhead_tau_s": [
+      10.0
+    ],
+    "reward_pilot_windows_s": [
+      [
+        0.0,
+        30.0
+      ],
+      [
+        225.0,
+        255.0
+      ],
+      [
+        450.0,
+        480.0
+      ]
+    ],
+    "reward_pilot_snapshot_interval_s": 1.0
+  }
+}

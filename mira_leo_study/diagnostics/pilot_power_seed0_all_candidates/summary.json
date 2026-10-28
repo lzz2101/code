@@ -1,0 +1,40 @@
+{
+  "actions": [
+    1,
+    2,
+    4,
+    5,
+    8,
+    10
+  ],
+  "association": "Recomputed at every physical slot using current config and hysteresis/TTT.",
+  "caveat": "Actual Algorithm-2 schedules can omit nonpositive-priority nonedge groups; these totals are structural full-candidate power checks, not full simulator failure frequencies.",
+  "cohorts": 2,
+  "elapsed_s": 82.35186189995147,
+  "infeasible_by_action": {
+    "8": 1,
+    "10": 7
+  },
+  "infeasible_by_cohort": {
+    "1": 8
+  },
+  "infeasible_distinct_time_cohort_count": 7,
+  "infeasible_distinct_times_s": [
+    462.0,
+    463.0,
+    465.0,
+    470.0,
+    473.0,
+    475.0,
+    478.0
+  ],
+  "lp_infeasible_count": 8,
+  "no_aoi_recursion_or_bandit_or_reward_pilot_executed": true,
+  "not_an_actual_policy_failure_count": true,
+  "other_invalid_count": 0,
+  "scope": "Power-only diagnostic over the fixed pilot snapshot grid; every candidate is marked scheduled.",
+  "seed": 0,
+  "snapshot_count": 90,
+  "total_power_configurations": 1080,
+  "valid_count": 1072
+}
