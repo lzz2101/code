@@ -28,10 +28,10 @@ class ChannelTimeTests(unittest.TestCase):
         self.assertLess(abs(float(np.mean(powers)) - expected), 5.0 * standard_error)
 
     def test_channel_is_policy_independent_for_same_index(self):
-        left = shadowed_rician_samples(7, 101, (8, 300), 0.126, 0.835, 10.1)
-        right = shadowed_rician_samples(7, 101, (8, 300), 0.126, 0.835, 10.1)
+        left = shadowed_rician_samples(7, 101, (8, 120), 0.126, 0.835, 10.1)
+        right = shadowed_rician_samples(7, 101, (8, 120), 0.126, 0.835, 10.1)
         np.testing.assert_array_equal(left, right)
-        different = shadowed_rician_samples(7, 102, (8, 300), 0.126, 0.835, 10.1)
+        different = shadowed_rician_samples(7, 102, (8, 120), 0.126, 0.835, 10.1)
         self.assertFalse(np.array_equal(left, different))
 
     def test_reference_noise_rate_and_time_units(self):

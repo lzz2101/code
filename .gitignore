@@ -23,3 +23,12 @@ checkpoint.pkl
 # Operating-system metadata
 Thumbs.db
 .DS_Store
+
+# Generated research outputs and local verification workspaces
+outputs/
+results/
+diagnostics/
+.verification*/
+.p1_*/
+.github_push_*/
+backups/

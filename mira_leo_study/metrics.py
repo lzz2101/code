@@ -57,7 +57,7 @@ class AssignmentTracker:
                 device = int(device)
                 if not visible[group.satellite_index, device]:
                     continue
-                key = (device, group.cohort_id, group.message_id)
+                key = (device, group.message_id)
                 assignment = (group.satellite_index, identity)
                 prior = self.previous.get(key)
                 if prior is None:

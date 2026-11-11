@@ -19,11 +19,9 @@ class DeviceTable:
 
 @dataclass(frozen=True)
 class SubscriptionTable:
-    cohort_by_device: np.ndarray
     message_by_device: np.ndarray
     active_device_ids: np.ndarray
-    cohort_members: tuple[np.ndarray, ...]
-    message_members: dict[tuple[int, int], np.ndarray]
+    message_members: dict[int, np.ndarray]
     subscription_hash: str
 
 
@@ -38,7 +36,6 @@ class SatelliteElement:
 @dataclass
 class Group:
     satellite_index: int
-    cohort_id: int
     message_id: int
     group_id: int
     member_indices: np.ndarray
@@ -57,8 +54,8 @@ class Group:
     metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
-    def key(self) -> tuple[int, int, int]:
-        return self.cohort_id, self.message_id, self.group_id
+    def key(self) -> tuple[int, int]:
+        return self.message_id, self.group_id
 
 
 @dataclass(frozen=True)
@@ -75,10 +72,10 @@ class GroupPartitionEntry:
 
 @dataclass(frozen=True)
 class AssociationDecision:
-    serving_satellites: tuple[int, ...]
-    handover: tuple[bool, ...]
-    initial_acquisition: tuple[bool, ...]
-    outage_receivers: tuple[int, ...]
+    serving_satellite: int
+    handover: bool
+    initial_acquisition: bool
+    outage_receivers: int
     fallback_used: bool
     score_deg: float
     reason: str

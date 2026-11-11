@@ -1,3 +1,5 @@
+> 歷史紀錄：以下內容屬於 120-UE single-serving 重構前的版本，不能作為新模型的結果或目前 API 規格。最新狀態見 [MODIFICATION_REPORT_120UE_SINGLE_SERVING.md](MODIFICATION_REPORT_120UE_SINGLE_SERVING.md)。
+
 # 現行設定：20 度 + 功率無解視為更新失敗
 
 依使用者最新要求，正式 phi_theta_deg 已從 30.0 改回 20.0，infeasible_power_handling 保持 transmission_failure。

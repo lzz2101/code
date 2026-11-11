@@ -1,3 +1,5 @@
+> 歷史紀錄：以下內容屬於 120-UE single-serving 重構前的版本，不能作為新模型的結果或目前 API 規格。最新狀態見 [MODIFICATION_REPORT_120UE_SINGLE_SERVING.md](MODIFICATION_REPORT_120UE_SINGLE_SERVING.md)。
+
 > 歷史版本報告：本檔描述上一版 per-slot / power-feasible-admission 實作。現行版本請見 REGROUPING_1S_COMPACT_MODIFICATION_REPORT.md；以下內容不代表目前正式設定。
 
 # 修改交付報告

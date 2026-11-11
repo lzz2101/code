@@ -1,0 +1,365 @@
+{
+  "source": "Current mira_leo_study source, tests, configuration and documentation",
+  "repository": "https://github.com/lzz2101/code",
+  "file_count": 69,
+  "files": [
+    {
+      "path": "mira_leo_study/__init__.py",
+      "bytes": 180,
+      "sha256": "087f5ee8b5b6399142b4ce2be58fa7358d11942ef908ee37e69b7019ec46427b"
+    },
+    {
+      "path": "mira_leo_study/__main__.py",
+      "bytes": 7707,
+      "sha256": "e54c99b8074e3c6af556d7b1e297da95a2d2b3fda7212eb9eab0320943c8c380"
+    },
+    {
+      "path": "mira_leo_study/algorithms.py",
+      "bytes": 26890,
+      "sha256": "0f522f03b8d764b1885b0482801cc429ca1bee94b13912f882edf933b7248308"
+    },
+    {
+      "path": "mira_leo_study/analysis.py",
+      "bytes": 8267,
+      "sha256": "a37f865a4e919fdd1d6a3196f76a67688da50f00d47601415ea140328d429e57"
+    },
+    {
+      "path": "mira_leo_study/association.py",
+      "bytes": 4763,
+      "sha256": "edd644468b5304106dbe5688b00bb4aee6550856eb0bb8a23e6200b946a97eb6"
+    },
+    {
+      "path": "mira_leo_study/calibration.py",
+      "bytes": 23689,
+      "sha256": "f96c38be8b863c5972874fe15c1f837781daa884a848b81ea173b48bcf8bd2ab"
+    },
+    {
+      "path": "mira_leo_study/channel.py",
+      "bytes": 4771,
+      "sha256": "155ff7d911b72d0b1e6f1a178f5882ff3c807e9b66f4319a0659f6958e962054"
+    },
+    {
+      "path": "mira_leo_study/config.py",
+      "bytes": 22721,
+      "sha256": "b11f84df8f03abde1574ac00f2fc1502ef1198dbaef1223bec4a542f0e47211f"
+    },
+    {
+      "path": "mira_leo_study/configs/base.yaml",
+      "bytes": 4516,
+      "sha256": "7e479332d3b92ffb3523fcbb8d6b8bbfbc47eecadf43f4254843a034987496fd"
+    },
+    {
+      "path": "mira_leo_study/configs/p1_source_provenance.yaml",
+      "bytes": 6733,
+      "sha256": "681387e369224dc12c5a287abeae910b1f32a4f162f807b17e3f7185499651e8"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_no_interference.py",
+      "bytes": 31273,
+      "sha256": "d1332fa9f6134243fcc27fd37b6db495e1798e5f74c073694543e7ba38743a51"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_serving_satellite.py",
+      "bytes": 20442,
+      "sha256": "010772ef342c644c749b0b9af72c23344fa5ec014edad5d85fe9aa86fb64d51a"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_with_interference.py",
+      "bytes": 715,
+      "sha256": "1d9fae40f53c06b40b9badc955ce3580b084e5c255b18523c7840305a7b98dbb"
+    },
+    {
+      "path": "mira_leo_study/DIAGNOSTIC_MODIFICATION_REPORT.md",
+      "bytes": 10155,
+      "sha256": "29a7f147f872b1944bd60f2de211ceca7f8c41a67e5d8bb8f950e09382dd37be"
+    },
+    {
+      "path": "mira_leo_study/diagnostic_plots.py",
+      "bytes": 21907,
+      "sha256": "f327a1802e42d3977edaefb294d628cc870eb1f0c96d7328869d4dbc116f6c6e"
+    },
+    {
+      "path": "mira_leo_study/diagnostic_trace.py",
+      "bytes": 13647,
+      "sha256": "958815c2ab1d33938a46e04cbf3737f5f90201e763b45754e20534b6bc4661fb"
+    },
+    {
+      "path": "mira_leo_study/diagnostics.py",
+      "bytes": 31497,
+      "sha256": "45699ab5dd543c9fdabbea2f3968d38a461ca97ae902519a8cfe52a2c54de2eb"
+    },
+    {
+      "path": "mira_leo_study/errors.py",
+      "bytes": 706,
+      "sha256": "c6e7f15f0b2daa71cf17406c12e647ec8dad6a2c0997d030f76428b5261639d5"
+    },
+    {
+      "path": "mira_leo_study/geo_edge.py",
+      "bytes": 14215,
+      "sha256": "ace519a1ef9e116588b803881e910c6ff97a8591128a2ce94d0aa85e5d9363c4"
+    },
+    {
+      "path": "mira_leo_study/geometry.py",
+      "bytes": 5877,
+      "sha256": "9586016f2a49f2c22efda1c8d204b9f0cdbcd71cce976fd1d5dd259d65535ebe"
+    },
+    {
+      "path": "mira_leo_study/geometry_export.py",
+      "bytes": 7900,
+      "sha256": "c8fe96d93bdeeab049fb1877bb72175dc741d87bf2ffd427075c10c5199ad6bb"
+    },
+    {
+      "path": "mira_leo_study/IMPLEMENTATION_STATUS.md",
+      "bytes": 2733,
+      "sha256": "437619c943795b73a9525dcf293f381e455ba9c965e1a0a41b7daf3184fce217"
+    },
+    {
+      "path": "mira_leo_study/isl.py",
+      "bytes": 3351,
+      "sha256": "31d448d5293a1ae2490e475497562899fef455375daab7e86ca09a1e51191cf9"
+    },
+    {
+      "path": "mira_leo_study/metrics.py",
+      "bytes": 2925,
+      "sha256": "c3acb427a852441a25dad7b17bc4a1028c38c6bc2089424a6861c669339fb005"
+    },
+    {
+      "path": "mira_leo_study/models.py",
+      "bytes": 1929,
+      "sha256": "88fc68997ff45cb91b17824e92e29d706177a9325a40c96bff676d7327f08699"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT.md",
+      "bytes": 9245,
+      "sha256": "785db0bcfecaf238098f165a8911513266bc695ddb1b4b8d960455769a799a9d"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT_120UE_SINGLE_SERVING.md",
+      "bytes": 10643,
+      "sha256": "d380d7c72d0107445fde88e47d1f29436f1722d3deba5e3084323de7a307fba8"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT_P1_ABLATION.md",
+      "bytes": 6905,
+      "sha256": "9f1f17fcb7c475e7652926369eab1f39000409aea06598095b5436360d62040e"
+    },
+    {
+      "path": "mira_leo_study/orbit.py",
+      "bytes": 4352,
+      "sha256": "f920bb44c49c8134c81148865916a88e0d4a384adfca0eabb4f3ce751ae872a6"
+    },
+    {
+      "path": "mira_leo_study/orbit_visualization.py",
+      "bytes": 17154,
+      "sha256": "9a1369a6c9df7bcf330fd7da74f9ccb782ce5f006b1c5621b0c7c87a0e80bb91"
+    },
+    {
+      "path": "mira_leo_study/p1_ablation.py",
+      "bytes": 26181,
+      "sha256": "1a632ff87306f418ba44415c720ed4467547590f8a95c263f0b02178b683e208"
+    },
+    {
+      "path": "mira_leo_study/p1_metrics.py",
+      "bytes": 1656,
+      "sha256": "70d637e088e164af2dfc1a6bc0a0db31dcea1be22e4a9e759b5505bf6958f942"
+    },
+    {
+      "path": "mira_leo_study/paper_results.py",
+      "bytes": 25894,
+      "sha256": "00109a8be2e3777e4274b08b4aaa7729a1e6b8078e717c52a9467c9d261ca697"
+    },
+    {
+      "path": "mira_leo_study/PATH_MIGRATION_CHECK_REPORT.md",
+      "bytes": 3178,
+      "sha256": "1956ea45a9aa4537140c3e80c6e032b9646d1cfc49a3b35fb3fe5380301ff683"
+    },
+    {
+      "path": "mira_leo_study/PHI20_POWER_OUTAGE_MODIFICATION_REPORT.md",
+      "bytes": 2831,
+      "sha256": "fdee732c6090df669f4a7bfe2b6024f865c4dea236d201d50894777a19637959"
+    },
+    {
+      "path": "mira_leo_study/PHI30_POWER_OUTAGE_MODIFICATION_REPORT.md",
+      "bytes": 8570,
+      "sha256": "19b3d2a100fdc789ec2a7fa0e24a3ae4ce9c5e71662705518b03761403fb9bb1"
+    },
+    {
+      "path": "mira_leo_study/phi_study.py",
+      "bytes": 22571,
+      "sha256": "d98984e8ecfc3ed8d1498be0f3db622d68e2234bde1f27c14c8665e0f2b01bb2"
+    },
+    {
+      "path": "mira_leo_study/plotting.py",
+      "bytes": 15127,
+      "sha256": "f075124dfb3d5874485669ec0dbaed511f94fe135a0cd998f0309265f1a0c8da"
+    },
+    {
+      "path": "mira_leo_study/power_diagnostics.py",
+      "bytes": 6429,
+      "sha256": "6e4b92f142e0f0e8841c34cdba860daa85ed4bff4c493f56b6aa8f6cbd6d8e80"
+    },
+    {
+      "path": "mira_leo_study/protected_power.py",
+      "bytes": 10909,
+      "sha256": "0b1e2067af30936493d79e495d432b395a759cbef895e5fc18ddaef3c566df8d"
+    },
+    {
+      "path": "mira_leo_study/pyproject.toml",
+      "bytes": 505,
+      "sha256": "7b909b589e3c818af6de89cc913679d01fceee83e5c49c820870a013403fac4a"
+    },
+    {
+      "path": "mira_leo_study/README.md",
+      "bytes": 9785,
+      "sha256": "f5b3254fb5c58cb337f856a66d772d100b1c1715a6bddcb58ec6c222d9f7a25f"
+    },
+    {
+      "path": "mira_leo_study/regrouping.py",
+      "bytes": 4494,
+      "sha256": "c0973712b526b5669ea352aa868438feb838fa1c7549052a8877d4fe1190d941"
+    },
+    {
+      "path": "mira_leo_study/REGROUPING_1S_COMPACT_MODIFICATION_REPORT.md",
+      "bytes": 15644,
+      "sha256": "9fc24f09ab51d2df7ef1d4d148d45bd45653d6175822d0c4fa819445e159ce7d"
+    },
+    {
+      "path": "mira_leo_study/requirements.txt",
+      "bytes": 62,
+      "sha256": "baf15fa2d9598f82c6f7da5391ffe492f4ddf3ac3867d1539cc48e4af46c58a0"
+    },
+    {
+      "path": "mira_leo_study/reward_pilot.py",
+      "bytes": 10711,
+      "sha256": "14d3fbf630951e80f0e7928a9001bd5a4f9b4b409c213458290cef7acdc8350d"
+    },
+    {
+      "path": "mira_leo_study/scenario.py",
+      "bytes": 2012,
+      "sha256": "66032a5a0f78b652f2cb7a3c09cd70bb46ccef86a86eb3705ad7852eba685273"
+    },
+    {
+      "path": "mira_leo_study/SERVING_CSI_DIAGNOSTIC_REPORT.md",
+      "bytes": 4059,
+      "sha256": "5c533e37908b0b95083f2b8b65c9e4a4ca1b9c8ece135292a347960e4f1e6966"
+    },
+    {
+      "path": "mira_leo_study/simulation.py",
+      "bytes": 63827,
+      "sha256": "eb0647193309082baea5a0f952e0157ec9dd743b4e2390b541142afcec4a6cda"
+    },
+    {
+      "path": "mira_leo_study/sources.py",
+      "bytes": 4640,
+      "sha256": "a79efcc037788afbacdb0b7122f3308c987af8a103a8db5347fa7c9c85942e46"
+    },
+    {
+      "path": "mira_leo_study/storage.py",
+      "bytes": 6169,
+      "sha256": "4b061d3216c2412b885c1fc107b0f0723fb97a8a5ee7c7f10ded8a85d819f177"
+    },
+    {
+      "path": "mira_leo_study/study.py",
+      "bytes": 14315,
+      "sha256": "70466d5cd9328a7704d0c841b4abf4b509b9f6b067f249936bf1fea6d92f2692"
+    },
+    {
+      "path": "mira_leo_study/tests/__init__.py",
+      "bytes": 329,
+      "sha256": "8b0014fb205df9a3b925c409316bd0b835c8afa8b9d2663691105d9ef2fe702f"
+    },
+    {
+      "path": "mira_leo_study/tests/test_algorithms.py",
+      "bytes": 9213,
+      "sha256": "82b98e44aba4e9501f57ca4ccf0cc3e99c0eff1e7718aa2dfc91bb859801d49a"
+    },
+    {
+      "path": "mira_leo_study/tests/test_association.py",
+      "bytes": 1477,
+      "sha256": "4f6befb334d0e3152467f4239e4f72c04bf21e1416732ff967dac1f6329e2438"
+    },
+    {
+      "path": "mira_leo_study/tests/test_channel_time.py",
+      "bytes": 2760,
+      "sha256": "648c2dc4c965bd5ea8512f45da1788ca4a2f035bb7d1274c4504b71a612c01ed"
+    },
+    {
+      "path": "mira_leo_study/tests/test_diagnostics.py",
+      "bytes": 19539,
+      "sha256": "a2022bca40b4e654e35874cd58b79b7d0c4db99ffc2d931e29b95d8b99a1676e"
+    },
+    {
+      "path": "mira_leo_study/tests/test_fixed_results.py",
+      "bytes": 19318,
+      "sha256": "07fef5fbf46bfd8a6ce291c7d9aa9146bd0656d7f8dad811f3eaf6b32270f7d3"
+    },
+    {
+      "path": "mira_leo_study/tests/test_geometry_orbit.py",
+      "bytes": 4867,
+      "sha256": "569866357fa7551dc268aa4fb7e25496f3da331da85036e21754a5881d78f42e"
+    },
+    {
+      "path": "mira_leo_study/tests/test_new_power_pools.py",
+      "bytes": 14875,
+      "sha256": "5dafcb92aa9b6644d7101cbb09d21aacb391f7b8273b46e51d34594e7e7bc9bd"
+    },
+    {
+      "path": "mira_leo_study/tests/test_orbit_visualization.py",
+      "bytes": 1260,
+      "sha256": "2080132586086edb1649f8a18ad585e6ded76f89c9df876a445f14af2ae54750"
+    },
+    {
+      "path": "mira_leo_study/tests/test_p1_ablation.py",
+      "bytes": 10761,
+      "sha256": "fedbea39a9511806cb8edb1554ad334c0fa34ecbe1fb20dc1a8e9a61b6bbf2f7"
+    },
+    {
+      "path": "mira_leo_study/tests/test_phi_study.py",
+      "bytes": 13201,
+      "sha256": "08fe498da24d68bd1421c1e291c417c67862273f47c17153db86e364cb10e98d"
+    },
+    {
+      "path": "mira_leo_study/tests/test_power_outage.py",
+      "bytes": 9602,
+      "sha256": "99013797288f10728c7ea9f489f03cb879bc566ff1d95d0ed3738a2ab1d640f5"
+    },
+    {
+      "path": "mira_leo_study/tests/test_protocol_and_simulation.py",
+      "bytes": 4351,
+      "sha256": "ff00675d7d0fbf9ab3cdb4c55a8ff3ed2c0219975e2fe9e1734974c55ecf3a89"
+    },
+    {
+      "path": "mira_leo_study/tests/test_regrouping_strict.py",
+      "bytes": 21397,
+      "sha256": "cca612e4b8ad8819b5b1e92e9524cb1c42384d0ec5d8ad82945a250db6068fee"
+    },
+    {
+      "path": "mira_leo_study/tests/test_reward_bounds_io.py",
+      "bytes": 4897,
+      "sha256": "6e0cd261503c5d6e6a476b3893731b76daa69a7e51528fcadf23edf5361920b6"
+    },
+    {
+      "path": "mira_leo_study/tests/test_serving_csi_diagnostic.py",
+      "bytes": 10888,
+      "sha256": "b66a5b09e2f46842f7abf741631687895f843f4005f19602c3668eff9d1bc8cc"
+    },
+    {
+      "path": "mira_leo_study/tests/test_single_serving_interference.py",
+      "bytes": 15561,
+      "sha256": "c25f34b04bc8e3267e7c2a73d6b1059e73e6a1876671915bbffe1d7b94bde95a"
+    }
+  ],
+  "excludes": [
+    "simulation outputs",
+    "diagnostic datasets",
+    "virtual environments",
+    "caches",
+    "local backups"
+  ],
+  "validation": {
+    "total_tests": 161,
+    "passed_tests": 155,
+    "opt_in_simulation_tests_disabled": 6,
+    "simulations_executed_for_publication": 0
+  }
+}

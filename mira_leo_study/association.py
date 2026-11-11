@@ -1,41 +1,39 @@
 from __future__ import annotations
 
-import itertools
-
 import numpy as np
 
 from .models import AssociationDecision, SubscriptionTable
 
 
 class AssociationTracker:
-    """Deterministic two-cohort injective association with hysteresis and TTT."""
+    """One serving LEO for the entire population, with coverage-first fallback."""
 
     def __init__(self, config, subscriptions: SubscriptionTable):
         self.phi_min = float(config.get("geometry.phi_min_deg"))
         self.hysteresis = float(config.get("association.hysteresis_score_deg"))
         self.ttt_slots = int(config.get("derived.handover_ttt_slots"))
-        self.members = subscriptions.cohort_members
-        self.current: tuple[int, ...] | None = None
-        self.pending: tuple[int, ...] | None = None
+        self.members = subscriptions.active_device_ids
+        self.current: int | None = None
+        self.pending: int | None = None
         self.pending_since: int | None = None
 
     def _records(self, elevation_deg: np.ndarray) -> list[dict]:
-        satellite_count = elevation_deg.shape[0]
+        elevation_deg = np.asarray(elevation_deg, dtype=float)
+        if elevation_deg.ndim != 2 or not np.all(np.isfinite(elevation_deg)):
+            raise ValueError("elevations must be a finite [satellite, device] matrix")
+        if elevation_deg.shape[0] == 0 or len(self.members) == 0:
+            raise ValueError("association requires satellites and active devices")
         records = []
-        for assignment in itertools.permutations(range(satellite_count), len(self.members)):
-            coverage = []
-            minimums = []
-            for cohort, sat in enumerate(assignment):
-                values = elevation_deg[sat, self.members[cohort]]
-                coverage.append(int(np.count_nonzero(values >= self.phi_min)))
-                minimums.append(float(np.min(values)))
+        for satellite in range(elevation_deg.shape[0]):
+            values = elevation_deg[satellite, self.members]
+            coverage = int(np.count_nonzero(values >= self.phi_min))
             records.append(
                 {
-                    "assignment": tuple(int(value) for value in assignment),
-                    "coverage": tuple(coverage),
-                    "full": all(coverage[index] == len(self.members[index]) for index in range(len(self.members))),
-                    "score": float(sum(minimums)),
-                    "outage": tuple(len(self.members[index]) - coverage[index] for index in range(len(self.members))),
+                    "assignment": satellite,
+                    "coverage": coverage,
+                    "full": coverage == len(self.members),
+                    "score": float(np.min(values)),
+                    "outage": len(self.members) - coverage,
                 }
             )
         return records
@@ -47,9 +45,8 @@ class AssociationTracker:
         candidates = full or records
         candidates.sort(
             key=lambda record: (
-                -sum(record["coverage"]),
+                -record["coverage"],
                 -record["score"],
-                0 if record["assignment"] == self.current else 1,
                 record["assignment"],
             )
         )
@@ -71,7 +68,8 @@ class AssociationTracker:
             reason = "visibility_loss" if not fallback_used else "fallback_minimum_outage"
             self.pending = None
             self.pending_since = None
-        elif not fallback_used and best["score"] >= current_record["score"] + self.hysteresis:
+        elif (best["assignment"] != previous and not fallback_used
+              and best["score"] >= current_record["score"] + self.hysteresis):
             if self.pending != best["assignment"]:
                 self.pending = best["assignment"]
                 self.pending_since = int(slot)
@@ -88,16 +86,13 @@ class AssociationTracker:
         if selected is None:
             selected = best["assignment"]
         selected_record = next(record for record in records if record["assignment"] == selected)
-        self.current = tuple(selected)
-        handover = tuple(
-            False if initial else previous[index] != selected[index]
-            for index in range(len(selected))
-        )
+        self.current = int(selected)
+        handover = False if initial else previous != selected
         return AssociationDecision(
-            serving_satellites=tuple(selected),
+            serving_satellite=int(selected),
             handover=handover,
-            initial_acquisition=tuple(initial for _ in selected),
-            outage_receivers=tuple(selected_record["outage"]),
+            initial_acquisition=initial,
+            outage_receivers=int(selected_record["outage"]),
             fallback_used=not bool(selected_record["full"]),
             score_deg=float(selected_record["score"]),
             reason=reason,

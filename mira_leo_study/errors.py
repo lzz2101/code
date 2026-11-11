@@ -16,3 +16,7 @@ class OptionalDependencyError(StudyError):
 
 class BaselineUnavailableError(StudyError):
     """Raised when a named baseline has no faithful implementation available."""
+
+
+class ArtifactReadError(StudyError):
+    """A required saved artifact is unavailable or cannot be decoded."""

@@ -16,7 +16,7 @@ import numpy as np
 
 from .algorithms import allocate_power, decode_groups, make_groups, materialize_groups_from_partition, pilot_fixed_bounds, schedule_groups
 from .association import AssociationTracker
-from .channel import expected_cross_link_interference, path_gain, serving_channel_amplitude
+from .channel import expected_cross_link_interference, external_interferer_powers, path_gain, serving_channel_amplitude
 from .config import PHI_THETA_CANDIDATES_DEG, StudyConfig, save_config, validate_phi_study_config
 from .geometry import link_geometry
 from .errors import ModelConsistencyError
@@ -65,7 +65,7 @@ def evaluate_counterfactual_slot(
     elevation: np.ndarray,
     routes,
     action: int,
-    partitions_by_cohort: dict | None = None,
+    partition: tuple | None = None,
     channel_amplitude: np.ndarray | None = None,
 ) -> dict:
     """Evaluate one common-age/common-channel action without mutating caller state."""
@@ -78,112 +78,98 @@ def evaluate_counterfactual_slot(
         c_km_s,
     )
     visible = elevation >= float(config.get("geometry.phi_min_deg"))
-    groups_by_cohort = {}
-    diagnostics = {}
-    for cohort, satellite in enumerate(association.serving_satellites):
-        if partitions_by_cohort is None:
-            groups = make_groups(config, satellite, cohort, action,
-                                 scenario.subscriptions.message_members, channel, elevation)
-        else:
-            groups = materialize_groups_from_partition(config, satellite, cohort,
-                                                       partitions_by_cohort[cohort], channel, elevation)
-        route = routes[satellite]
-        delay_s = route_delay_s(config, route)
-        delay_slots = delay_s / dt_s if math.isfinite(delay_s) else math.inf
-        schedule_groups(
-            config,
-            groups,
-            ages_before,
-            distance,
-            association.handover[cohort],
-            delay_slots,
+    satellite = association.serving_satellite
+    if partition is None:
+        groups = make_groups(config, satellite, action,
+                             scenario.subscriptions.message_members, channel, elevation)
+    else:
+        groups = materialize_groups_from_partition(config, satellite,
+                                                   partition, channel, elevation)
+    route = routes[satellite]
+    delay_s = route_delay_s(config, route)
+    delay_slots = delay_s / dt_s if math.isfinite(delay_s) else math.inf
+    schedule_groups(
+        config,
+        groups,
+        ages_before,
+        distance,
+        association.handover,
+        delay_slots,
+    )
+    diagnostics = allocate_power(config, groups)
+    if (config.get("algorithm.power_mode") == "csi_expanded_protected_pool" and not diagnostics["valid"]
+            and not diagnostics.get("transmission_failure", False)):
+        raise ModelConsistencyError(
+            f"reward pilot power/SIC inconsistency at slot={slot}, action={action}; "
+            "scheduled groups are not dropped and invalid samples are not calibrated"
         )
-        diagnostics[cohort] = allocate_power(config, groups)
-        if (config.get("algorithm.power_mode") == "twc_aim_staircase" and not diagnostics[cohort]["valid"]
-                and not diagnostics[cohort].get("transmission_failure", False)):
-            raise ModelConsistencyError(
-                f"reward pilot power/SIC inconsistency at slot={slot}, cohort={cohort}, action={action}; "
-                "scheduled groups are not dropped and invalid samples are not calibrated"
-            )
-        groups_by_cohort[cohort] = groups
 
-    total_power = np.zeros(len(scenario.constellation.elements), dtype=float)
-    for cohort, groups in groups_by_cohort.items():
-        satellite = association.serving_satellites[cohort]
-        total_power[satellite] = sum(group.power for group in groups if group.scheduled)
-    for cohort, groups in groups_by_cohort.items():
-        satellite = association.serving_satellites[cohort]
-        route = routes[satellite]
-        if diagnostics[cohort]["valid"]:
-            for group in groups:
-                if group.scheduled:
-                    group.interference = expected_cross_link_interference(
-                        config,
-                        satellite,
-                        group.member_indices,
-                        gains,
-                        visible,
-                        total_power,
-                    )
-            decode_groups(config, groups)
-        for group in groups:
-            if group.scheduled and (
-                not route.reachable
-                or not np.all(visible[satellite, group.member_indices])
-            ):
-                group.success = False
+    external_interferer_power_by_satellite = external_interferer_powers(
+        config, len(scenario.constellation.elements), association.serving_satellite)
+    satellite = association.serving_satellite
+    route = routes[satellite]
+    # External transmissions persist even if the evaluated serving plan fails.
+    for group in groups:
+        group.interference = expected_cross_link_interference(
+            config, satellite, group.member_indices, gains, visible, external_interferer_power_by_satellite)
+    if diagnostics["valid"]:
+        decode_groups(config, groups)
+    for group in groups:
+        if group.scheduled and (
+            not route.reachable
+            or not np.all(visible[satellite, group.member_indices])
+        ):
+            group.success = False
 
     successful = np.zeros(len(scenario.devices.ids), dtype=bool)
-    for groups in groups_by_cohort.values():
-        for group in groups:
-            if group.success:
-                successful[group.member_indices] = True
+    for group in groups:
+        if group.success:
+            successful[group.member_indices] = True
     ages_after = ages_before.copy()
-    for cohort, members in enumerate(scenario.subscriptions.cohort_members):
-        satellite = association.serving_satellites[cohort]
-        route = routes[satellite]
-        delay_s = route_delay_s(config, route)
-        delay_slots = delay_s / dt_s if math.isfinite(delay_s) else math.inf
-        for device in members:
-            if successful[device]:
-                ages_after[device] = (
-                    float(config.get("services.delta_c_slots"))
-                    + distance[satellite, device] / (c_km_s * dt_s)
-                    + delay_slots
-                )
-            else:
-                ages_after[device] += 1.0 + float(
-                    config.get("derived.handover_delay_slots")
-                ) * float(association.handover[cohort])
+    members = scenario.subscriptions.active_device_ids
+    satellite = association.serving_satellite
+    route = routes[satellite]
+    delay_s = route_delay_s(config, route)
+    delay_slots = delay_s / dt_s if math.isfinite(delay_s) else math.inf
+    for device in members:
+        if successful[device]:
+            ages_after[device] = (
+                float(config.get("services.delta_c_slots"))
+                + distance[satellite, device] / (c_km_s * dt_s)
+                + delay_slots
+            )
+        else:
+            ages_after[device] += 1.0 + float(
+                config.get("derived.handover_delay_slots")
+            ) * float(association.handover)
 
     weights = np.asarray(config.get("services.weights"), dtype=float)
     rows = []
-    for cohort, groups in groups_by_cohort.items():
-        weighted_aoi = 0.0
-        for message in range(int(config.get("services.messages_per_active_satellite"))):
-            members = scenario.subscriptions.message_members[(cohort, message)]
-            weighted_aoi += weights[message] * float(np.sum(ages_after[members]))
-        success_count = sum(group.success for group in groups if group.scheduled)
-        edge_count = sum(group.is_edge for group in groups)
-        rows.append(
-            {
-                "cohort_id": cohort,
-                "satellite_id": scenario.constellation.elements[
-                    association.serving_satellites[cohort]
-                ].satellite_id,
-                "action": action,
-                "q": float(success_count - weighted_aoi),
-                "edge_group_count": edge_count,
-                "success_group_count": success_count,
-                "weighted_post_aoi_slots": weighted_aoi,
-                "feasible": bool(diagnostics[cohort]["valid"]),
-                "power_status": diagnostics[cohort]["status"],
-                "transmission_failure_power": bool(diagnostics[cohort].get("transmission_failure", False)),
-                "transmission_attempted": bool(diagnostics[cohort].get("transmission_attempted", False)),
-                "actual_transmitted_power": diagnostics[cohort].get("actual_total_power", 0.0),
-                "power_solver_status": diagnostics[cohort].get("projection_solver_status"),
-            }
-        )
+    weighted_aoi = 0.0
+    for message in range(int(config.get("services.messages_per_active_satellite"))):
+        members = scenario.subscriptions.message_members[message]
+        weighted_aoi += weights[message] * float(np.sum(ages_after[members]))
+    success_count = sum(group.success for group in groups if group.scheduled)
+    edge_count = sum(group.is_edge for group in groups)
+    rows.append(
+        {
+            
+            "satellite_id": scenario.constellation.elements[
+                association.serving_satellite
+            ].satellite_id,
+            "action": action,
+            "q": float(success_count - weighted_aoi),
+            "edge_group_count": edge_count,
+            "success_group_count": success_count,
+            "weighted_post_aoi_slots": weighted_aoi,
+            "feasible": bool(diagnostics["valid"]),
+            "power_status": diagnostics["status"],
+            "transmission_failure_power": bool(diagnostics.get("transmission_failure", False)),
+            "transmission_attempted": bool(diagnostics.get("transmission_attempted", False)),
+            "actual_transmitted_power": diagnostics.get("actual_total_power", 0.0),
+            "power_solver_status": diagnostics.get("projection_solver_status"),
+        }
+    )
     return {"ages_after": ages_after, "rows": rows}
 
 
@@ -191,7 +177,7 @@ def _derive_calibration(config: StudyConfig, samples: list[dict]) -> dict:
     actions = list(config.get("algorithm.action_set"))
     grouped = defaultdict(dict)
     for row in samples:
-        key = (row["seed"], row["window_id"], row["snapshot_slot"], row["cohort_id"])
+        key = (row["seed"], row["window_id"], row["snapshot_slot"])
         grouped[key][row["action"]] = row
     ratios = []
     for key, by_action in grouped.items():
@@ -209,7 +195,6 @@ def _derive_calibration(config: StudyConfig, samples: list[dict]) -> dict:
                         "seed": key[0],
                         "window_id": key[1],
                         "snapshot_slot": key[2],
-                        "cohort_id": key[3],
                         "left_action": left,
                         "right_action": right,
                         "delta_q": delta_q,
@@ -441,7 +426,6 @@ def run_calibration(
                 "seed",
                 "window_id",
                 "snapshot_slot",
-                "cohort_id",
                 "left_action",
                 "right_action",
                 "delta_q",

@@ -1,3 +1,5 @@
+> 歷史紀錄：以下內容屬於 120-UE single-serving 重構前的版本，不能作為新模型的結果或目前 API 規格。最新狀態見 [MODIFICATION_REPORT_120UE_SINGLE_SERVING.md](MODIFICATION_REPORT_120UE_SINGLE_SERVING.md)。
+
 > 歷史版本：使用者已將門檻改回 20°，並保留 zero-power transmission failure。現行設定請見 PHI20_POWER_OUTAGE_MODIFICATION_REPORT.md。
 
 # phi=30 與功率無解視為傳輸失敗：修改及診斷報告

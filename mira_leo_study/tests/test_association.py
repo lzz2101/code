@@ -13,7 +13,7 @@ CONFIG = Path(__file__).parents[1] / "configs" / "base.yaml"
 
 
 class AssociationTests(unittest.TestCase):
-    def test_initial_acquisition_is_not_handover_and_assignment_is_injective(self):
+    def test_initial_acquisition_is_not_handover_and_serving_is_scalar(self):
         config = load_config(CONFIG)
         scenario = StudyScenario(config)
         tracker = AssociationTracker(config, scenario.subscriptions)
@@ -21,10 +21,11 @@ class AssociationTests(unittest.TestCase):
         _, elevation = link_geometry(satellites, scenario.devices.ecef_km)
         first = tracker.update(0, elevation)
         second = tracker.update(1, elevation)
-        self.assertEqual(len(set(first.serving_satellites)), 2)
-        self.assertEqual(first.initial_acquisition, (True, True))
-        self.assertEqual(first.handover, (False, False))
-        self.assertEqual(second.handover, (False, False))
+        self.assertIsInstance(first.serving_satellite, int)
+        self.assertTrue(0 <= first.serving_satellite < 8)
+        self.assertTrue(first.initial_acquisition)
+        self.assertFalse(first.handover)
+        self.assertFalse(second.handover)
 
     def test_visibility_boundary_is_inclusive(self):
         config = load_config(CONFIG)

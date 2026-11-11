@@ -1,7 +1,7 @@
 """Archived angle-search API; unavailable from the fixed formal CLI.
 
 Historical artifacts and regression tests may still import this module.
-Use paper_results.py for the current experiment.
+Use p1_ablation.py for the current six-run experiment.
 """
 
 from __future__ import annotations

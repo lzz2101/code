@@ -22,13 +22,19 @@ from .algorithms import (
     update_user_aoi,
 )
 from .association import AssociationTracker
-from .channel import expected_cross_link_interference, path_gain, serving_channel_amplitude
+from .channel import (
+    external_interferer_powers, expected_cross_link_interference_by_ue,
+    path_gain, serving_channel_amplitude,
+)
 from .config import FIXED_PHI_THETA_DEG, FIXED_B_PENALTY, StudyConfig, save_config
 from .errors import BaselineUnavailableError, ModelConsistencyError
 from .geometry import link_geometry
 from .metrics import AssignmentTracker, advance_trace_hash, regrouping_overhead
 from .isl import build_isl_graph, shortest_route, route_delay_s
 from .scenario import StudyScenario
+from .protected_power import POWER_MODE, POOL_RULE_VERSION
+from .p1_metrics import p1_slot_value, objective_summary
+from .geo_edge import snapshot_group_rows, geo_occupancy_row
 from .regrouping import groups_for_slot, initial_epoch_state, observe_slot_reward
 from .storage import AppendCsvWriter, atomic_pickle, atomic_write_json, csv_to_parquet, load_pickle, write_csv
 
@@ -43,7 +49,7 @@ BLOCKED_POLICIES = {
     "ppo_multicast": "BLOCKED_REFERENCE_IMPLEMENTATION_MISSING",
     "ga_grouping": "BLOCKED_REFERENCE_IMPLEMENTATION_MISSING",
 }
-CHECKPOINT_SCHEMA_VERSION = 4
+CHECKPOINT_SCHEMA_VERSION = 7
 
 
 def canonical_policy_name(policy: str) -> str:
@@ -83,7 +89,7 @@ def serialize_power_diagnostic(groups, diagnostic):
         result[name] = {labels[key]: value for key, value in diagnostic.get(name, {}).items()}
     result["groups_by_current_csi"] = [
         {"key": g.key, "gain": g.gain, "is_edge": g.is_edge, "scheduled": g.scheduled}
-        for g in sorted(groups, key=lambda item: (item.gain, item.cohort_id, item.message_id, item.group_id))
+        for g in sorted(groups, key=lambda item: (item.gain, item.message_id, item.group_id))
     ]
     return result
 
@@ -91,6 +97,16 @@ def serialize_power_diagnostic(groups, diagnostic):
 def build_parameter_snapshot(config: StudyConfig, policy: str, channel_seed: int) -> dict:
     snapshot = {
         "policy": policy,
+
+        "total_ue": 120,
+        "message_count": 3,
+        "subscribers_per_message": int(config.get("services.subscribers_per_message")),
+        "serving_satellite_count": 1,
+        "interference_mode": "fixed_full_load",
+        "interference_model": str(config.get("channel.external_interference")),
+        "interferer_power_normalized": float(config.get("channel.normalized_satellite_power")),
+        "aoi_scope": "evaluated_120_ue_system",
+        "per_satellite_aoi_semantics": "120-UE contribution only at the current serving satellite",
         "fixed_channel_seed": int(channel_seed),
         "slot_dt_s": float(config.get("experiment.slot_dt_s")),
         "duration_s": float(config.get("experiment.duration_s")),
@@ -103,7 +119,8 @@ def build_parameter_snapshot(config: StudyConfig, policy: str, channel_seed: int
         "phi_min_deg": float(config.get("geometry.phi_min_deg")),
         "phi_theta_deg": float(config.get("algorithm.phi_theta_deg")),
         "B_penalty": float(config.get("algorithm.B_penalty")),
-        "fixed_phi_and_B": config.get("algorithm.phi_theta_deg") == FIXED_PHI_THETA_DEG and config.get("algorithm.B_penalty") == FIXED_B_PENALTY,
+        "fixed_B": config.get("algorithm.B_penalty") == FIXED_B_PENALTY,
+        "power_pool_rule_version": config.get("algorithm.power_pool_rule_version"),
         "infeasible_power_handling": str(config.get("algorithm.infeasible_power_handling", "error")),
         "reward_bounds": config.get("algorithm.reward_bounds"),
         "V_c": float(config.get("algorithm.V_c")),
@@ -114,7 +131,6 @@ def build_parameter_snapshot(config: StudyConfig, policy: str, channel_seed: int
         "schedule_capacity_integer": int(config.get("derived.schedule_capacity_integer")),
         "paper_approximation": int(config.get("derived.schedule_capacity_paper_approximation")),
         "messages_per_active_satellite": int(config.get("services.messages_per_active_satellite")),
-        "subscribers_per_message": int(config.get("services.subscribers_per_message")),
         "weights": list(config.get("services.weights")),
         "action_set": list(config.get("algorithm.action_set")),
         "action_set_name": str(config.get("algorithm.action_set_name")),
@@ -144,8 +160,8 @@ def build_parameter_snapshot(config: StudyConfig, policy: str, channel_seed: int
     return snapshot
 
 
-def _membership_hash(groups, cohort: int, message: int) -> str:
-    selected = [group for group in groups if group.cohort_id == cohort and group.message_id == message]
+def _membership_hash(groups, message: int) -> str:
+    selected = [group for group in groups if group.message_id == message]
     digest = hashlib.sha256()
     for group in sorted(selected, key=lambda item: item.group_id):
         digest.update(np.sort(group.member_indices).astype("<i4").tobytes())
@@ -153,7 +169,7 @@ def _membership_hash(groups, cohort: int, message: int) -> str:
     return digest.hexdigest()[:16]
 
 
-def _new_normalizers(config: StudyConfig, satellite_count: int) -> list[RewardNormalizer]:
+def _new_normalizers(config: StudyConfig, satellite_count: int, channel_seed: int | None = None) -> list[RewardNormalizer]:
     mode = str(config.get("algorithm.reward_normalization"))
     if mode == "finite_horizon_bound":
         lower, upper = finite_horizon_reward_bounds(config)
@@ -162,6 +178,10 @@ def _new_normalizers(config: StudyConfig, satellite_count: int) -> list[RewardNo
         bounds = config.get("algorithm.reward_bounds")
         if not isinstance(bounds, dict) or bounds.get("lower") is None or bounds.get("upper") is None:
             raise ValueError("pilot_fixed_clip requires frozen algorithm.reward_bounds")
+        from .reward_pilot import reward_context
+        seed = int(config.get("randomness.fixed_channel_seed")) if channel_seed is None else channel_seed
+        if bounds.get("context") != reward_context(config, seed):
+            raise ValueError("reward bounds require a compatible 120-UE full-load model context; recalibrate on the new model")
         lower = float(bounds["lower"])
         upper = float(bounds["upper"])
         identity = str(bounds.get("identity", "pilot-unspecified"))
@@ -193,7 +213,7 @@ def _routes_are_valid(routes, graph) -> bool:
     return True
 
 
-def _initial_state(config, scenario, policy: str, slot_limit: int):
+def _initial_state(config, scenario, policy: str, slot_limit: int, channel_seed: int):
     device_count = len(scenario.devices.ids)
     satellite_count = len(scenario.constellation.elements)
     ages = np.full(device_count, np.nan, dtype=float)
@@ -210,7 +230,7 @@ def _initial_state(config, scenario, policy: str, slot_limit: int):
             )
             for satellite in range(satellite_count)
         ]
-        normalizers = _new_normalizers(config, satellite_count)
+        normalizers = _new_normalizers(config, satellite_count, channel_seed)
     return {
         **initial_epoch_state(),
         "next_slot": 0,
@@ -223,12 +243,12 @@ def _initial_state(config, scenario, policy: str, slot_limit: int):
         "agents": agents,
         "normalizers": normalizers,
         "routes": None,
-        "blackout_remaining": np.zeros(int(config.get("services.cohort_count")), dtype=np.int32),
+        "blackout_remaining": 0,
         "previous_membership_hash": {},
-        "assignment_trackers": [AssignmentTracker() for _ in scenario.subscriptions.cohort_members],
-        "previous_actions": {},
+        "assignment_tracker": AssignmentTracker(),
+        "previous_action": None,
         "sic_projection_count": 0,
-        "power_infeasible_cohort_slots": 0,
+        "power_infeasible_serving_slots": 0,
         "power_outage_slots": 0,
         "power_failure_scheduled_groups": 0,
         "power_failure_device_opportunities": 0,
@@ -250,6 +270,15 @@ def _initial_state(config, scenario, policy: str, slot_limit: int):
         "weighted_age_accumulator": 0.0,
         "weighted_age_warm_accumulator": 0.0,
         "warm_slots": 0,
+        "warm_success_groups": 0,
+        "power_failure_reasons": Counter(),
+        "pool_count_sums": Counter(),
+        "protected_power_sum": 0.0,
+        "ordinary_power_sum": 0.0,
+        "transmitted_sic_violation_count": 0,
+        "sum_power_excess": 0.0,
+        "propagated_sic_failure_count": 0,
+        "geo_pending": {name: [] for name in ("edge_group_snapshots", "edge_member_positions", "geo_edge_time_distribution")},
         "successful_user_updates": 0,
         "scheduled_user_opportunities": 0,
         "successful_capacity_sum_bits_per_s": 0.0,
@@ -275,6 +304,23 @@ def _initial_state(config, scenario, policy: str, slot_limit: int):
     }
 
 
+def validate_checkpoint_identity(checkpoint, *, config_id, channel_seed, slot_limit,
+                                 policy, fixed_action, save_group_trace, save_geo_edge_trace=False):
+    """Reject older population/state schemas before they can be resumed."""
+    expected = dict(config_id=config_id, channel_seed=channel_seed, slot_limit=slot_limit,
+                    policy=policy, fixed_action=fixed_action, save_group_trace=save_group_trace,
+                    schema_version=CHECKPOINT_SCHEMA_VERSION)
+    if (checkpoint.get("save_geo_edge_trace", False) != save_geo_edge_trace
+            or any(checkpoint.get(key) != value for key, value in expected.items())):
+        raise ValueError("checkpoint identity/schema does not match this 120-UE single-serving run")
+
+
+def _flush_geo_traces(state, writers):
+    for name, writer in writers.items():
+        writer.append(state["geo_pending"][name])
+        state["geo_pending"][name] = []
+
+
 def run_simulation(
     config: StudyConfig,
     *,
@@ -286,12 +332,15 @@ def run_simulation(
     resume: bool = False,
     save_group_trace: bool = False,
     collect_slot_metrics: bool = False,
+    save_geo_edge_trace: bool = False,
     stop_after_slots: int | None = None,
     run_directory: str | Path | None = None,
     policy_seed: int | None = None,
 ) -> dict:
     """Run one seed. The caller controls whether any artifacts are written."""
     policy = canonical_policy_name(policy)
+    if config.get("algorithm.power_mode") != POWER_MODE:
+        raise ValueError("simulation requires the unique csi_expanded_protected_pool allocator; legacy helpers are fixtures only")
     if policy_seed is not None:
         config = config.with_overrides({"randomness.policy_seed": int(policy_seed)})
     if config.get("algorithm.B_penalty") is None:
@@ -314,6 +363,7 @@ def run_simulation(
     slot_writer = None
     group_writer = None
     convergence_writer = None
+    geo_writers = {}
     if output_directory is not None or run_directory is not None:
         run_dir = (
             Path(run_directory)
@@ -323,6 +373,9 @@ def run_simulation(
         run_dir.mkdir(parents=True, exist_ok=True)
         checkpoint_path = run_dir / "checkpoint.pkl"
         continue_checkpoint = resume and checkpoint_path.exists()
+        if save_geo_edge_trace:
+            geo_writers = {name: AppendCsvWriter(run_dir / f"_{name}.partial.csv", resume=continue_checkpoint)
+                           for name in ("edge_group_snapshots", "edge_member_positions", "geo_edge_time_distribution")}
         slot_writer = AppendCsvWriter(run_dir / "_slot_metrics.partial.csv", resume=continue_checkpoint)
         convergence_writer = AppendCsvWriter(run_dir / "_convergence.partial.csv", resume=continue_checkpoint)
         if save_group_trace:
@@ -330,20 +383,28 @@ def run_simulation(
 
     if resume and checkpoint_path is not None and checkpoint_path.exists():
         state = load_pickle(checkpoint_path)
-        if (
-            state["config_id"] != config.config_id
-            or state["channel_seed"] != channel_seed
-            or state["slot_limit"] != slot_limit
-            or state.get("policy") != policy
-            or state.get("fixed_action") != fixed_action
-            or state.get("schema_version") != CHECKPOINT_SCHEMA_VERSION
-            or state.get("save_group_trace") != save_group_trace
-        ):
-            raise ValueError("checkpoint identity does not match this run")
+        validate_checkpoint_identity(state, config_id=config.config_id, channel_seed=channel_seed,
+                                     slot_limit=slot_limit, policy=policy, fixed_action=fixed_action,
+                                     save_group_trace=save_group_trace, save_geo_edge_trace=save_geo_edge_trace)
         state = state["state"]
     else:
-        state = _initial_state(config, scenario, policy, slot_limit)
+        state = _initial_state(config, scenario, policy, slot_limit, channel_seed)
 
+    if save_geo_edge_trace and (run_dir is None or float(config.get("algorithm.phi_theta_deg")) != 15.0):
+        raise ValueError("geo trace requires a run directory and phi=15 degrees")
+    if resume and run_dir is not None:
+        from .storage import recover_trace_file
+        final_paths = {
+            slot_writer.path: run_dir / "slot_metrics.csv",
+            convergence_writer.path: run_dir / "convergence_slot_metrics.csv",
+        }
+        if group_writer is not None:
+            final_paths[group_writer.path] = run_dir / "group_trace.csv"
+        final_paths.update({writer.path: run_dir / "geo_edge" / f"{name}.csv"
+                            for name, writer in geo_writers.items()})
+        for writer in [slot_writer, convergence_writer, group_writer, *geo_writers.values()]:
+            if writer is not None:
+                recover_trace_file(writer.path, final_paths[writer.path], int(state["next_slot"]))
     if run_dir is not None:
         save_config(config, run_dir / "config.json")
         atomic_write_json(run_dir / "parameter_snapshot.json", build_parameter_snapshot(config, policy, channel_seed))
@@ -360,7 +421,7 @@ def run_simulation(
     policy_seed = int(config.get("randomness.policy_seed", channel_seed))
     active = scenario.subscriptions.active_device_ids
     device_weights = np.zeros(len(scenario.devices.ids), dtype=float)
-    for (cohort, message), members in scenario.subscriptions.message_members.items():
+    for message, members in scenario.subscriptions.message_members.items():
         device_weights[members] = weights[message]
     active_weight_sum = float(np.sum(device_weights[active]))
     route_update_slots = max(1, int(round(float(config.get("delay.isl_route_update_s")) / dt_s)))
@@ -372,7 +433,7 @@ def run_simulation(
     blackout_length = int(math.ceil(kh_slots))
     satellite_count = len(scenario.constellation.elements)
     interval_slots = int(config.get("derived.regrouping_interval_slots"))
-    formal_power = config.get("algorithm.power_mode") == "twc_aim_staircase"
+    formal_power = config.get("algorithm.power_mode") == POWER_MODE
     collected_rows: list[dict] = []
     convergence_rows: list[dict] = []
 
@@ -390,10 +451,8 @@ def run_simulation(
         distance, elevation = link_geometry(satellite_ecef, scenario.devices.ecef_km)
         visible = elevation >= phi_min
         association = state["association"].update(slot, elevation)
-        state["handover_count"] += sum(association.handover)
-        state["coverage_outage_receiver_slots"] += sum(association.outage_receivers)
-        if len(set(association.serving_satellites)) != len(association.serving_satellites):
-            raise ModelConsistencyError("distinct serving satellites are required for the cohort power pools")
+        state["handover_count"] += int(association.handover)
+        state["coverage_outage_receiver_slots"] += association.outage_receivers
 
         graph = build_isl_graph(
             satellite_ecef,
@@ -407,7 +466,7 @@ def run_simulation(
         state["trajectory_hash"] = advance_trace_hash(state["trajectory_hash"], satellite_ecef)
         state["channel_trace_hash"] = advance_trace_hash(state["channel_trace_hash"], channel_amplitude)
         state["association_trace_hash"] = advance_trace_hash(
-            state["association_trace_hash"], np.asarray(association.serving_satellites, dtype="<i4"),
+            state["association_trace_hash"], np.asarray([association.serving_satellite], dtype="<i4"),
             np.asarray(association.handover, dtype=np.uint8), visible,
         )
         path_gains = path_gain(
@@ -416,167 +475,160 @@ def run_simulation(
             c_km_s,
         )
 
-        groups_by_cohort: dict[int, list] = {}
-        actions_by_cohort: dict[int, int] = {}
-        power_diagnostics: dict[int, dict] = {}
-        regrouping_diagnostics: dict[int, dict] = {}
-        all_groups = []
         regroup_start = time.perf_counter()
-        for cohort, satellite in enumerate(association.serving_satellites):
-            action, groups, action_changed = groups_for_slot(
-                config, state, cohort=cohort, satellite=satellite, slot=slot,
-                policy=policy, policy_seed=policy_seed, fixed_action=fixed_action,
-                message_members=scenario.subscriptions.message_members,
-                channel_amplitude=channel_amplitude, elevation_deg=elevation,
-                select_action=select_grouping_action,
-            )
-            actions_by_cohort[cohort] = action
-            if formal_power and len(groups) > 30:
-                raise ModelConsistencyError("formal compact setting permits at most 30 groups per serving satellite")
-            for message in range(messages):
-                membership = _membership_hash(groups, cohort, message)
-                key = (cohort, message)
-                previous = state["previous_membership_hash"].get(key)
-                if previous is not None and previous != membership:
-                    state["grouping_membership_changes"] += 1
-                state["previous_membership_hash"][key] = membership
-            groups_by_cohort[cohort] = groups
-            events = state["assignment_trackers"][cohort].update(groups, visible)
-            events["action_change_events"] = action_changed
-            regrouping_diagnostics[cohort] = events
-            if not is_regrouping_slot and events["regrouping_events"]:
-                raise ModelConsistencyError("off-boundary membership change violates the 1-second cadence")
-            state["device_regrouping_events"] += events["regrouping_events"]
-            all_groups.extend(groups)
+        satellite = association.serving_satellite
+        action, groups, action_changed = groups_for_slot(
+            config, state, satellite=satellite, slot=slot,
+            policy=policy, policy_seed=policy_seed, fixed_action=fixed_action,
+            message_members=scenario.subscriptions.message_members,
+            channel_amplitude=channel_amplitude, elevation_deg=elevation,
+            select_action=select_grouping_action,
+            diagnostics_enabled=save_group_trace,
+        )
+        if formal_power and len(groups) > 30:
+            raise ModelConsistencyError("formal compact setting permits at most 30 groups per serving satellite")
+        for message in range(messages):
+            membership = _membership_hash(groups, message)
+            key = message
+            previous = state["previous_membership_hash"].get(key)
+            if previous is not None and previous != membership:
+                state["grouping_membership_changes"] += 1
+            state["previous_membership_hash"][key] = membership
+        events = state["assignment_tracker"].update(groups, visible)
+        events["action_change_events"] = action_changed
+        if not is_regrouping_slot and events["regrouping_events"]:
+            raise ModelConsistencyError("off-boundary membership change violates the 1-second cadence")
+        state["device_regrouping_events"] += events["regrouping_events"]
         state["regrouping_runtime_s"] += time.perf_counter() - regroup_start
 
         schedule_start = time.perf_counter()
-        for cohort, groups in groups_by_cohort.items():
-            satellite = association.serving_satellites[cohort]
-            route = state["routes"][satellite]
-            isl_s = route_delay_s(config, route)
-            if not route.reachable:
-                state["route_unreachable_slots"] += 1
-            isl_slots = isl_s / dt_s if math.isfinite(isl_s) else math.inf
-            schedule_groups(
-                config,
-                groups,
-                state["ages"],
-                distance,
-                association.handover[cohort],
-                isl_slots,
+        satellite = association.serving_satellite
+        route = state["routes"][satellite]
+        isl_s = route_delay_s(config, route)
+        if not route.reachable:
+            state["route_unreachable_slots"] += 1
+        isl_slots = isl_s / dt_s if math.isfinite(isl_s) else math.inf
+        schedule_groups(
+            config,
+            groups,
+            state["ages"],
+            distance,
+            association.handover,
+            isl_slots,
+        )
+        scheduled_before = tuple(g.key for g in groups if g.scheduled)
+        diagnostics = allocate_power(config, groups)
+        state["sic_projection_count"] += int(diagnostics["sic_projection_used"])
+        schedule_changed = scheduled_before != tuple(g.key for g in groups if g.scheduled)
+        power_failure = diagnostics.get("transmission_failure", False)
+        if power_failure:
+            state["power_infeasible_serving_slots"] += 1
+            state["power_failure_reasons"][diagnostics["power_infeasible_reason"]] += 1
+            state["power_failure_scheduled_groups"] += len(scheduled_before)
+            state["power_failure_device_opportunities"] += sum(len(g.member_indices) for g in groups if g.scheduled)
+        if diagnostics.get("removed_groups"):
+            state["invalid"] = True
+            state["violation_counts"]["post_schedule_power_drop"] += len(diagnostics["removed_groups"])
+        if not diagnostics["valid"] and not power_failure:
+            state["invalid"] = True
+            state["violation_counts"]["invalid_power_or_sic"] += 1
+            state["violation_counts"]["power_floor"] += len(diagnostics["floor_violations"])
+            state["violation_counts"]["sic_power_order"] += len(diagnostics["sic_order_violations"])
+        if schedule_changed or diagnostics.get("removed_groups") or (formal_power and not diagnostics["valid"] and not power_failure):
+            failure = {
+                "status": "MODEL_CONSISTENCY_ERROR", "schema_version": CHECKPOINT_SCHEMA_VERSION,
+                "config_id": config.config_id, "policy": policy, "channel_seed": channel_seed,
+                "slot": slot, "scheduled_keys": scheduled_before,
+                "schedule_changed": schedule_changed,
+                "diagnostic": serialize_power_diagnostic(groups, diagnostics),
+            }
+            if run_dir is not None:
+                atomic_write_json(run_dir / "model_consistency_error.json", failure)
+                atomic_write_json(run_dir / "summary.json", failure)
+            tracemalloc.stop()
+            raise ModelConsistencyError(
+                f"MODEL_CONSISTENCY_ERROR at slot={slot}, "
+                f"{diagnostics['status']}; the Algorithm-2 scheduled set is unchanged. "
+                "Check fixed class budgets, floors and global SIC; no group was dropped."
             )
-            scheduled_before = tuple(g.key for g in groups if g.scheduled)
-            diagnostics = allocate_power(config, groups)
-            power_diagnostics[cohort] = diagnostics
-            state["sic_projection_count"] += int(diagnostics["sic_projection_used"])
-            schedule_changed = scheduled_before != tuple(g.key for g in groups if g.scheduled)
-            power_failure = diagnostics.get("transmission_failure", False)
-            if power_failure:
-                state["power_infeasible_cohort_slots"] += 1
-                state["power_failure_scheduled_groups"] += len(scheduled_before)
-                state["power_failure_device_opportunities"] += sum(len(g.member_indices) for g in groups if g.scheduled)
-            if diagnostics.get("removed_groups"):
-                state["invalid"] = True
-                state["violation_counts"]["post_schedule_power_drop"] += len(diagnostics["removed_groups"])
-            if not diagnostics["valid"] and not power_failure:
-                state["invalid"] = True
-                state["violation_counts"]["invalid_power_or_sic"] += 1
-                state["violation_counts"]["power_floor"] += len(diagnostics["floor_violations"])
-                state["violation_counts"]["sic_power_order"] += len(diagnostics["sic_order_violations"])
-            if schedule_changed or diagnostics.get("removed_groups") or (formal_power and not diagnostics["valid"] and not power_failure):
-                failure = {
-                    "status": "MODEL_CONSISTENCY_ERROR", "schema_version": CHECKPOINT_SCHEMA_VERSION,
-                    "config_id": config.config_id, "policy": policy, "channel_seed": channel_seed,
-                    "slot": slot, "cohort_id": cohort, "scheduled_keys": scheduled_before,
-                    "schedule_changed": schedule_changed,
-                    "diagnostic": serialize_power_diagnostic(groups, diagnostics),
-                }
-                if run_dir is not None:
-                    atomic_write_json(run_dir / "model_consistency_error.json", failure)
-                    atomic_write_json(run_dir / "summary.json", failure)
-                tracemalloc.stop()
-                raise ModelConsistencyError(
-                    f"MODEL_CONSISTENCY_ERROR at slot={slot}, cohort={cohort}: "
-                    f"{diagnostics['status']}; the Algorithm-2 scheduled set is unchanged. "
-                    "Check fixed class budgets, floors and global SIC; no group was dropped."
-                )
         state["scheduler_runtime_s"] += time.perf_counter() - schedule_start
-        slot_power_failure_cohorts = sum(d.get("transmission_failure", False) for d in power_diagnostics.values())
-        state["power_outage_slots"] += int(slot_power_failure_cohorts > 0)
+        slot_power_failure = int(diagnostics.get("transmission_failure", False))
+        state["power_outage_slots"] += int(slot_power_failure > 0)
 
-        transmitted_power = np.zeros(satellite_count, dtype=float)
-        for cohort, groups in groups_by_cohort.items():
-            satellite = association.serving_satellites[cohort]
-            transmitted_power[satellite] = sum(group.power for group in groups if group.scheduled)
-        state["max_transmitted_power"] = max(state["max_transmitted_power"], float(np.max(transmitted_power)))
+        serving_actual_tx_power = sum(group.power for group in groups if group.scheduled)
+        external_interferer_power_by_satellite = external_interferer_powers(
+            config, satellite_count, association.serving_satellite)
+        state["max_transmitted_power"] = max(state["max_transmitted_power"], serving_actual_tx_power)
+        # Environment powers are recorded for every candidate group, including outages.
+        for group in groups:
+            ue_interference = expected_cross_link_interference_by_ue(
+                config, satellite, group.member_indices, path_gains, visible,
+                external_interferer_power_by_satellite)
+            worst = int(np.argmax(ue_interference))
+            worst_device = int(group.member_indices[worst])
+            group.interference = float(ue_interference[worst])
+            contributing = visible[:, worst_device] & (external_interferer_power_by_satellite > 0)
+            group.metadata["interferer_count_at_worst_ue"] = int(np.count_nonzero(contributing))
+            group.metadata["worst_interference_device_index"] = worst_device
 
         if handover_mode == "physical_blackout":
-            for cohort, event in enumerate(association.handover):
-                if event:
-                    state["blackout_remaining"][cohort] = blackout_length
+            event = association.handover
+            if event:
+                state["blackout_remaining"] = blackout_length
 
-        for cohort, groups in groups_by_cohort.items():
-            satellite = association.serving_satellites[cohort]
-            route = state["routes"][satellite]
-            diagnostics = power_diagnostics[cohort]
-            for group in groups:
-                if group.scheduled and group.power > 0.0:
-                    group.interference = expected_cross_link_interference(
-                        config,
-                        satellite,
-                        group.member_indices,
-                        path_gains,
-                        visible,
-                        transmitted_power,
-                    )
-                    state["interference_samples"].append(group.interference)
-            if diagnostics["valid"]:
-                decode_groups(config, groups)
-            for group in groups:
-                if not group.scheduled:
-                    continue
-                if not route.reachable or not np.all(visible[satellite, group.member_indices]):
-                    group.success = False
-                if handover_mode == "physical_blackout" and state["blackout_remaining"][cohort] > 0:
-                    group.success = False
+        satellite = association.serving_satellite
+        route = state["routes"][satellite]
+        for group in groups:
+            if group.scheduled and group.power > 0.0:
+                state["interference_samples"].append(group.interference)
+        if diagnostics["valid"]:
+            decode_groups(config, groups)
+        state["propagated_sic_failure_count"] += sum(g.scheduled and g.rate_pass and not g.sic_pass for g in groups)
+        for group in groups:
+            group.metadata["diagnostic_handover_blackout"] = bool(
+                handover_mode == "physical_blackout" and state["blackout_remaining"] > 0)
+            if not group.scheduled:
+                continue
+            if not route.reachable or not np.all(visible[satellite, group.member_indices]):
+                group.success = False
+            if handover_mode == "physical_blackout" and state["blackout_remaining"] > 0:
+                group.success = False
 
         successful_devices = np.zeros(len(scenario.devices.ids), dtype=bool)
-        for groups in groups_by_cohort.values():
-            for group in groups:
-                if group.success:
-                    successful_devices[group.member_indices] = True
-        for cohort, members in enumerate(scenario.subscriptions.cohort_members):
-            satellite = association.serving_satellites[cohort]
-            route = state["routes"][satellite]
-            isl_s = route_delay_s(config, route)
-            isl_slots = isl_s / dt_s if math.isfinite(isl_s) else math.inf
-            for device in members:
-                if successful_devices[device]:
-                    propagation_slots = distance[satellite, device] / (c_km_s * dt_s)
-                    state["ages"][device] = update_user_aoi(
-                        state["ages"][device],
-                        successful=True,
-                        delta_c_slots=float(config.get("services.delta_c_slots")),
-                        propagation_delay_slots=propagation_slots,
-                        isl_delay_slots=isl_slots,
-                        handover_event=association.handover[cohort],
-                        handover_delay_slots=kh_slots,
-                        handover_mode=handover_mode,
-                    )
-                else:
-                    state["ages"][device] = update_user_aoi(
-                        state["ages"][device],
-                        successful=False,
-                        delta_c_slots=float(config.get("services.delta_c_slots")),
-                        propagation_delay_slots=0.0,
-                        isl_delay_slots=0.0,
-                        handover_event=association.handover[cohort],
-                        handover_delay_slots=kh_slots,
-                        handover_mode=handover_mode,
-                    )
+        for group in groups:
+            if group.success:
+                successful_devices[group.member_indices] = True
+        members = active
+        satellite = association.serving_satellite
+        route = state["routes"][satellite]
+        isl_s = route_delay_s(config, route)
+        isl_slots = isl_s / dt_s if math.isfinite(isl_s) else math.inf
+        for device in members:
+            if successful_devices[device]:
+                propagation_slots = distance[satellite, device] / (c_km_s * dt_s)
+                state["ages"][device] = update_user_aoi(
+                    state["ages"][device],
+                    successful=True,
+                    delta_c_slots=float(config.get("services.delta_c_slots")),
+                    propagation_delay_slots=propagation_slots,
+                    isl_delay_slots=isl_slots,
+                    handover_event=association.handover,
+                    handover_delay_slots=kh_slots,
+                    handover_mode=handover_mode,
+                )
+            else:
+                state["ages"][device] = update_user_aoi(
+                    state["ages"][device],
+                    successful=False,
+                    delta_c_slots=float(config.get("services.delta_c_slots")),
+                    propagation_delay_slots=0.0,
+                    isl_delay_slots=0.0,
+                    handover_event=association.handover,
+                    handover_delay_slots=kh_slots,
+                    handover_mode=handover_mode,
+                )
         if handover_mode == "physical_blackout":
-            state["blackout_remaining"] = np.maximum(0, state["blackout_remaining"] - 1)
+            state["blackout_remaining"] = max(0, state["blackout_remaining"] - 1)
 
         state["aoi_samples"][slot] = state["ages"][active]
         weighted_age = float(np.sum(state["ages"][active] * device_weights[active]))
@@ -588,41 +640,66 @@ def run_simulation(
 
         slot_success_users = int(np.count_nonzero(successful_devices[active]))
         state["successful_user_updates"] += slot_success_users
-        slot_scheduled_groups = sum(
-            sum(group.scheduled for group in groups) for groups in groups_by_cohort.values()
-        )
-        slot_success_groups = sum(
-            sum(group.success for group in groups if group.scheduled)
-            for groups in groups_by_cohort.values()
-        )
+        slot_scheduled_groups = sum(group.scheduled for group in groups)
+        slot_success_groups = sum(group.success for group in groups if group.scheduled)
+        if time_s >= warmup_s:
+            state["warm_success_groups"] += slot_success_groups
+        p1_value = p1_slot_value(slot_success_groups, weighted_age)
+        pool_metrics = dict(
+            geo_edge_candidate_count=sum(g.is_edge for g in groups),
+            geo_edge_scheduled_count=diagnostics["geo_edge_count_scheduled"],
+            promoted_count=diagnostics["promoted_weak_nonedge_count"],
+            protected_scheduled_count=diagnostics["protected_count"], ordinary_scheduled_count=diagnostics["ordinary_count"],
+            protected_power_actual=diagnostics["protected_power_actual"], ordinary_power_actual=diagnostics["ordinary_power_actual"],
+            protected_budget=diagnostics["protected_budget"], ordinary_budget=diagnostics["ordinary_budget"],
+            pool_budget_mode=diagnostics["pool_budget_mode"], power_failure_reason=diagnostics["power_infeasible_reason"],
+            P1_slot_value=p1_value)
+        for key in ("geo_edge_candidate_count", "geo_edge_scheduled_count", "promoted_count", "protected_scheduled_count", "ordinary_scheduled_count"):
+            state["pool_count_sums"][key] += pool_metrics[key]
+        state["protected_power_sum"] += diagnostics["protected_power_actual"]
+        state["ordinary_power_sum"] += diagnostics["ordinary_power_actual"]
+        state["transmitted_sic_violation_count"] += len(diagnostics["sic_order_violations_after"]) if diagnostics["transmission_attempted"] else 0
+        state["sum_power_excess"] += max(0., serving_actual_tx_power-float(config.get("channel.normalized_satellite_power"))-1e-10)
+        if save_geo_edge_trace:
+            state["geo_pending"]["geo_edge_time_distribution"].append(geo_occupancy_row(
+                groups, slot=slot, dt_s=dt_s, satellite_id=scenario.constellation.elements[satellite].satellite_id,
+                handover=association.handover))
+            if is_regrouping_slot:
+                snapshot_rows, member_rows = snapshot_group_rows(config, scenario, groups, slot=slot,
+                    elevation=elevation, amplitudes=channel_amplitude, satellite_ecef=satellite_ecef)
+                state["geo_pending"]["edge_group_snapshots"].extend(snapshot_rows)
+                state["geo_pending"]["edge_member_positions"].extend(member_rows)
         state["min_slot_scheduled_groups"] = min(state["min_slot_scheduled_groups"], slot_scheduled_groups)
         state["max_slot_scheduled_groups"] = max(state["max_slot_scheduled_groups"], slot_scheduled_groups)
         per_satellite_aoi = np.zeros(satellite_count)
-        for cohort, members in enumerate(scenario.subscriptions.cohort_members):
-            per_satellite_aoi[association.serving_satellites[cohort]] += float(np.sum(state["ages"][members] * device_weights[members]))
+        members = active
+        per_satellite_aoi[association.serving_satellite] += float(np.sum(state["ages"][members] * device_weights[members]))
         convergence_row = {
             "slot": slot, "time_s": time_s, "policy": policy, "aoi_unit": "slots",
             "regrouping_epoch": regrouping_epoch,
             "is_regrouping_slot": int(is_regrouping_slot),
             "weighted_sum_aoi_total": weighted_age,
-            "weighted_sum_aoi_per_satellite_mean": float(np.mean(per_satellite_aoi)),
+            **pool_metrics,
+            "running_mean_P1": (state["success_group_count"]+slot_success_groups-state["weighted_age_accumulator"])/(slot+1),
+            "running_mean_P1_after_warmup": ((state["warm_success_groups"]-state["weighted_age_warm_accumulator"])/state["warm_slots"]
+                                               if state["warm_slots"] else None),
+            "evaluated_system_weighted_sum_aoi": weighted_age,
             "weighted_sum_aoi_per_satellite_max": float(np.max(per_satellite_aoi)),
             "running_mean_weighted_sum_aoi_total": state["weighted_age_accumulator"] / (slot + 1),
             "scheduled_groups": slot_scheduled_groups,
             "successful_groups": slot_success_groups,
-            "power_infeasible_cohorts": slot_power_failure_cohorts,
-            "transmitted_groups": sum(sum(g.scheduled for g in groups_by_cohort[c])
-                                      for c, d in power_diagnostics.items() if d.get("transmission_attempted", False)),
-            "action_summary": json.dumps({scenario.constellation.elements[association.serving_satellites[c]].satellite_id: a for c, a in actions_by_cohort.items()}, sort_keys=True),
+            "power_infeasible_serving": slot_power_failure,
+            "transmitted_groups": sum(g.scheduled for g in groups) if diagnostics.get("transmission_attempted", False) else 0,
+            "action_summary": json.dumps({scenario.constellation.elements[satellite].satellite_id: action}, sort_keys=True),
         }
         state["convergence_rows_pending"].append(convergence_row)
         if collect_slot_metrics:
             convergence_rows.append(dict(convergence_row))
-        constellation_edge_groups = sum(group.is_edge for group in all_groups)
+        serving_edge_groups = sum(group.is_edge for group in groups)
         state["scheduled_group_count"] += slot_scheduled_groups
         state["success_group_count"] += slot_success_groups
-        state["edge_group_count"] += constellation_edge_groups
-        for group in all_groups:
+        state["edge_group_count"] += serving_edge_groups
+        for group in groups:
             if not group.scheduled or group.metadata.get("power_failure_no_transmission", False):
                 continue
             state["scheduled_rate_samples"].append(group.rate_bps_hz)
@@ -630,164 +707,146 @@ def run_simulation(
             state["sic_failure_count"] += int(not group.sic_pass)
             if group.success:
                 state["successful_capacity_sum_bits_per_s"] += bandwidth_hz * group.rate_bps_hz
-        for cohort, groups in groups_by_cohort.items():
-            satellite = association.serving_satellites[cohort]
-            scheduled = [group for group in groups if group.scheduled]
-            diagnostics = power_diagnostics[cohort]
-            success_count = sum(group.success for group in scheduled)
-            actual_transmitted_groups = len(scheduled) if diagnostics.get("transmission_attempted", False) else 0
-            state["transmitted_group_count"] += actual_transmitted_groups
-            edge_count = sum(group.is_edge for group in groups)
-            scheduled_users = sum(len(group.member_indices) for group in scheduled)
-            state["scheduled_user_opportunities"] += scheduled_users
-            state["power_sum"] += transmitted_power[satellite]
-            state["power_samples"] += 1
-            members = scenario.subscriptions.cohort_members[cohort]
-            cohort_weighted_age = float(np.sum(state["ages"][members] * device_weights[members]))
-            reward = raw_reward(
-                success_count,
-                cohort_weighted_age,
-                frozen_b_penalty,
-                messages,
-                subscribers,
-                edge_count,
+        satellite = association.serving_satellite
+        scheduled = [group for group in groups if group.scheduled]
+        success_count = sum(group.success for group in scheduled)
+        actual_transmitted_groups = len(scheduled) if diagnostics.get("transmission_attempted", False) else 0
+        state["transmitted_group_count"] += actual_transmitted_groups
+        edge_count = sum(group.is_edge for group in groups)
+        scheduled_users = sum(len(group.member_indices) for group in scheduled)
+        state["scheduled_user_opportunities"] += scheduled_users
+        state["power_sum"] += serving_actual_tx_power
+        state["power_samples"] += 1
+        members = active
+        system_weighted_age = float(np.sum(state["ages"][members] * device_weights[members]))
+        reward = raw_reward(
+            success_count,
+            system_weighted_age,
+            frozen_b_penalty,
+            messages,
+            subscribers,
+            edge_count,
+        )
+        normalized_reward = None
+        epoch_reward = None
+        if policy == "mira_sw_ucb":
+            normalized_reward, epoch_reward = observe_slot_reward(
+                config, state, slot=slot, slot_limit=slot_limit, raw_reward=reward,
             )
-            normalized_reward = None
-            epoch_reward = None
-            if policy == "mira_sw_ucb":
-                normalized_reward, epoch_reward = observe_slot_reward(
-                    config, state, cohort=cohort, slot=slot, slot_limit=slot_limit, raw_reward=reward,
-                )
-                if epoch_reward is not None:
-                    state["bandit_observation_rows"].append({
-                        "epoch": regrouping_epoch, "cohort_id": cohort,
-                        "owner_satellite": state["epoch_action_owner_satellite"][cohort],
-                        "action": actions_by_cohort[cohort],
-                        "sample_count": state["epoch_reward_count"][cohort],
-                        "epoch_reward": epoch_reward,
-                    })
-            row = {
-                "policy": policy,
-                "slot": slot,
-                "time_s": time_s,
-                "cohort_id": cohort,
-                "satellite_id": scenario.constellation.elements[satellite].satellite_id,
-                "action": actions_by_cohort[cohort],
-                "regrouping_epoch": regrouping_epoch,
-                "is_regrouping_slot": int(is_regrouping_slot),
-                "regrouping_interval_s": float(config.get("algorithm.regrouping_interval_s")),
-                "regrouping_interval_slots": interval_slots,
-                "sw_ucb_window_epochs": int(config.get("derived.sw_ucb_window_epochs")),
-                "action_owner_satellite_id": scenario.constellation.elements[state["epoch_action_owner_satellite"][cohort]].satellite_id,
-                "membership_hash": state["held_partition_hash"][cohort],
-                "handover": int(association.handover[cohort]),
-                "outage_receivers": association.outage_receivers[cohort],
-                "route_reachable": int(state["routes"][satellite].reachable),
-                "route_hops": state["routes"][satellite].hop_count,
-                "scheduled_groups": len(scheduled),
-                "successful_groups": success_count,
-                "transmitted_groups": actual_transmitted_groups,
-                "power_plan_valid": int(diagnostics["valid"]),
-                "transmission_attempted": int(diagnostics.get("transmission_attempted", False)),
-                "transmission_failure_power": int(diagnostics.get("transmission_failure", False)),
-                "power_solver_status": -1 if diagnostics.get("projection_solver_status") is None else int(diagnostics["projection_solver_status"]),
-                "edge_groups": edge_count,
-                "constellation_edge_groups": constellation_edge_groups,
-                "constellation_scheduled_groups": slot_scheduled_groups,
-                "constellation_successful_groups": slot_success_groups,
-                "cumulative_successful_groups": int(state["success_group_count"]),
-                "transmitted_power_normalized": transmitted_power[satellite],
-                "weighted_aoi_slots": cohort_weighted_age,
-                "aggregated_weighted_sum_aoi_slots": weighted_age,
-                "aggregated_weighted_sum_aoi_ms": weighted_age * dt_s * 1000.0,
-                "raw_reward": reward,
-                "normalized_reward": normalized_reward,
-                "epoch_reward": epoch_reward,
-                "power_status": power_diagnostics[cohort]["status"],
-                "candidate_groups": len(groups),
-                "candidate_groups_positive_priority": sum(g.priority > 0.0 for g in groups),
-                "rejected_by_power_groups": 0,
-                "rejected_by_algorithm2_cap": sum(g.metadata["scheduler_rejection_reason"] == "ALGORITHM2_CAP" for g in groups),
-                "scheduled_edge_groups": sum(g.is_edge for g in scheduled),
-                "scheduled_nonedge_groups": sum(not g.is_edge for g in scheduled),
-                "rejected_edge_by_power": 0,
-                "rejected_nonedge_by_power": 0,
-                "unscheduled_nonpositive_priority_groups": sum(not g.is_edge and not (g.priority > 0.0) and not g.scheduled for g in groups),
-                "edge_budget": diagnostics["edge_budget"],
-                "nonedge_budget": diagnostics["nonedge_budget"],
-                "edge_floor_total": diagnostics["edge_floor_total"],
-                "nonedge_floor_total": diagnostics["nonedge_floor_total"],
-                "edge_residual": diagnostics["edge_residual"],
-                "nonedge_residual": diagnostics["nonedge_residual"],
-                "current_csi_feedback_available": 1,
-                "csi_slot_index": slot,
-                "power_csi_slot_index": slot,
-                "scheduler_algorithm": "Algorithm2_strict",
-                "power_allocator": str(config.get("algorithm.power_mode")),
-                "algorithm2_U": int(config.get("derived.algorithm2_U")),
-                "candidate_edge_groups": sum(g.is_edge for g in groups),
-                "candidate_nonedge_groups": sum(not g.is_edge for g in groups),
-                "candidate_nonedge_positive_priority": sum(not g.is_edge and g.priority > 0 for g in groups),
-                "sic_projection_used": int(diagnostics["sic_projection_used"]),
-                "sic_violation_before_count": len(diagnostics["sic_order_violations_before"]),
-                "sic_violation_after_count": len(diagnostics["sic_order_violations_after"]),
-                "planned_total_power": diagnostics["total_power"],
-                "total_transmitted_power": diagnostics["actual_total_power"],
-                "transmitted_sic_violation_count": 0 if diagnostics.get("transmission_failure", False) else len(diagnostics["sic_order_violations_after"]),
-                "post_schedule_power_drop_count": len(diagnostics["removed_groups"]),
-                "regrouping_action_change": regrouping_diagnostics[cohort]["action_change_events"],
-                "device_regrouping_events": regrouping_diagnostics[cohort]["regrouping_events"],
-                "initial_assignments": regrouping_diagnostics[cohort]["initial_assignments"],
-                "handover_assignments": regrouping_diagnostics[cohort]["handover_assignments"],
-            }
-            state["power_rejected_group_count"] += row["rejected_by_power_groups"]
-            state["scheduler_cap_rejected_group_count"] += row["rejected_by_algorithm2_cap"]
-            state["nonpositive_priority_rejected_group_count"] += row["unscheduled_nonpositive_priority_groups"]
-            state["slot_rows_pending"].append(row)
+            if epoch_reward is not None:
+                state["bandit_observation_rows"].append({
+                    "epoch": regrouping_epoch, 
+                    "owner_satellite": state["epoch_action_owner_satellite"],
+                    "action": action,
+                    "sample_count": state["epoch_reward_count"],
+                    "epoch_reward": epoch_reward,
+                })
+        row = {
+            "policy": policy,
+            **pool_metrics,
+            "slot": slot,
+            "time_s": time_s,
+
+            "satellite_id": scenario.constellation.elements[satellite].satellite_id,
+            "action": action,
+            "regrouping_epoch": regrouping_epoch,
+            "is_regrouping_slot": int(is_regrouping_slot),
+            "regrouping_interval_s": float(config.get("algorithm.regrouping_interval_s")),
+            "regrouping_interval_slots": interval_slots,
+            "sw_ucb_window_epochs": int(config.get("derived.sw_ucb_window_epochs")),
+            "action_owner_satellite_id": scenario.constellation.elements[state["epoch_action_owner_satellite"]].satellite_id,
+            "membership_hash": state["held_partition_hash"],
+            "handover": int(association.handover),
+            "outage_receivers": association.outage_receivers,
+            "route_reachable": int(state["routes"][satellite].reachable),
+            "route_hops": state["routes"][satellite].hop_count,
+            "scheduled_groups": len(scheduled),
+            "successful_groups": success_count,
+            "transmitted_groups": actual_transmitted_groups,
+            "power_plan_valid": int(diagnostics["valid"]),
+            "transmission_attempted": int(diagnostics.get("transmission_attempted", False)),
+            "transmission_failure_power": int(diagnostics.get("transmission_failure", False)),
+            "power_solver_status": -1 if diagnostics.get("projection_solver_status") is None else int(diagnostics["projection_solver_status"]),
+            "edge_groups": edge_count,
+            "serving_edge_groups": serving_edge_groups,
+            "serving_scheduled_groups": slot_scheduled_groups,
+            "serving_successful_groups": slot_success_groups,
+            "cumulative_successful_groups": int(state["success_group_count"]),
+            "transmitted_power_normalized": serving_actual_tx_power,
+            "serving_actual_tx_power": serving_actual_tx_power,
+            "interferer_power_normalized": float(config.get("channel.normalized_satellite_power")),
+            "external_interferer_count": satellite_count - 1,
+            "external_interferer_power_by_satellite": json.dumps(external_interferer_power_by_satellite.tolist()),
+            "weighted_aoi_slots": system_weighted_age,
+            "aggregated_weighted_sum_aoi_slots": weighted_age,
+            "aggregated_weighted_sum_aoi_ms": weighted_age * dt_s * 1000.0,
+            "raw_reward": reward,
+            "normalized_reward": normalized_reward,
+            "epoch_reward": epoch_reward,
+            "power_status": diagnostics["status"],
+            "candidate_groups": len(groups),
+            "candidate_groups_positive_priority": sum(g.priority > 0.0 for g in groups),
+            "rejected_by_power_groups": 0,
+            "rejected_by_algorithm2_cap": sum(g.metadata["scheduler_rejection_reason"] == "ALGORITHM2_CAP" for g in groups),
+            "scheduled_edge_groups": sum(g.is_edge for g in scheduled),
+            "scheduled_nonedge_groups": sum(not g.is_edge for g in scheduled),
+            "rejected_edge_by_power": 0,
+            "rejected_nonedge_by_power": 0,
+            "unscheduled_nonpositive_priority_groups": sum(not g.is_edge and not (g.priority > 0.0) and not g.scheduled for g in groups),
+            "edge_budget": diagnostics["edge_budget"],
+            "nonedge_budget": diagnostics["nonedge_budget"],
+            "edge_floor_total": diagnostics["edge_floor_total"],
+            "nonedge_floor_total": diagnostics["nonedge_floor_total"],
+            "edge_residual": diagnostics["edge_residual"],
+            "nonedge_residual": diagnostics["nonedge_residual"],
+            "current_csi_feedback_available": 1,
+            "csi_slot_index": slot,
+            "power_csi_slot_index": slot,
+            "scheduler_algorithm": "Algorithm2_strict",
+            "power_allocator": str(config.get("algorithm.power_mode")),
+            "algorithm2_U": int(config.get("derived.algorithm2_U")),
+            "candidate_edge_groups": sum(g.is_edge for g in groups),
+            "candidate_nonedge_groups": sum(not g.is_edge for g in groups),
+            "candidate_nonedge_positive_priority": sum(not g.is_edge and g.priority > 0 for g in groups),
+            "sic_projection_used": int(diagnostics["sic_projection_used"]),
+            "sic_violation_before_count": len(diagnostics["sic_order_violations_before"]),
+            "sic_violation_after_count": len(diagnostics["sic_order_violations_after"]),
+            "planned_total_power": diagnostics["total_power"],
+            "total_transmitted_power": diagnostics["actual_total_power"],
+            "transmitted_sic_violation_count": 0 if diagnostics.get("transmission_failure", False) else len(diagnostics["sic_order_violations_after"]),
+            "post_schedule_power_drop_count": len(diagnostics["removed_groups"]),
+            "regrouping_action_change": events["action_change_events"],
+            "device_regrouping_events": events["regrouping_events"],
+            "initial_assignments": events["initial_assignments"],
+            "handover_assignments": events["handover_assignments"],
+        }
+        state["power_rejected_group_count"] += row["rejected_by_power_groups"]
+        state["scheduler_cap_rejected_group_count"] += row["rejected_by_algorithm2_cap"]
+        state["nonpositive_priority_rejected_group_count"] += row["unscheduled_nonpositive_priority_groups"]
+        state["slot_rows_pending"].append(row)
+        if collect_slot_metrics:
+            collected_rows.append(dict(row))
+        if save_group_trace:
+            from .diagnostic_trace import enrich_group_diagnostic_rows
+            group_rows, serving_diagnostics = enrich_group_diagnostic_rows(
+                config, groups, diagnostics, ages_after=state["ages"],
+                amplitudes=channel_amplitude, elevations=elevation, visible=visible,
+                route_reachable=state["routes"][satellite].reachable,
+                handover_blackout=any(g.metadata.get("diagnostic_handover_blackout", False) for g in groups),
+                system_weighted_aoi=system_weighted_age, policy=policy, slot=slot,
+                satellite_id=scenario.constellation.elements[satellite].satellite_id,
+                action=action)
+            # The CSV row object was queued above; extend it before chunk flush.
+            row.update(serving_diagnostics)
             if collect_slot_metrics:
-                collected_rows.append(dict(row))
-            if save_group_trace:
-                for group in groups:
-                    state["group_rows_pending"].append(
-                        {
-                            "slot": slot,
-                            "regrouping_epoch": regrouping_epoch,
-                            "is_regrouping_slot": int(is_regrouping_slot),
-                            "cohort_id": cohort,
-                            "satellite_id": scenario.constellation.elements[satellite].satellite_id,
-                            "message_id": group.message_id,
-                            "group_id": group.group_id,
-                            "member_hash": hashlib.sha256(group.member_indices.astype("<i4").tobytes()).hexdigest()[:16],
-                            "group_size": len(group.member_indices),
-                            "gain": group.gain,
-                            "max_elevation_deg": group.max_elevation_deg,
-                            "is_edge": int(group.is_edge),
-                            "scheduled": int(group.scheduled),
-                            "priority": group.priority,
-                            "scheduler_candidate": int(group.metadata["scheduler_candidate"]),
-                            "scheduler_rejection_reason": group.metadata["scheduler_rejection_reason"],
-                            "members": json.dumps([int(d) for d in group.member_indices]),
-                            "power": group.power,
-                            "transmission_failure_power": int(diagnostics.get("transmission_failure", False)),
-                            "transmission_attempted": int(group.scheduled and diagnostics.get("transmission_attempted", False)),
-                            "target_power": diagnostics["target_powers"].get(id(group), 0.0),
-                            "power_floor": diagnostics["floors"].get(id(group), 0.0),
-                            "csi_slot_index": slot,
-                            "power_csi_slot_index": slot,
-                            "interference": group.interference,
-                            "sinr": group.sinr,
-                            "rate_bps_hz": group.rate_bps_hz,
-                            "rate_bps": bandwidth_hz * group.rate_bps_hz,
-                            "R_theta_bps_hz": float(config.get("algorithm.R_theta")),
-                            "rate_pass": int(group.rate_pass),
-                            "sic_pass": int(group.sic_pass),
-                            "success": int(group.success),
-                        }
-                    )
+                collected_rows[-1].update(serving_diagnostics)
+            for group_row, group in zip(group_rows, groups):
+                group_row["members"] = json.dumps([int(d) for d in group.member_indices])
+            state["group_rows_pending"].extend(group_rows)
 
         state["next_slot"] = slot + 1
         if run_dir is not None and (
-            len(state["slot_rows_pending"]) >= chunk_size * int(config.get("services.cohort_count"))
+            len(state["slot_rows_pending"]) >= chunk_size
             or state["next_slot"] == slot_limit
         ):
             slot_writer.append(state["slot_rows_pending"])
@@ -797,6 +856,7 @@ def run_simulation(
             if group_writer is not None:
                 group_writer.append(state["group_rows_pending"])
                 state["group_rows_pending"] = []
+            _flush_geo_traces(state, geo_writers)
             atomic_pickle(
                 checkpoint_path,
                 {
@@ -807,6 +867,7 @@ def run_simulation(
                     "fixed_action": fixed_action,
                     "schema_version": CHECKPOINT_SCHEMA_VERSION,
                     "save_group_trace": save_group_trace,
+                    "save_geo_edge_trace": save_geo_edge_trace,
                     "state": state,
                 },
             )
@@ -820,6 +881,7 @@ def run_simulation(
         if group_writer is not None and state["group_rows_pending"]:
             group_writer.append(state["group_rows_pending"])
             state["group_rows_pending"] = []
+        _flush_geo_traces(state, geo_writers)
         atomic_pickle(
             checkpoint_path,
             {
@@ -830,6 +892,7 @@ def run_simulation(
                 "fixed_action": fixed_action,
                 "schema_version": CHECKPOINT_SCHEMA_VERSION,
                 "save_group_trace": save_group_trace,
+                "save_geo_edge_trace": save_geo_edge_trace,
                 "state": state,
             },
         )
@@ -864,9 +927,38 @@ def run_simulation(
         else []
     )
     summary = {
+        **objective_summary(sum_c=state["success_group_count"], sum_delta=state["weighted_age_accumulator"],
+                            slots=slot_limit, warm_c=state["warm_success_groups"],
+                            warm_delta=state["weighted_age_warm_accumulator"], warm_slots=state["warm_slots"],
+                            warmup_s=warmup_s, slot_dt_s=dt_s),
+        "power_pool_rule_version": POOL_RULE_VERSION,
+        **dict(state["pool_count_sums"]),
+        "promoted_weak_nonedge_count": state["pool_count_sums"]["promoted_count"],
+        "protected_count": state["pool_count_sums"]["protected_scheduled_count"],
+        "ordinary_count": state["pool_count_sums"]["ordinary_scheduled_count"],
+        "protected_pool_fraction_realized": state["protected_power_sum"]/(state["protected_power_sum"]+state["ordinary_power_sum"]) if state["protected_power_sum"]+state["ordinary_power_sum"] > 0 else None,
+        "floor_infeasible_slots": state["power_failure_reasons"]["FLOOR_EXCEEDS_POOL"],
+        "cross_pool_sic_infeasible_slots": state["power_failure_reasons"]["POOL_SIC_INCOMPATIBLE"],
+        "lp_numeric_failure_slots": state["power_failure_reasons"]["LP_NUMERIC_FAILURE"],
+        "power_failure_reasons": dict(state["power_failure_reasons"]),
+        "power_outage_rate": state["power_outage_slots"]/slot_limit,
+        "transmitted_sic_violation_count": state["transmitted_sic_violation_count"],
+        "sum_power_excess": state["sum_power_excess"],
+        "propagated_sic_failure_count": state["propagated_sic_failure_count"],
+
         "status": "INVALID_POWER_OR_SIC" if state["invalid"] else (
-            "COMPLETED_WITH_POWER_OUTAGES" if state["power_infeasible_cohort_slots"] else "COMPLETED"),
+            "COMPLETED_WITH_POWER_OUTAGES" if state["power_infeasible_serving_slots"] else "COMPLETED"),
         "schema_version": CHECKPOINT_SCHEMA_VERSION,
+        "total_ue": 120,
+        "message_count": 3,
+        "subscribers_per_message": int(config.get("services.subscribers_per_message")),
+        "serving_satellite_count": 1,
+        "interference_mode": "fixed_full_load",
+        "interference_model": str(config.get("channel.external_interference")),
+        "interferer_power_normalized": float(config.get("channel.normalized_satellite_power")),
+        "aoi_scope": "evaluated_120_ue_system",
+        "per_satellite_aoi_semantics": "120-UE contribution only at the current serving satellite",
+
         "config_id": config.config_id,
         "policy": policy,
         "channel_seed": int(channel_seed),
@@ -892,7 +984,7 @@ def run_simulation(
         "scheduler_algorithm": "Algorithm2_strict",
         "power_allocator": str(config.get("algorithm.power_mode")),
         "infeasible_power_handling": str(config.get("algorithm.infeasible_power_handling", "error")),
-        "power_infeasible_cohort_slots": state["power_infeasible_cohort_slots"],
+        "power_infeasible_serving_slots": state["power_infeasible_serving_slots"],
         "power_outage_slots": state["power_outage_slots"],
         "power_failure_scheduled_groups": state["power_failure_scheduled_groups"],
         "power_failure_device_opportunities": state["power_failure_device_opportunities"],
@@ -915,6 +1007,8 @@ def run_simulation(
         "environment_trace_hash": hashlib.sha256(json.dumps([
             scenario.devices.layout_hash, scenario.subscriptions.subscription_hash,
             state["trajectory_hash"], state["channel_trace_hash"], state["association_trace_hash"],
+            config.get("channel.external_interference"), config.get("channel.interferer_power_mode"),
+            config.get("channel.normalized_satellite_power"),
         ]).encode("ascii")).hexdigest(),
         "weighted_mean_aoi_ms": dt_s * 1000.0 * state["weighted_age_accumulator"] / (slot_limit * active_weight_sum),
         "aggregated_weighted_sum_aoi_mean_ms": (
@@ -1009,12 +1103,27 @@ def run_simulation(
         raise RuntimeError("reward bounds changed during a formal run")
 
     if run_dir is not None:
+        from .diagnostic_trace import DIAGNOSTIC_SCHEMA_VERSION, parquet_diagnostic_types
+        summary["diagnostic_schema_version"] = DIAGNOSTIC_SCHEMA_VERSION if save_group_trace else 0
+        if save_geo_edge_trace:
+            geo_directory = run_dir / "geo_edge"
+            geo_directory.mkdir(exist_ok=True)
+            for name, writer in geo_writers.items():
+                writer.path.replace(geo_directory / f"{name}.csv")
         atomic_write_json(run_dir / "summary.json", summary)
         write_csv(run_dir / "bandit_observations.csv", state["bandit_observation_rows"],
-                  fieldnames=["epoch", "cohort_id", "owner_satellite", "action", "sample_count", "epoch_reward"])
-        csv_to_parquet(run_dir / "_slot_metrics.partial.csv", run_dir / "slot_metrics.parquet")
+                  fieldnames=["epoch", "owner_satellite", "action", "sample_count", "epoch_reward"])
+        with (run_dir / "_slot_metrics.partial.csv").open(encoding="utf-8", newline="") as handle:
+            import csv
+            columns = next(csv.reader(handle))
+        # Nullable class CSI and solver messages need stable Arrow types as well.
+        types = parquet_diagnostic_types(columns)
+        csv_to_parquet(run_dir / "_slot_metrics.partial.csv", run_dir / "slot_metrics.parquet", column_types=types)
         if save_group_trace:
-            csv_to_parquet(run_dir / "_group_trace.partial.csv", run_dir / "group_trace.parquet")
+            with (run_dir / "_group_trace.partial.csv").open(encoding="utf-8", newline="") as handle:
+                columns = next(csv.reader(handle))
+            csv_to_parquet(run_dir / "_group_trace.partial.csv", run_dir / "group_trace.parquet",
+                           column_types=parquet_diagnostic_types(columns))
         Path(run_dir / "_slot_metrics.partial.csv").replace(run_dir / "slot_metrics.csv")
         if save_group_trace:
             Path(run_dir / "_group_trace.partial.csv").replace(run_dir / "group_trace.csv")

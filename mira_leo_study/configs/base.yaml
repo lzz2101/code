@@ -1,6 +1,6 @@
 {
   "experiment": {
-    "name": "mira_leo_phi20_B005_rg1s_compact_power_outage",
+    "name": "mira_leo_p1_ablation_13_15_20_25_new_power",
     "duration_s": 480.0,
     "epoch_utc": "2023-04-19T11:56:35Z",
     "geometry_export_dt_s": 1.0,
@@ -55,14 +55,13 @@
     "center_overflight_s": 240.0
   },
   "devices": {
-    "unique_count": 300,
+    "unique_count": 120,
     "stationary": true,
     "layout_seed": 42,
     "subscription_seed": 1042,
     "distribution": "iid_uniform_in_projected_square"
   },
   "services": {
-    "cohort_count": 2,
     "messages_per_active_satellite": 3,
     "subscribers_per_message": 40,
     "weights": [
@@ -77,8 +76,8 @@
     "queue_delay_s": 0.0
   },
   "association": {
-    "mode": "distinct_satellites_for_fixed_cohorts",
-    "objective": "sum_of_cohort_minimum_elevations",
+    "mode": "single_serving_satellite_for_all_devices",
+    "objective": "coverage_first_then_minimum_elevation",
     "hysteresis_score_deg": 1.0,
     "time_to_trigger_s": 1.0,
     "initial_acquisition_is_handover": false
@@ -95,8 +94,9 @@
     "noise_model": "normalized_reference_snr",
     "reference_snr_db": 10.0,
     "reference_bandwidth_hz": 50000000.0,
-    "external_interference": "expected_cross_link_power",
-    "normalized_satellite_power": 1.0
+    "external_interference": "always_on_non_serving_satellites_expected_cross_link_power",
+    "normalized_satellite_power": 1.0,
+    "interferer_power_mode": "fixed_full_load"
   },
   "delay": {
     "handover_s": 0.025,
@@ -108,7 +108,7 @@
     "isl_route_update_s": 1.0
   },
   "algorithm": {
-    "phi_theta_deg": 20.0,
+    "phi_theta_deg": 15.0,
     "action_set_name": "compact",
     "action_set": [
       1,
@@ -123,7 +123,7 @@
     "V_phi": 0.0005,
     "R_theta": 1e-05,
     "B_penalty": 0.05,
-    "power_mode": "twc_aim_staircase",
+    "power_mode": "csi_expanded_protected_pool",
     "sw_ucb_xi": 0.7071067811865476,
     "sw_ucb_window_s": 10.0,
     "reward_time_convention": "post_update",
@@ -134,7 +134,8 @@
       "identity": null
     },
     "regrouping_interval_s": 1.0,
-    "infeasible_power_handling": "transmission_failure"
+    "infeasible_power_handling": "transmission_failure",
+    "power_pool_rule_version": "scheduled_geo_plus_strict_weaker_than_strongest_geo_v1"
   },
   "randomness": {
     "fixed_channel_seed": 0,
@@ -168,5 +169,14 @@
       ]
     ],
     "reward_pilot_snapshot_interval_s": 1.0
+  },
+  "ablation": {
+    "phi_theta_deg": [
+      13.0,
+      15.0,
+      20.0,
+      25.0
+    ],
+    "baselines_phi_theta_deg": 15.0
   }
 }

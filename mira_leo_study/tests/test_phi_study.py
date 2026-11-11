@@ -1,3 +1,4 @@
+"""legacy_archived: historical phi/B APIs, excluded from the P1 formal runner."""
 from __future__ import annotations
 
 import tempfile
@@ -32,6 +33,7 @@ from mira_leo_study.simulation import (
     run_simulation,
 )
 from mira_leo_study.tests import simulation_test
+from mira_leo_study.reward_pilot import reward_context
 
 
 CONFIG = Path(__file__).parents[1] / "configs" / "base.yaml"
@@ -106,8 +108,8 @@ class PhiStudyTests(unittest.TestCase):
         for phi in PHI_THETA_CANDIDATES_DEG:
             angle = self.config.with_overrides({"algorithm.phi_theta_deg": float(phi)})
             samples = [
-                {"seed": 0, "window_id": 0, "snapshot_slot": 0, "cohort_id": 0, "action": 1, "q": -10.0, "edge_group_count": 1, "feasible": True},
-                {"seed": 0, "window_id": 0, "snapshot_slot": 0, "cohort_id": 0, "action": 2, "q": -8.0, "edge_group_count": 2, "feasible": True},
+                {"seed": 0, "window_id": 0, "snapshot_slot": 0, "action": 1, "q": -10.0, "edge_group_count": 1, "feasible": True},
+                {"seed": 0, "window_id": 0, "snapshot_slot": 0, "action": 2, "q": -8.0, "edge_group_count": 2, "feasible": True},
             ]
             calibration = _derive_calibration(angle, samples)
             self.assertTrue(calibration["B_identifiable"])
@@ -163,6 +165,7 @@ class PhiStudyTests(unittest.TestCase):
                 },
             }
         )
+        short = short.with_overrides({"algorithm.reward_bounds.context": reward_context(short, 0)})
         result = run_simulation(
             short,
             channel_seed=0,

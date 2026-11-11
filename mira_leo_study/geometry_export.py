@@ -38,13 +38,11 @@ def export_geometry(config, output_directory: str | Path) -> dict:
     write_csv(geometry_dir / "devices.csv", device_rows)
     subscription_rows = []
     for index, device_id in enumerate(scenario.devices.ids):
-        cohort = int(scenario.subscriptions.cohort_by_device[index])
         message = int(scenario.subscriptions.message_by_device[index])
         subscription_rows.append(
             {
                 "device_id": device_id,
-                "active_subscription": int(cohort >= 0),
-                "cohort_id": cohort if cohort >= 0 else "",
+                "active_subscription": int(message >= 0),
                 "message_id": message if message >= 0 else "",
                 "subscription_hash": scenario.subscriptions.subscription_hash,
             }
@@ -133,23 +131,22 @@ def export_geometry(config, output_directory: str | Path) -> dict:
         _, ecef = scenario.constellation.state(time_s)
         _, elevation = link_geometry(ecef, scenario.devices.ecef_km)
         decision = tracker.update(slot, elevation)
-        for cohort, satellite in enumerate(decision.serving_satellites):
-            chunk.append(
-                {
-                    "slot": slot,
-                    "time_s": time_s,
-                    "cohort_id": cohort,
-                    "satellite_id": scenario.constellation.elements[satellite].satellite_id,
-                    "handover": int(decision.handover[cohort]),
-                    "initial_acquisition": int(decision.initial_acquisition[cohort]),
-                    "outage_receivers": decision.outage_receivers[cohort],
-                    "fallback_used": int(decision.fallback_used),
-                    "assignment_score_deg": decision.score_deg,
-                    "reason": decision.reason,
-                }
-            )
-            if decision.handover[cohort] or decision.initial_acquisition[cohort]:
-                handover_rows.append(dict(chunk[-1]))
+        satellite = decision.serving_satellite
+        chunk.append(
+            {
+                "slot": slot,
+                "time_s": time_s,
+                "satellite_id": scenario.constellation.elements[satellite].satellite_id,
+                "handover": int(decision.handover),
+                "initial_acquisition": int(decision.initial_acquisition),
+                "outage_receivers": decision.outage_receivers,
+                "fallback_used": int(decision.fallback_used),
+                "assignment_score_deg": decision.score_deg,
+                "reason": decision.reason,
+            }
+        )
+        if decision.handover or decision.initial_acquisition:
+            handover_rows.append(dict(chunk[-1]))
         if len(chunk) >= 2000:
             association_writer.append(chunk)
             chunk = []

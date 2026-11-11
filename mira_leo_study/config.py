@@ -16,7 +16,9 @@ ACTION_SETS = {
     "compact": [1, 2, 4, 5, 8, 10],
     "coarse": [1, 2, 4, 8],
 }
-FIXED_PHI_THETA_DEG = 20.0
+FIXED_PHI_THETA_DEG = 15.0
+P1_PHI_THETA_DEG = [13.0, 15.0, 20.0, 25.0]
+from .protected_power import POWER_MODE, POOL_RULE_VERSION
 FIXED_B_PENALTY = 0.05
 
 # Archived APIs/tests only. The formal pipeline uses validate_fixed_study_config.
@@ -188,10 +190,19 @@ def resolve_config(raw: Mapping[str, Any]) -> StudyConfig:
     action_name = str(algorithm["action_set_name"])
     if action_name not in ACTION_SETS:
         raise ConfigurationError(f"unknown action set: {action_name}")
-    configured_actions = [int(value) for value in algorithm.get("action_set", ACTION_SETS[action_name])]
+    action_values = algorithm.get("action_set", ACTION_SETS[action_name])
+    if any(isinstance(value, bool) or not isinstance(value, int) or value <= 0 for value in action_values):
+        raise ConfigurationError("grouping actions must be positive integers")
+    configured_actions = list(action_values)
     if configured_actions != ACTION_SETS[action_name]:
         raise ConfigurationError("action_set content does not match action_set_name")
-    subscriber_count = int(services["subscribers_per_message"])
+    for section, key in ((data["devices"], "unique_count"),
+                         (services, "messages_per_active_satellite"),
+                         (services, "subscribers_per_message")):
+        value = section[key]
+        if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+            raise ConfigurationError(f"{key} must be a positive integer")
+    subscriber_count = services["subscribers_per_message"]
     derived["legal_actions"] = [
         value for value in range(1, subscriber_count + 1) if subscriber_count % value == 0
     ]
@@ -204,10 +215,26 @@ def resolve_config(raw: Mapping[str, Any]) -> StudyConfig:
     offsets2 = constellation["plane2_phase_offsets_deg"]
     if len(offsets1) != 5 or len(offsets2) != 3:
         raise ConfigurationError("the two planes must contain 5 and 3 satellites")
-    if int(data["devices"]["unique_count"]) != 300:
-        raise ConfigurationError("the base study requires 300 unique devices")
-    if int(services["cohort_count"]) * int(services["messages_per_active_satellite"]) * subscriber_count > 300:
-        raise ConfigurationError("subscriptions exceed the unique device population")
+    if "cohort_count" in services:
+        raise ConfigurationError("obsolete cohort_count: use the single-serving message-only schema")
+    if (data["devices"]["unique_count"] != 120
+            or services["messages_per_active_satellite"] != 3 or subscriber_count != 40
+            or data["devices"]["unique_count"] != services["messages_per_active_satellite"] * subscriber_count):
+        raise ConfigurationError("the study requires 120 devices, 3 disjoint messages and 40 subscribers per message")
+    if data["association"]["mode"] != "single_serving_satellite_for_all_devices":
+        raise ConfigurationError("all devices must share one serving satellite")
+    if data["association"]["objective"] != "coverage_first_then_minimum_elevation":
+        raise ConfigurationError("association must prioritize coverage then minimum elevation")
+    if data["association"].get("initial_acquisition_is_handover", False):
+        raise ConfigurationError("initial acquisition must not count as handover")
+    if not data["devices"].get("stationary"):
+        raise ConfigurationError("the 120 devices must be stationary")
+    if channel.get("external_interference") != "always_on_non_serving_satellites_expected_cross_link_power":
+        raise ConfigurationError("external interference must use expected non-serving cross-link powers")
+    if channel.get("interferer_power_mode") != "fixed_full_load":
+        raise ConfigurationError("external interferers must use fixed_full_load power")
+    if float(channel["normalized_satellite_power"]) != 1.0:
+        raise ConfigurationError("fixed full-load interferer power must be 1.0")
     weights = [float(value) for value in services["weights"]]
     if len(weights) != int(services["messages_per_active_satellite"]) or any(value < 0 for value in weights):
         raise ConfigurationError("services.weights must be nonnegative and match message count")
@@ -215,7 +242,9 @@ def resolve_config(raw: Mapping[str, Any]) -> StudyConfig:
     vnc = float(algorithm["V_nc"])
     if vc <= 0.0 or vnc <= 0.0 or abs(vc + vnc - 1.0) > 1e-12:
         raise ConfigurationError("V_c and V_nc must be positive and sum to one")
-    if algorithm["power_mode"] not in {"twc_aim_staircase", "literal_with_checks", "constraint_projection"}:
+    if not math.isfinite(float(algorithm["phi_theta_deg"])) or not 0 < float(algorithm["phi_theta_deg"]) <= 90:
+        raise ConfigurationError("phi_theta_deg must be finite and in (0,90]")
+    if algorithm["power_mode"] not in {POWER_MODE, "twc_aim_staircase", "literal_with_checks", "constraint_projection"}:
         raise ConfigurationError("unsupported power_mode")
     if algorithm.get("infeasible_power_handling", "error") not in {"error", "transmission_failure"}:
         raise ConfigurationError("infeasible_power_handling must be error or transmission_failure")
@@ -229,6 +258,9 @@ def resolve_config(raw: Mapping[str, Any]) -> StudyConfig:
 def validate_phi_study_config(config: StudyConfig) -> None:
     """Reject drift from the fixed physical setup of the phi-theta study."""
     expected = {
+        "devices.unique_count": 120,
+        "constellation.actual_satellite_count": 8,
+        "constellation.altitude_km": 800.0,
         "experiment.slot_dt_s": 0.01,
         "experiment.duration_s": 480.0,
         "experiment.warmup_report_s": 10.0,
@@ -306,8 +338,11 @@ def validate_phi_study_config(config: StudyConfig) -> None:
 
 
 def validate_fixed_study_config(config: StudyConfig, *, allow_tau_sensitivity: bool = False) -> None:
-    """Validate the fixed paper experiment without any phi/B candidate lists."""
+    """Validate the phi=15 main configuration and fixed P1 experiment controls."""
     expected = {
+        "devices.unique_count": 120,
+        "constellation.actual_satellite_count": 8,
+        "constellation.altitude_km": 800.0,
         "experiment.slot_dt_s": 0.01,
         "experiment.duration_s": 480.0,
         "experiment.warmup_report_s": 10.0,
@@ -344,8 +379,15 @@ def validate_fixed_study_config(config: StudyConfig, *, allow_tau_sensitivity: b
         raise ConfigurationError("fixed study requires weights=[0.7, 0.2, 0.1]")
     if config.get("algorithm.reward_normalization") != "pilot_fixed_clip":
         raise ConfigurationError("fixed study requires pilot_fixed_clip reward normalization")
-    if config.get("algorithm.power_mode") != "twc_aim_staircase":
-        raise ConfigurationError("fixed study requires twc_aim_staircase")
+    if config.get("algorithm.power_mode") != POWER_MODE:
+        raise ConfigurationError("fixed study requires csi_expanded_protected_pool")
+    if config.get("algorithm.power_pool_rule_version") != POOL_RULE_VERSION:
+        raise ConfigurationError("power-pool rule version mismatch")
+    if config.get("ablation.phi_theta_deg") != P1_PHI_THETA_DEG or config.get("ablation.baselines_phi_theta_deg") != 15.0:
+        raise ConfigurationError("P1 matrix requires MIRA at 13,15,20,25 and baselines only at 15")
+    for path, expected_seed in (("devices.layout_seed",42),("devices.subscription_seed",1042),("randomness.fixed_channel_seed",0),("randomness.policy_seed",0)):
+        if config.get(path) != expected_seed:
+            raise ConfigurationError(f"P1 requires {path}={expected_seed}")
     if config.get("algorithm.infeasible_power_handling") != "transmission_failure":
         raise ConfigurationError("fixed study treats proven power infeasibility as a zero-power transmission failure")
     if config.get("channel.shadowed_rician") != {"b0": 0.126, "Omega": 0.835, "m": 10.1}:
@@ -367,6 +409,13 @@ def validate_fixed_study_config(config: StudyConfig, *, allow_tau_sensitivity: b
         raise ConfigurationError("regrouping_overhead_tau_s must contain positive integer multiples of the regrouping interval")
     if int(config.get("formal_results.fixed_action", 4)) != 4:
         raise ConfigurationError("formal Fixed grouping must use a=4")
+
+
+def validate_p1_ablation_config(config: StudyConfig, *, allow_tau_sensitivity: bool = False) -> None:
+    if float(config.get("algorithm.phi_theta_deg")) not in P1_PHI_THETA_DEG:
+        raise ConfigurationError("P1 angles must be exactly 13,15,20,25 degrees")
+    validate_fixed_study_config(config.with_overrides({"algorithm.phi_theta_deg": FIXED_PHI_THETA_DEG}),
+                                allow_tau_sensitivity=allow_tau_sensitivity)
 
 
 def load_config(path: str | Path) -> StudyConfig:

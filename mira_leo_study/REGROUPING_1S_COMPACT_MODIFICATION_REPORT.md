@@ -1,3 +1,5 @@
+> 歷史紀錄：以下內容屬於 120-UE single-serving 重構前的版本，不能作為新模型的結果或目前 API 規格。最新狀態見 [MODIFICATION_REPORT_120UE_SINGLE_SERVING.md](MODIFICATION_REPORT_120UE_SINGLE_SERVING.md)。
+
 > 歷史版本：本檔描述 20 度、功率無解即停止的設定。現行 30 度與 zero-power outage 行為請見 PHI30_POWER_OUTAGE_MODIFICATION_REPORT.md。
 
 # 1 秒 Regrouping / Compact / Strict Algorithm 2 修改報告

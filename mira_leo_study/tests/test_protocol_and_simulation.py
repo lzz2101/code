@@ -50,7 +50,7 @@ class ProtocolSimulationTests(unittest.TestCase):
         self.assertEqual(result["summary"]["invalid_power_or_sic_count"], 0)
         self.assertEqual(result["summary"]["post_schedule_power_drop_count"], 0)
         self.assertEqual(result["summary"]["slots_completed"], 2)
-        self.assertEqual(len(result["slot_metrics"]), 4)
+        self.assertEqual(len(result["slot_metrics"]), 2)
         self.assertGreater(result["summary"]["weighted_mean_aoi_ms"], 0.0)
         by_slot = {}
         for row in result["slot_metrics"]:

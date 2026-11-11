@@ -31,10 +31,10 @@ CONFIG = Path(__file__).parents[1] / "configs" / "base.yaml"
 def group(index: int, gain: float, edge: bool, scheduled: bool = True) -> Group:
     return Group(
         satellite_index=0,
-        cohort_id=0,
+        
         message_id=0,
         group_id=index,
-        member_indices=np.array([index % 300], dtype=np.int32),
+        member_indices=np.array([index % 120], dtype=np.int32),
         gain=gain,
         max_elevation_deg=5.0 if edge else 50.0,
         is_edge=edge,
@@ -57,11 +57,10 @@ class AlgorithmTests(unittest.TestCase):
     def test_actions_mean_group_count_and_divide_forty(self):
         self.assertEqual(legal_actions(40), (1, 2, 4, 5, 8, 10, 20, 40))
         scenario = StudyScenario(self.config)
-        amplitude = np.ones((8, 300), dtype=float)
-        elevation = np.full((8, 300), 45.0)
+        amplitude = np.ones((8, 120), dtype=float)
+        elevation = np.full((8, 120), 45.0)
         groups = make_groups(
             self.config,
-            0,
             0,
             5,
             scenario.subscriptions.message_members,
@@ -73,13 +72,12 @@ class AlgorithmTests(unittest.TestCase):
 
     def test_edge_definition_uses_group_maximum(self):
         scenario = StudyScenario(self.config)
-        amplitude = np.ones((8, 300), dtype=float)
-        elevation = np.full((8, 300), 20.0)
-        members = scenario.subscriptions.message_members[(0, 0)]
+        amplitude = np.ones((8, 120), dtype=float)
+        elevation = np.full((8, 120), 20.0)
+        members = scenario.subscriptions.message_members[0]
         elevation[0, members[0]] = 35.0
         groups = make_groups(
             self.config,
-            0,
             0,
             1,
             scenario.subscriptions.message_members,
@@ -92,15 +90,14 @@ class AlgorithmTests(unittest.TestCase):
 
     def test_edge_threshold_is_strict(self):
         scenario = StudyScenario(self.config.with_overrides({"algorithm.phi_theta_deg": 20.0}))
-        amplitude = np.ones((8, 300), dtype=float)
-        members = scenario.subscriptions.message_members[(0, 0)]
+        amplitude = np.ones((8, 120), dtype=float)
+        members = scenario.subscriptions.message_members[0]
         for values, expected in (([16.0, 17.0, 19.0], True), ([16.0, 17.0, 20.0], False), ([16.0, 25.0, 19.0], False)):
-            elevation = np.full((8, 300), 50.0)
+            elevation = np.full((8, 120), 50.0)
             elevation[0, members] = 11.0
             elevation[0, members[:3]] = values
             groups = make_groups(
                 scenario.config,
-                0,
                 0,
                 1,
                 scenario.subscriptions.message_members,

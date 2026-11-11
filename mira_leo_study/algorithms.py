@@ -9,6 +9,7 @@ import numpy as np
 
 from .errors import ModelConsistencyError, OptionalDependencyError
 from .models import Group, GroupPartitionEntry
+from .protected_power import POWER_MODE, classify_power_pools, allocate_csi_expanded_protected_power
 
 
 def legal_actions(subscribers_per_message: int) -> tuple[int, ...]:
@@ -20,8 +21,8 @@ def legal_actions(subscribers_per_message: int) -> tuple[int, ...]:
 
 
 def build_group_partition(
-    config, satellite_index: int, cohort_id: int, action: int,
-    message_members: dict[tuple[int, int], np.ndarray], channel_amplitude: np.ndarray,
+    config, satellite_index: int, action: int,
+    message_members: dict[int, np.ndarray], channel_amplitude: np.ndarray,
 ) -> tuple[GroupPartitionEntry, ...]:
     """Sort subscribers once at an epoch boundary and freeze only membership."""
     subscribers = int(config.get("services.subscribers_per_message"))
@@ -30,7 +31,7 @@ def build_group_partition(
         raise ValueError("action is a group count and must evenly divide subscriber count")
     partition = []
     for message in range(messages):
-        members = np.asarray(message_members[(cohort_id, message)], dtype=np.int32)
+        members = np.asarray(message_members[message], dtype=np.int32)
         if len(members) != subscribers:
             raise ValueError("subscription count does not match configured group cardinality")
         order = np.lexsort((members, channel_amplitude[satellite_index, members]))
@@ -45,7 +46,7 @@ def build_group_partition(
 
 
 def materialize_groups_from_partition(
-    config, satellite_index: int, cohort_id: int, partition,
+    config, satellite_index: int, partition,
     channel_amplitude: np.ndarray, elevation_deg: np.ndarray,
 ) -> list[Group]:
     """Recompute worst-user CSI and elevation from this slot's arrays only."""
@@ -56,7 +57,7 @@ def materialize_groups_from_partition(
         amplitude = channel_amplitude[satellite_index, members]
         elevation = float(np.max(elevation_deg[satellite_index, members]))
         groups.append(Group(
-            satellite_index=satellite_index, cohort_id=cohort_id,
+            satellite_index=satellite_index,
             message_id=entry.message_id, group_id=entry.group_id,
             member_indices=members, gain=float(np.min(amplitude) ** 2),
             max_elevation_deg=elevation, is_edge=bool(elevation < phi),
@@ -65,14 +66,14 @@ def materialize_groups_from_partition(
 
 
 def make_groups(
-    config, satellite_index: int, cohort_id: int, action: int,
-    message_members: dict[tuple[int, int], np.ndarray], channel_amplitude: np.ndarray,
+    config, satellite_index: int, action: int,
+    message_members: dict[int, np.ndarray], channel_amplitude: np.ndarray,
     elevation_deg: np.ndarray,
 ) -> list[Group]:
     """Legacy immediate-build API; the formal simulator holds the partition."""
-    partition = build_group_partition(config, satellite_index, cohort_id, action,
+    partition = build_group_partition(config, satellite_index, action,
                                       message_members, channel_amplitude)
-    return materialize_groups_from_partition(config, satellite_index, cohort_id,
+    return materialize_groups_from_partition(config, satellite_index,
                                              partition, channel_amplitude, elevation_deg)
 
 
@@ -111,6 +112,14 @@ def schedule_groups(
         group.priority = weights[group.message_id] * gamma
         group.metadata.update(
             gamma=float(gamma),
+            pre_group_aoi_sum_slots=current,
+            predicted_unsuccessful_next_aoi_sum_slots=unsuccessful,
+            predicted_successful_next_aoi_sum_slots=successful,
+            gamma_slots=float(gamma),
+            message_weight=weights[group.message_id],
+            weighted_pre_group_aoi_slots=weights[group.message_id] * current,
+            weighted_predicted_unsuccessful_aoi_slots=weights[group.message_id] * unsuccessful,
+            weighted_predicted_successful_aoi_slots=weights[group.message_id] * successful,
             propagation_delay_slots=propagation,
             isl_delay_slots=float(isl_delay_slots),
             handover=bool(handover),
@@ -144,8 +153,8 @@ def schedule_groups(
     return selected
 
 
-def _group_order(group: Group) -> tuple[float, int, int, int]:
-    return group.gain, group.cohort_id, group.message_id, group.group_id
+def _group_order(group: Group) -> tuple[float, int, int]:
+    return group.gain, group.message_id, group.group_id
 
 
 def _budgets(groups: list[Group], p_sat: float, v_c: float, v_nc: float) -> tuple[float, float]:
@@ -287,6 +296,8 @@ def evaluate_twc_aim_power_plan(config, scheduled_groups, *, apply=False):
 
 def evaluate_power_plan(config, scheduled_groups: list[Group], *, apply: bool = False) -> dict:
     mode = str(config.get("algorithm.power_mode"))
+    if mode == POWER_MODE:
+        return allocate_csi_expanded_protected_power(config, scheduled_groups, apply=apply)
     if mode == "twc_aim_staircase":
         return evaluate_twc_aim_power_plan(config, scheduled_groups, apply=apply)
     if mode in {"literal_with_checks", "constraint_projection"}:
@@ -361,6 +372,8 @@ def allocate_power(config, groups: list[Group]) -> dict:
         group.metadata["power_failure_no_transmission"] = False
     scheduled = [group for group in groups if group.scheduled]
     diagnostic = evaluate_power_plan(config, scheduled, apply=True)
+    if diagnostic["mode"] == POWER_MODE:
+        return diagnostic
     failure = bool(
         not diagnostic["valid"]
         and diagnostic["mode"] == "twc_aim_staircase"
@@ -390,12 +403,29 @@ def decode_groups(config, groups: list[Group]) -> dict:
     noise = float(config.get("derived.noise_power"))
     threshold = float(config.get("algorithm.R_theta"))
     chain_ok = True
+    first_failed_group = None
     for index, group in enumerate(scheduled):
         later_power = float(sum(item.power for item in scheduled[index + 1 :]))
         denominator = group.gain * later_power + group.interference + noise
         group.sinr = group.gain * group.power / denominator if denominator > 0.0 else math.inf
         group.rate_bps_hz = math.log2(1.0 + group.sinr)
         group.rate_pass = rate_passes_threshold(group.rate_bps_hz, threshold)
+        group.metadata["sic_first_failed_predecessor_message_id"] = None
+        group.metadata["sic_first_failed_predecessor_group_id"] = None
+        group.metadata["sic_first_failed_predecessor_gain_db"] = None
+        group.metadata["sic_first_failed_predecessor_power"] = None
+        group.metadata["sic_first_failed_predecessor_rate"] = None
+        if first_failed_group is not None and group.rate_pass:
+            source = first_failed_group
+            group.metadata.update(
+                sic_first_failed_predecessor_message_id=source.message_id,
+                sic_first_failed_predecessor_group_id=source.group_id,
+                sic_first_failed_predecessor_gain_db=10.0 * math.log10(max(source.gain, np.finfo(float).tiny)),
+                sic_first_failed_predecessor_power=source.power,
+                sic_first_failed_predecessor_rate=source.rate_bps_hz,
+            )
+        if first_failed_group is None and not group.rate_pass:
+            first_failed_group = group
         chain_ok = chain_ok and group.rate_pass
         group.sic_pass = chain_ok
         group.success = chain_ok

@@ -13,6 +13,17 @@ import numpy as np
 from .errors import OptionalDependencyError
 
 
+def recover_trace_file(partial_path, finalized_path, next_slot):
+    """Recover a crash during final CSV renames, then discard uncommitted rows."""
+    import shutil
+    partial, finalized = Path(partial_path), Path(finalized_path)
+    if not partial.exists() and finalized.exists():
+        shutil.copyfile(finalized, partial)
+    if next_slot and not partial.exists():
+        raise ValueError(f"missing committed trace for checkpoint: {partial}")
+    recover_csv_before_slot(partial, next_slot)
+
+
 def atomic_write_json(path: str | Path, value) -> None:
     destination = Path(path)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -66,7 +77,8 @@ class AppendCsvWriter:
         self.resume = True
 
 
-def csv_to_parquet(csv_path: str | Path, parquet_path: str | Path, chunk_size: int = 10000) -> None:
+def csv_to_parquet(csv_path: str | Path, parquet_path: str | Path, chunk_size: int = 10000,
+                   column_types: dict | None = None) -> None:
     try:
         import pyarrow as pa  # type: ignore
         import pyarrow.csv as pacsv  # type: ignore
@@ -78,7 +90,8 @@ def csv_to_parquet(csv_path: str | Path, parquet_path: str | Path, chunk_size: i
     source = Path(csv_path)
     destination = Path(parquet_path)
     destination.parent.mkdir(parents=True, exist_ok=True)
-    reader = pacsv.open_csv(source, read_options=pacsv.ReadOptions(block_size=max(1 << 20, chunk_size * 256)))
+    reader = pacsv.open_csv(source, read_options=pacsv.ReadOptions(block_size=max(1 << 20, chunk_size * 256)),
+                           convert_options=pacsv.ConvertOptions(column_types=column_types or {}))
     writer = None
     try:
         for batch in reader:
@@ -118,6 +131,27 @@ def atomic_pickle(path: str | Path, value) -> None:
 def load_pickle(path: str | Path):
     with Path(path).open("rb") as handle:
         return pickle.load(handle)
+
+
+def recover_csv_before_slot(path: str | Path, next_slot: int) -> None:
+    """Discard rows appended after the last committed checkpoint on resume."""
+    destination = Path(path)
+    if not destination.exists():
+        return
+    temporary = destination.with_suffix(destination.suffix + ".recover.tmp")
+    try:
+        with destination.open(encoding="utf-8", newline="") as source, temporary.open("w", encoding="utf-8", newline="") as target:
+            reader = csv.DictReader(source)
+            if not reader.fieldnames:
+                return
+            writer = csv.DictWriter(target, fieldnames=reader.fieldnames)
+            writer.writeheader()
+            for row in reader:
+                if int(row["slot"]) < next_slot:
+                    writer.writerow(row)
+        os.replace(temporary, destination)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def write_npz(path: str | Path, **arrays: np.ndarray) -> None:

@@ -32,13 +32,13 @@ CONFIG = Path(__file__).parents[1] / "configs" / "base.yaml"
 
 
 def small_group(index, gain, edge):
-    return Group(0, 0, 0, index, np.array([index], dtype=np.int32), gain,
+    return Group(0, 0, index, np.array([index], dtype=np.int32), gain,
                  15.0 if edge else 45.0, edge, scheduled=True)
 
 
 def component_state(config):
     return {
-        **initial_epoch_state(), "previous_actions": {}, "action_change_events": 0,
+        **initial_epoch_state(), "previous_action": None, "action_change_events": 0,
         "action_histogram": Counter(),
         "agents": [SlidingWindowUCB(config.get("algorithm.action_set"),
                                     window_steps=config.get("derived.sw_ucb_window_epochs"),
@@ -62,7 +62,7 @@ class RegroupingConfigTests(unittest.TestCase):
         snapshot = build_parameter_snapshot(self.config, "mira_sw_ucb", 0)
         self.assertEqual(snapshot["bandit_time_index"], "global_regrouping_epoch")
         self.assertEqual(snapshot["regrouping_interval_s"], 1)
-        self.assertEqual(snapshot["power_allocator"], "twc_aim_staircase")
+        self.assertEqual(snapshot["power_allocator"], "csi_expanded_protected_pool")
 
     def test_invalid_interval_and_fractional_window_rejected(self):
         for interval in (0, -1, float("nan"), float("inf"), 1.005):
@@ -90,25 +90,25 @@ class RegroupingConfigTests(unittest.TestCase):
 class PartitionAndEpochTests(unittest.TestCase):
     def setUp(self):
         self.config = load_config(CONFIG)
-        self.members = {(0, m): np.arange(40 * m, 40 * (m + 1), dtype=np.int32) for m in range(3)}
-        self.channel = np.tile(np.arange(1, 301, dtype=float), (8, 1))
-        self.elevation = np.full((8, 300), 50.0)
+        self.members = {m: np.arange(40 * m, 40 * (m + 1), dtype=np.int32) for m in range(3)}
+        self.channel = np.tile(np.arange(1, 121, dtype=float), (8, 1))
+        self.elevation = np.full((8, 120), 50.0)
 
     def prepare(self, state, slot, *, policy="mira_sw_ucb", satellite=0, channel=None, selector=select_grouping_action):
-        return groups_for_slot(self.config, state, cohort=0, satellite=satellite, slot=slot,
+        return groups_for_slot(self.config, state,  satellite=satellite, slot=slot,
                                policy=policy, policy_seed=7, fixed_action=4, message_members=self.members,
                                channel_amplitude=self.channel if channel is None else channel,
                                elevation_deg=self.elevation, select_action=selector)
 
     def test_membership_is_immutable_and_dynamic_fields_use_current_slot(self):
-        partition = build_group_partition(self.config, 0, 0, 4, self.members, self.channel)
+        partition = build_group_partition(self.config, 0, 4, self.members, self.channel)
         self.assertIsInstance(partition[0].member_indices, tuple)
         restored = pickle.loads(pickle.dumps(partition))
         self.assertEqual(partition, restored)
-        before = materialize_groups_from_partition(self.config, 0, 0, partition, self.channel, self.elevation)
+        before = materialize_groups_from_partition(self.config, 0, partition, self.channel, self.elevation)
         new_channel = self.channel[:, ::-1].copy()
-        new_elevation = np.full((8, 300), 15.0)
-        after = materialize_groups_from_partition(self.config, 0, 0, partition, new_channel, new_elevation)
+        new_elevation = np.full((8, 120), 14.0)
+        after = materialize_groups_from_partition(self.config, 0, partition, new_channel, new_elevation)
         for a, b in zip(before, after):
             np.testing.assert_array_equal(a.member_indices, b.member_indices)
             self.assertNotEqual(a.gain, b.gain)
@@ -127,12 +127,12 @@ class PartitionAndEpochTests(unittest.TestCase):
             action, groups, changed = self.prepare(state, slot, channel=channel, selector=selector)
             actions.append(action)
             changes.append(changed)
-            hashes.append(state["held_partition_hash"][0])
-            events = tracker.update(groups, np.ones((8, 300), dtype=bool))
+            hashes.append(state["held_partition_hash"])
+            events = tracker.update(groups, np.ones((8, 120), dtype=bool))
             if slot % 100:
                 self.assertEqual(events["regrouping_events"], 0)
                 self.assertEqual(changed, 0)
-            observe_slot_reward(self.config, state, cohort=0, slot=slot, slot_limit=350, raw_reward=-100.0)
+            observe_slot_reward(self.config, state,  slot=slot, slot_limit=350, raw_reward=-100.0)
         self.assertEqual(selector.call_count, 4)
         self.assertEqual([c.kwargs["slot"] for c in selector.call_args_list], [0, 1, 2, 3])
         self.assertEqual([actions[i] for i in (0, 100, 200, 300)], [1, 2, 4, 5])
@@ -167,37 +167,37 @@ class PartitionAndEpochTests(unittest.TestCase):
         state = component_state(self.config)
         selector = unittest.mock.Mock(wraps=select_grouping_action)
         tracker = AssignmentTracker()
-        visible = np.ones((8, 300), dtype=bool)
+        visible = np.ones((8, 120), dtype=bool)
         initial_hash = None
         for slot in range(100):
             satellite = 0 if slot < 50 else 1
             action, groups, changed = self.prepare(state, slot, satellite=satellite, selector=selector)
             events = tracker.update(groups, visible)
             if initial_hash is None:
-                initial_hash = state["held_partition_hash"][0]
-            self.assertEqual(initial_hash, state["held_partition_hash"][0])
-            self.assertEqual(state["epoch_action_owner_satellite"][0], 0)
+                initial_hash = state["held_partition_hash"]
+            self.assertEqual(initial_hash, state["held_partition_hash"])
+            self.assertEqual(state["epoch_action_owner_satellite"], 0)
             if slot == 50:
                 self.assertEqual(events["handover_assignments"], 120)
                 self.assertEqual(events["regrouping_events"], 0)
                 self.assertEqual(changed, 0)
                 self.assertTrue(all(g.satellite_index == 1 for g in groups))
-            observe_slot_reward(self.config, state, cohort=0, slot=slot, slot_limit=200, raw_reward=-100)
+            observe_slot_reward(self.config, state,  slot=slot, slot_limit=200, raw_reward=-100)
         self.assertEqual(selector.call_count, 1)
         self.assertEqual(len(state["agents"][0].observations), 1)
         self.assertEqual(len(state["agents"][1].observations), 0)
         self.prepare(state, 100, satellite=1, selector=selector)
-        self.assertEqual(state["epoch_action_owner_satellite"][0], 1)
+        self.assertEqual(state["epoch_action_owner_satellite"], 1)
         self.assertEqual(selector.call_count, 2)
 
     def test_epoch_reward_mean_and_no_finalize_when_checkpoint_pauses(self):
         state = component_state(self.config)
         for slot in range(150):
             self.prepare(state, slot)
-            observe_slot_reward(self.config, state, cohort=0, slot=slot, slot_limit=300, raw_reward=slot)
+            observe_slot_reward(self.config, state,  slot=slot, slot_limit=300, raw_reward=slot)
         self.assertEqual(state["bandit_observation_count"], 1)
-        self.assertEqual(state["epoch_reward_count"][0], 50)
-        self.assertFalse(state["epoch_reward_finalized"][0])
+        self.assertEqual(state["epoch_reward_count"], 50)
+        self.assertFalse(state["epoch_reward_finalized"])
         self.assertAlmostEqual(state["agents"][0].observations[0].reward,
                                np.mean([(s + 1000) / 2000 for s in range(100)]))
         restored = pickle.loads(pickle.dumps(state))
@@ -206,9 +206,9 @@ class PartitionAndEpochTests(unittest.TestCase):
             trace = []
             for slot in range(150, 300):
                 action, _, _ = self.prepare(candidate, slot)
-                normalized, epoch_reward = observe_slot_reward(self.config, candidate, cohort=0,
+                normalized, epoch_reward = observe_slot_reward(self.config, candidate, 
                     slot=slot, slot_limit=300, raw_reward=slot)
-                trace.append((action, candidate["held_partition_hash"][0], normalized, epoch_reward))
+                trace.append((action, candidate["held_partition_hash"], normalized, epoch_reward))
             traces.append(trace)
             self.assertEqual(candidate["bandit_observation_count"], 3)
         self.assertEqual(traces[0], traces[1])
@@ -232,7 +232,7 @@ class TwcPowerTests(unittest.TestCase):
     def setUp(self):
         self.config = load_config(CONFIG)
 
-    def test_class_budgets_and_continuous_residual_exact_values(self):
+    def test_legacy_archived_class_budgets_and_continuous_residual_exact_values(self):
         groups = [small_group(i, i + 1, False) for i in range(3)]
         target, floor = twc_aim_staircase_target(groups, .3, .0005)
         self.assertAlmostEqual(floor, .003)
@@ -251,7 +251,7 @@ class TwcPowerTests(unittest.TestCase):
         self.assertTrue(diagnostic["valid"])
         self.assertEqual((diagnostic["edge_budget"], diagnostic["nonedge_budget"]), (.7, .3))
 
-    def test_compact_30_group_floor_invariant(self):
+    def test_legacy_archived_compact_30_group_floor_invariant(self):
         groups = [small_group(i, i + 1, False) for i in range(30)]
         target, floor = twc_aim_staircase_target(groups, .3, .0005)
         self.assertAlmostEqual(floor, .2325)
@@ -259,7 +259,7 @@ class TwcPowerTests(unittest.TestCase):
         self.assertAlmostEqual(sum(target.values()), .3)
 
     def test_global_sic_projection_repairs_power_only(self):
-        groups = [small_group(0, 1, True), small_group(1, 2, False), small_group(2, 3, True)]
+        groups = [small_group(i, i+1, i==6) for i in range(10)]
         before = [g.key for g in groups if g.scheduled]
         diagnostic = allocate_power(self.config, groups)
         self.assertTrue(diagnostic["valid"], diagnostic)
@@ -268,10 +268,9 @@ class TwcPowerTests(unittest.TestCase):
         self.assertEqual(diagnostic["sic_order_violations_after"], [])
         self.assertEqual([g.key for g in groups if g.scheduled], before)
         self.assertEqual(diagnostic["removed_groups"], [])
-        self.assertAlmostEqual(groups[0].power + groups[2].power, .7)
-        self.assertAlmostEqual(groups[1].power, .3)
-        self.assertGreaterEqual(groups[0].power + 1e-10, groups[1].power)
-        self.assertGreaterEqual(groups[1].power + 1e-10, groups[2].power)
+        self.assertAlmostEqual(sum(g.power for g in groups[:7]), .7)
+        self.assertAlmostEqual(sum(g.power for g in groups[7:]), .3)
+        self.assertTrue(all(a.power+1e-10 >= b.power for a,b in zip(groups,groups[1:])))
 
     def test_infeasible_projection_reports_error_without_dropping(self):
         groups = [small_group(0, 1, False), small_group(1, 2, True)]
@@ -284,21 +283,23 @@ class TwcPowerTests(unittest.TestCase):
         for actual, prior in zip(groups, before):
             self.assertEqual(actual.power, prior.power)
             self.assertEqual(actual.scheduled, prior.scheduled)
+        # Legacy pure-plan fixture above is archived; formal allocation uses new pools.
+        groups = [small_group(i, i+1, i<3) for i in range(4)]
         applied = allocate_power(self.config, groups)
         self.assertFalse(applied["valid"])
         self.assertTrue(all(g.scheduled for g in groups))
         self.assertTrue(all(g.power == 0 for g in groups))
 
     def test_current_csi_order_changes_immediately_and_future_csi_is_unused(self):
-        members = {(0, m): np.arange(m * 40, (m + 1) * 40, dtype=np.int32) for m in range(3)}
-        channel = np.tile(np.arange(1, 301, dtype=float), (8, 1))
-        partition = build_group_partition(self.config, 0, 0, 2, members, channel)
-        elevation = np.full((8, 300), 50.0)
+        members = {m: np.arange(m * 40, (m + 1) * 40, dtype=np.int32) for m in range(3)}
+        channel = np.tile(np.arange(1, 121, dtype=float), (8, 1))
+        partition = build_group_partition(self.config, 0, 2, members, channel)
+        elevation = np.full((8, 120), 50.0)
         future = channel.copy()
 
         def evaluate(current):
-            groups = materialize_groups_from_partition(self.config, 0, 0, partition, current, elevation)
-            schedule_groups(self.config, groups, np.full(300, 1000.), np.full((8, 300), 800.), False, 0.)
+            groups = materialize_groups_from_partition(self.config, 0, partition, current, elevation)
+            schedule_groups(self.config, groups, np.full(120, 1000.), np.full((8, 120), 800.), False, 0.)
             result = allocate_power(self.config, groups)
             self.assertTrue(result["valid"])
             decode_groups(self.config, groups)
@@ -320,9 +321,9 @@ class FormalConsistencyTests(unittest.TestCase):
     def test_validator_rejects_action_twenty_under_compact_config(self):
         result = {"status": "COMPLETED", "policy": "mira_sw_ucb",
                   "invalid_power_or_sic_count": 0, "post_schedule_power_drop_count": 0,
-                  "max_transmitted_power_normalized": 1., "phi_theta_deg": 20., "B_penalty": .05}
+                  "max_transmitted_power_normalized": 1., "phi_theta_deg": 15., "B_penalty": .05}
         with self.assertRaisesRegex(RuntimeError, "invalid grouping action"):
-            _validate_run(result, [{"slot": 0}], [{"slot": 0, "cohort_id": 0, "action": 20}],
+            _validate_run(result, [{"slot": 0}], [{"slot": 0, "action": 20}],
                           1, load_config(CONFIG))
 
     def test_failed_model_never_produces_a_completed_comparison(self):
@@ -346,8 +347,9 @@ class FormalConsistencyTests(unittest.TestCase):
 class EpochSimulationIntegrationTests(unittest.TestCase):
     @simulation_test
     def test_resume_at_150_matches_300_slots(self):
-        config = load_config(CONFIG).with_overrides({"algorithm.reward_bounds": {
-            "lower": -1e9, "upper": 1e9, "identity": "integration-only",
+        config = load_config(CONFIG)
+        config = config.with_overrides({"algorithm.reward_bounds": {
+            "lower": -1e9, "upper": 1e9, "identity": "integration-only", "context": reward_context(config, 0),
         }})
         with tempfile.TemporaryDirectory() as left, tempfile.TemporaryDirectory() as right:
             # A controlled all-nonedge environment makes this a cadence/resume test,
@@ -362,7 +364,7 @@ class EpochSimulationIntegrationTests(unittest.TestCase):
                 self.assertEqual(paused["status"], "CHECKPOINTED")
                 checkpoint = pickle.loads((Path(right) / "checkpoint.pkl").read_bytes())
                 self.assertEqual(checkpoint["schema_version"], CHECKPOINT_SCHEMA_VERSION)
-                self.assertTrue(all(n == 50 for n in checkpoint["state"]["epoch_reward_count"].values()))
+                self.assertEqual(checkpoint["state"]["epoch_reward_count"], 50)
                 resumed = run_simulation(config, channel_seed=0, policy="mira_sw_ucb", max_slots=300,
                                           run_directory=right, resume=True)["summary"]
             for filename in ("slot_metrics.csv", "convergence_slot_metrics.csv", "bandit_observations.csv"):

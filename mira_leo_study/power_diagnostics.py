@@ -7,7 +7,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from .algorithms import allocate_power, evaluate_twc_aim_power_plan, make_groups
+from .algorithms import allocate_power, evaluate_power_plan, make_groups
 from .association import AssociationTracker
 from .channel import serving_channel_amplitude
 from .config import load_config
@@ -38,35 +38,39 @@ def scan_pilot_power(config, output_directory, *, seed=0):
             continue
         channel = serving_channel_amplitude(config, seed, slot, distance)
         for action in config.get("algorithm.action_set"):
-            for cohort, satellite in enumerate(association.serving_satellites):
-                groups = make_groups(config, satellite, cohort, action,
-                                     scenario.subscriptions.message_members, channel, elevation)
-                for group in groups:
-                    group.scheduled = True
-                diagnostic = evaluate_twc_aim_power_plan(config, groups)
-                infeasible = diagnostic["projection_solver_status"] == 2
-                outcome = allocate_power(config, groups) if not diagnostic["valid"] else None
-                row = {
-                    "slot": slot, "time_s": slot * dt, "seed": seed,
-                    "phi_theta_deg": float(config.get("algorithm.phi_theta_deg")),
-                    "cohort_id": cohort, "satellite_id": scenario.constellation.elements[satellite].satellite_id,
-                    "action": action, "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
-                    "candidate_groups": len(groups), "edge_count": diagnostic["edge_count"],
-                    "nonedge_count": diagnostic["nonedge_count"],
-                    "edge_floor_total": diagnostic["edge_floor_total"],
-                    "nonedge_floor_total": diagnostic["nonedge_floor_total"],
-                    "valid_power_plan": diagnostic["valid"], "lp_infeasible": infeasible,
-                    "lp_status": diagnostic["projection_solver_status"],
-                    "handled_as_transmission_failure": bool(outcome and outcome["transmission_failure"]),
-                    "actual_power_if_failed": outcome["actual_total_power"] if outcome else None,
-                }
-                rows.append(row)
-                if not diagnostic["valid"]:
-                    details.append({**row, "solver_message": diagnostic["projection_solver_message"],
-                                    "groups_by_current_csi": [
-                                        {"message_id": g.message_id, "group_id": g.group_id,
-                                         "gain": g.gain, "is_edge": g.is_edge}
-                                        for g in sorted(groups, key=lambda g: (g.gain, g.cohort_id, g.message_id, g.group_id))]})
+            satellite = association.serving_satellite
+            groups = make_groups(config, satellite, action,
+                                 scenario.subscriptions.message_members, channel, elevation)
+            for group in groups:
+                group.scheduled = True
+            diagnostic = evaluate_power_plan(config, groups)
+            infeasible = diagnostic["power_infeasible_reason"] == "POOL_SIC_INCOMPATIBLE"
+            outcome = allocate_power(config, groups) if not diagnostic["valid"] else None
+            row = {
+                "slot": slot, "time_s": slot * dt, "seed": seed,
+                "phi_theta_deg": float(config.get("algorithm.phi_theta_deg")),
+                "satellite_id": scenario.constellation.elements[satellite].satellite_id,
+                "action": action, "assumption": "ALL_CANDIDATE_GROUPS_SCHEDULED",
+                "candidate_groups": len(groups), "edge_count": sum(g.is_edge for g in groups),
+                "nonedge_count": sum(not g.is_edge for g in groups),
+                "protected_floor_total": diagnostic["protected_floor_total"],
+                "ordinary_floor_total": diagnostic["ordinary_floor_total"],
+                "valid_power_plan": diagnostic["valid"], "lp_infeasible": infeasible,
+                "lp_status": diagnostic["projection_solver_status"],
+                "power_infeasible_reason": diagnostic["power_infeasible_reason"],
+                "protected_count": diagnostic["protected_count"],
+                "ordinary_count": diagnostic["ordinary_count"],
+                "promoted_weak_nonedge_count": diagnostic["promoted_weak_nonedge_count"],
+                "handled_as_transmission_failure": bool(outcome and outcome["transmission_failure"]),
+                "actual_power_if_failed": outcome["actual_total_power"] if outcome else None,
+            }
+            rows.append(row)
+            if not diagnostic["valid"]:
+                details.append({**row, "solver_message": diagnostic["projection_solver_message"],
+                                "groups_by_current_csi": [
+                                    {"message_id": g.message_id, "group_id": g.group_id,
+                                     "gain": g.gain, "is_edge": g.is_edge}
+                                    for g in sorted(groups, key=lambda g: (g.gain, g.message_id, g.group_id))]})
         if slot in {max(s for s in snapshots if s < round(end / dt)) for _, end in config.get("formal_results.reward_pilot_windows_s")}:
             print(f"Completed diagnostic window through t={slot * dt:g}s", flush=True)
     failed = [r for r in rows if r["lp_infeasible"]]
@@ -84,7 +88,7 @@ def scan_pilot_power(config, output_directory, *, seed=0):
         "handled_transmission_failure_count": sum(r["handled_as_transmission_failure"] for r in rows),
         "infeasible_distinct_times_s": sorted({r["time_s"] for r in failed}),
         "infeasible_by_action": dict(sorted(Counter(r["action"] for r in failed).items())),
-        "infeasible_by_cohort": dict(sorted(Counter(r["cohort_id"] for r in failed).items())),
+        "infeasible_by_serving_satellite": dict(sorted(Counter(r["satellite_id"] for r in failed).items())),
     }
     root = Path(output_directory)
     root.mkdir(parents=True, exist_ok=True)
@@ -101,7 +105,7 @@ def main():
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
     config = load_config(args.config)
-    output = args.outputs or f"mira_leo_study/diagnostics/pilot_power_phi{float(config.get('algorithm.phi_theta_deg')):g}_seed{args.seed}_all_candidates"
+    output = args.outputs or f"outputs/120ue_single_serving_full_load_interference/diagnostics/pilot_power_phi{float(config.get('algorithm.phi_theta_deg')):g}_seed{args.seed}_all_candidates"
     print(json.dumps(scan_pilot_power(config, output, seed=args.seed), indent=2))
 
 

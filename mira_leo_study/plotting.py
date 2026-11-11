@@ -121,11 +121,10 @@ def plot_geometry(config, output_directory: str | Path) -> list[str]:
     if association_file.exists():
         association = pd.read_parquet(association_file)
         fig, ax = plt.subplots(figsize=(11, 4))
-        for cohort, frame in association.groupby("cohort_id"):
-            satellite_number = frame["satellite_id"].str.split("_").str[-1].astype(int)
-            ax.step(frame["time_s"], satellite_number + 0.08 * int(cohort), where="post", label=f"cohort_{cohort}")
-            handovers = frame[frame["handover"] == 1]
-            ax.scatter(handovers["time_s"], satellite_number.loc[handovers.index] + 0.08 * int(cohort), marker="x", s=20)
+        satellite_number = association["satellite_id"].str.split("_").str[-1].astype(int)
+        ax.step(association["time_s"], satellite_number, where="post", label="all 120 UE")
+        handovers = association[association["handover"] == 1]
+        ax.scatter(handovers["time_s"], satellite_number.loc[handovers.index], marker="x", s=20)
         ax.set_xlabel("Time (s)")
         ax.set_ylabel("Serving satellite number")
         ax.legend()

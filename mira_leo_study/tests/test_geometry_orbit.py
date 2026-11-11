@@ -67,9 +67,12 @@ class GeometryOrbitTests(unittest.TestCase):
         self.assertEqual(self.scenario.subscriptions.subscription_hash, second.subscriptions.subscription_hash)
         np.testing.assert_array_equal(self.scenario.devices.ecef_km, second.devices.ecef_km)
         subscriptions = generate_subscriptions(self.config)
-        self.assertEqual(len(np.unique(subscriptions.active_device_ids)), 240)
-        self.assertEqual(len(set(subscriptions.cohort_members[0]) & set(subscriptions.cohort_members[1])), 0)
-        self.assertEqual(np.count_nonzero(subscriptions.cohort_by_device < 0), 60)
+        self.assertEqual(len(np.unique(subscriptions.active_device_ids)), 120)
+        self.assertEqual(set(subscriptions.message_members), {0, 1, 2})
+        members = np.concatenate(list(subscriptions.message_members.values()))
+        self.assertEqual(len(np.unique(members)), 120)
+        np.testing.assert_array_equal(np.sort(members), np.arange(120))
+        self.assertTrue(all(len(m) == 40 for m in subscriptions.message_members.values()))
 
     def test_grid_coverage_matches_discrete_reference(self):
         _, _, grid = generate_coverage_grid(self.config)
