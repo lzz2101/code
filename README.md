@@ -54,6 +54,8 @@ Runner 會為四個 φ 各自校準 reward bounds，再執行六組。若先短�
 
 ## 原始碼與歷史資料
 
+- [ZIP 版程式與元件完整導讀（φ15／固定 ingress 六組版）](docs/MIRA_LEO_ZIP_CODE_GUIDE_ZH_TW.md)：逐檔用途、資料流程、指標、環境、測試及附圖來源；以原 ZIP 核對，非後續 random-ingress 新版。
+
 - [目前來源檔 SHA-256 清單](CURRENT_SOURCE_MANIFEST.json)
 - [P1 修改及驗證報告](mira_leo_study/MODIFICATION_REPORT_P1_ABLATION.md)
 - [服務星 CSI 診斷說明](mira_leo_study/SERVING_CSI_DIAGNOSTIC_REPORT.md)

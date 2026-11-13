@@ -1,0 +1,3351 @@
+{
+  "document": "MIRA_LEO_ZIP_CODE_GUIDE_ZH_TW.md",
+  "documentation_date": "2026-11-13",
+  "archive": {
+    "name": "mira_leo_study.zip",
+    "bytes": 94877469,
+    "sha256": "64af72182bdda6e3ca033c5475f70a12bec1918774b54dd38c9dff8a9512582b",
+    "file_count": 283
+  },
+  "scope": "ZIP version: phi15 main, fixed sat_03 ingress, six P1 runs; excludes later random-ingress implementation",
+  "source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+  "root_python_modules": 37,
+  "test_python_files": 17,
+  "source_config_requirement_files": 57,
+  "source_files": [
+    {
+      "path": "mira_leo_study/algorithms.py",
+      "bytes": 26890,
+      "sha256": "0f522f03b8d764b1885b0482801cc429ca1bee94b13912f882edf933b7248308",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "legal_actions",
+          "line": 15,
+          "kind": "function"
+        },
+        {
+          "name": "build_group_partition",
+          "line": 23,
+          "kind": "function"
+        },
+        {
+          "name": "materialize_groups_from_partition",
+          "line": 48,
+          "kind": "function"
+        },
+        {
+          "name": "make_groups",
+          "line": 68,
+          "kind": "function"
+        },
+        {
+          "name": "schedule_capacity",
+          "line": 80,
+          "kind": "function"
+        },
+        {
+          "name": "schedule_capacity_continuous",
+          "line": 86,
+          "kind": "function"
+        },
+        {
+          "name": "schedule_groups",
+          "line": 92,
+          "kind": "function"
+        },
+        {
+          "name": "_group_order",
+          "line": 156,
+          "kind": "function"
+        },
+        {
+          "name": "_budgets",
+          "line": 160,
+          "kind": "function"
+        },
+        {
+          "name": "_floor_by_group",
+          "line": 172,
+          "kind": "function"
+        },
+        {
+          "name": "_literal_target",
+          "line": 180,
+          "kind": "function"
+        },
+        {
+          "name": "_sic_order_violations",
+          "line": 191,
+          "kind": "function"
+        },
+        {
+          "name": "twc_aim_class_budget",
+          "line": 215,
+          "kind": "function"
+        },
+        {
+          "name": "twc_aim_staircase_target",
+          "line": 219,
+          "kind": "function"
+        },
+        {
+          "name": "_evaluate_staircase_plan",
+          "line": 224,
+          "kind": "function"
+        },
+        {
+          "name": "evaluate_twc_aim_power_plan",
+          "line": 292,
+          "kind": "function"
+        },
+        {
+          "name": "evaluate_power_plan",
+          "line": 297,
+          "kind": "function"
+        },
+        {
+          "name": "check_power_feasibility",
+          "line": 308,
+          "kind": "function"
+        },
+        {
+          "name": "_projection_lp",
+          "line": 313,
+          "kind": "function"
+        },
+        {
+          "name": "allocate_power",
+          "line": 368,
+          "kind": "function"
+        },
+        {
+          "name": "rate_passes_threshold",
+          "line": 397,
+          "kind": "function"
+        },
+        {
+          "name": "decode_groups",
+          "line": 401,
+          "kind": "function"
+        },
+        {
+          "name": "BanditObservation",
+          "line": 442,
+          "kind": "class"
+        },
+        {
+          "name": "SlidingWindowUCB",
+          "line": 448,
+          "kind": "class"
+        },
+        {
+          "name": "RewardNormalizer",
+          "line": 502,
+          "kind": "class"
+        },
+        {
+          "name": "finite_horizon_reward_bounds",
+          "line": 526,
+          "kind": "function"
+        },
+        {
+          "name": "pilot_fixed_bounds",
+          "line": 539,
+          "kind": "function"
+        },
+        {
+          "name": "raw_reward",
+          "line": 552,
+          "kind": "function"
+        },
+        {
+          "name": "update_user_aoi",
+          "line": 567,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/analysis.py",
+      "bytes": 8267,
+      "sha256": "a37f865a4e919fdd1d6a3196f76a67688da50f00d47601415ea140328d429e57",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "parameter_identifiability",
+          "line": 13,
+          "kind": "function"
+        },
+        {
+          "name": "discover_runs",
+          "line": 23,
+          "kind": "function"
+        },
+        {
+          "name": "_mean_ci",
+          "line": 49,
+          "kind": "function"
+        },
+        {
+          "name": "aggregate_runs",
+          "line": 60,
+          "kind": "function"
+        },
+        {
+          "name": "paired_differences",
+          "line": 102,
+          "kind": "function"
+        },
+        {
+          "name": "pareto_rows",
+          "line": 139,
+          "kind": "function"
+        },
+        {
+          "name": "build_comparison_tables",
+          "line": 167,
+          "kind": "function"
+        },
+        {
+          "name": "select_finalists",
+          "line": 184,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/association.py",
+      "bytes": 4763,
+      "sha256": "edd644468b5304106dbe5688b00bb4aee6550856eb0bb8a23e6200b946a97eb6",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "AssociationTracker",
+          "line": 8,
+          "kind": "class"
+        },
+        {
+          "name": "precompute_association",
+          "line": 102,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/calibration.py",
+      "bytes": 23689,
+      "sha256": "f96c38be8b863c5972874fe15c1f837781daa884a848b81ea173b48bcf8bd2ab",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_routes",
+          "line": 31,
+          "kind": "function"
+        },
+        {
+          "name": "_routes_valid",
+          "line": 45,
+          "kind": "function"
+        },
+        {
+          "name": "evaluate_counterfactual_slot",
+          "line": 56,
+          "kind": "function"
+        },
+        {
+          "name": "_derive_calibration",
+          "line": 176,
+          "kind": "function"
+        },
+        {
+          "name": "run_calibration",
+          "line": 290,
+          "kind": "function"
+        },
+        {
+          "name": "run_per_phi_B_pilots",
+          "line": 456,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/channel.py",
+      "bytes": 4771,
+      "sha256": "155ff7d911b72d0b1e6f1a178f5882ff3c807e9b66f4319a0659f6958e962054",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "shadowed_rician_samples",
+          "line": 8,
+          "kind": "function"
+        },
+        {
+          "name": "path_gain",
+          "line": 28,
+          "kind": "function"
+        },
+        {
+          "name": "serving_channel_amplitude",
+          "line": 35,
+          "kind": "function"
+        },
+        {
+          "name": "external_interferer_powers",
+          "line": 53,
+          "kind": "function"
+        },
+        {
+          "name": "expected_cross_link_interference_by_ue",
+          "line": 65,
+          "kind": "function"
+        },
+        {
+          "name": "expected_cross_link_interference",
+          "line": 105,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/config.py",
+      "bytes": 22721,
+      "sha256": "b11f84df8f03abde1574ac00f2fc1502ef1198dbaef1223bec4a542f0e47211f",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_deep_merge",
+          "line": 28,
+          "kind": "function"
+        },
+        {
+          "name": "_canonical",
+          "line": 38,
+          "kind": "function"
+        },
+        {
+          "name": "_load_mapping",
+          "line": 42,
+          "kind": "function"
+        },
+        {
+          "name": "StudyConfig",
+          "line": 61,
+          "kind": "class"
+        },
+        {
+          "name": "resolve_config",
+          "line": 103,
+          "kind": "function"
+        },
+        {
+          "name": "validate_phi_study_config",
+          "line": 258,
+          "kind": "function"
+        },
+        {
+          "name": "validate_fixed_study_config",
+          "line": 340,
+          "kind": "function"
+        },
+        {
+          "name": "validate_p1_ablation_config",
+          "line": 414,
+          "kind": "function"
+        },
+        {
+          "name": "load_config",
+          "line": 421,
+          "kind": "function"
+        },
+        {
+          "name": "save_config",
+          "line": 425,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/configs/base.yaml",
+      "bytes": 4516,
+      "sha256": "7e479332d3b92ffb3523fcbb8d6b8bbfbc47eecadf43f4254843a034987496fd",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915"
+    },
+    {
+      "path": "mira_leo_study/configs/p1_source_provenance.yaml",
+      "bytes": 6733,
+      "sha256": "681387e369224dc12c5a287abeae910b1f32a4f162f807b17e3f7185499651e8",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_no_interference.py",
+      "bytes": 31273,
+      "sha256": "d1332fa9f6134243fcc27fd37b6db495e1798e5f74c073694543e7ba38743a51",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "build_analysis_config",
+          "line": 45,
+          "kind": "function"
+        },
+        {
+          "name": "check_source_invariants",
+          "line": 60,
+          "kind": "function"
+        },
+        {
+          "name": "elevation_bin_indices",
+          "line": 100,
+          "kind": "function"
+        },
+        {
+          "name": "compute_external_interference",
+          "line": 110,
+          "kind": "function"
+        },
+        {
+          "name": "interference_adjusted_gain",
+          "line": 126,
+          "kind": "function"
+        },
+        {
+          "name": "SlotMetric",
+          "line": 141,
+          "kind": "class"
+        },
+        {
+          "name": "compute_slot_metric",
+          "line": 153,
+          "kind": "function"
+        },
+        {
+          "name": "PlotReservoir",
+          "line": 191,
+          "kind": "class"
+        },
+        {
+          "name": "compute_exact_quantile_from_memmap",
+          "line": 228,
+          "kind": "function"
+        },
+        {
+          "name": "accumulate_bottom_by_angle",
+          "line": 266,
+          "kind": "function"
+        },
+        {
+          "name": "accumulate_bottom20_by_angle",
+          "line": 289,
+          "kind": "function"
+        },
+        {
+          "name": "bin_statistics",
+          "line": 295,
+          "kind": "function"
+        },
+        {
+          "name": "save_statistics_csv",
+          "line": 313,
+          "kind": "function"
+        },
+        {
+          "name": "save_plots",
+          "line": 326,
+          "kind": "function"
+        },
+        {
+          "name": "run_csi_elevation_study",
+          "line": 372,
+          "kind": "function"
+        },
+        {
+          "name": "main",
+          "line": 536,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_serving_satellite.py",
+      "bytes": 20442,
+      "sha256": "010772ef342c644c749b0b9af72c23344fa5ec014edad5d85fe9aa86fb64d51a",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "select_serving_links",
+          "line": 43,
+          "kind": "function"
+        },
+        {
+          "name": "summarize_population",
+          "line": 65,
+          "kind": "function"
+        },
+        {
+          "name": "save_statistics",
+          "line": 87,
+          "kind": "function"
+        },
+        {
+          "name": "save_serving_plots",
+          "line": 102,
+          "kind": "function"
+        },
+        {
+          "name": "_save_scatter_sample",
+          "line": 140,
+          "kind": "function"
+        },
+        {
+          "name": "run_serving_csi_elevation_study",
+          "line": 153,
+          "kind": "function"
+        },
+        {
+          "name": "main",
+          "line": 294,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_with_interference.py",
+      "bytes": 715,
+      "sha256": "1d9fae40f53c06b40b9badc955ce3580b084e5c255b18523c7840305a7b98dbb",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "main",
+          "line": 14,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/diagnostics.py",
+      "bytes": 31497,
+      "sha256": "45699ab5dd543c9fdabbea2f3968d38a461ca97ae902519a8cfe52a2c54de2eb",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "DiagnosticDataError",
+          "line": 42,
+          "kind": "class"
+        },
+        {
+          "name": "ratio",
+          "line": 46,
+          "kind": "function"
+        },
+        {
+          "name": "read_trace_batches",
+          "line": 50,
+          "kind": "function"
+        },
+        {
+          "name": "trace_path",
+          "line": 68,
+          "kind": "function"
+        },
+        {
+          "name": "_header",
+          "line": 75,
+          "kind": "function"
+        },
+        {
+          "name": "_import_trace",
+          "line": 83,
+          "kind": "function"
+        },
+        {
+          "name": "export_query",
+          "line": 124,
+          "kind": "function"
+        },
+        {
+          "name": "numeric_stats",
+          "line": 133,
+          "kind": "function"
+        },
+        {
+          "name": "_keys",
+          "line": 143,
+          "kind": "function"
+        },
+        {
+          "name": "build_group_summary",
+          "line": 147,
+          "kind": "function"
+        },
+        {
+          "name": "_serving_stats",
+          "line": 185,
+          "kind": "function"
+        },
+        {
+          "name": "_resolve_root",
+          "line": 202,
+          "kind": "function"
+        },
+        {
+          "name": "_load_database",
+          "line": 212,
+          "kind": "function"
+        },
+        {
+          "name": "_Quantile",
+          "line": 260,
+          "kind": "class"
+        },
+        {
+          "name": "_additional_outputs",
+          "line": 267,
+          "kind": "function"
+        },
+        {
+          "name": "_table",
+          "line": 312,
+          "kind": "function"
+        },
+        {
+          "name": "write_diagnostic_report",
+          "line": 317,
+          "kind": "function"
+        },
+        {
+          "name": "generate_diagnostics",
+          "line": 369,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/diagnostic_plots.py",
+      "bytes": 21907,
+      "sha256": "f327a1802e42d3977edaefb294d628cc870eb1f0c96d7328869d4dbc116f6c6e",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_array",
+          "line": 14,
+          "kind": "function"
+        },
+        {
+          "name": "generate_plots",
+          "line": 20,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/diagnostic_trace.py",
+      "bytes": 13647,
+      "sha256": "958815c2ab1d33938a46e04cbf3737f5f90201e763b45754e20534b6bc4661fb",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "gain_db",
+          "line": 20,
+          "kind": "function"
+        },
+        {
+          "name": "elevation_bin",
+          "line": 24,
+          "kind": "function"
+        },
+        {
+          "name": "csi_ranks",
+          "line": 32,
+          "kind": "function"
+        },
+        {
+          "name": "classify_group_outcome",
+          "line": 37,
+          "kind": "function"
+        },
+        {
+          "name": "serving_power_diagnostics",
+          "line": 58,
+          "kind": "function"
+        },
+        {
+          "name": "enrich_group_diagnostic_rows",
+          "line": 79,
+          "kind": "function"
+        },
+        {
+          "name": "parquet_diagnostic_types",
+          "line": 200,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/errors.py",
+      "bytes": 706,
+      "sha256": "c6e7f15f0b2daa71cf17406c12e647ec8dad6a2c0997d030f76428b5261639d5",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "StudyError",
+          "line": 1,
+          "kind": "class"
+        },
+        {
+          "name": "ConfigurationError",
+          "line": 5,
+          "kind": "class"
+        },
+        {
+          "name": "ModelConsistencyError",
+          "line": 9,
+          "kind": "class"
+        },
+        {
+          "name": "OptionalDependencyError",
+          "line": 13,
+          "kind": "class"
+        },
+        {
+          "name": "BaselineUnavailableError",
+          "line": 17,
+          "kind": "class"
+        },
+        {
+          "name": "ArtifactReadError",
+          "line": 21,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/geometry.py",
+      "bytes": 5877,
+      "sha256": "9586016f2a49f2c22efda1c8d204b9f0cdbcd71cce976fd1d5dd259d65535ebe",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "radial_project_to_sphere",
+          "line": 12,
+          "kind": "function"
+        },
+        {
+          "name": "ecef_to_spherical",
+          "line": 22,
+          "kind": "function"
+        },
+        {
+          "name": "spherical_to_ecef",
+          "line": 30,
+          "kind": "function"
+        },
+        {
+          "name": "aeqd_inverse",
+          "line": 39,
+          "kind": "function"
+        },
+        {
+          "name": "aeqd_forward",
+          "line": 73,
+          "kind": "function"
+        },
+        {
+          "name": "generate_devices",
+          "line": 100,
+          "kind": "function"
+        },
+        {
+          "name": "generate_coverage_grid",
+          "line": 120,
+          "kind": "function"
+        },
+        {
+          "name": "link_geometry",
+          "line": 132,
+          "kind": "function"
+        },
+        {
+          "name": "footprint_central_angle_rad",
+          "line": 143,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/geometry_export.py",
+      "bytes": 7900,
+      "sha256": "c8fe96d93bdeeab049fb1877bb72175dc741d87bf2ffd427075c10c5199ad6bb",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "export_geometry",
+          "line": 16,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/geo_edge.py",
+      "bytes": 14215,
+      "sha256": "ace519a1ef9e116588b803881e910c6ff97a8591128a2ce94d0aa85e5d9363c4",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group_spatial_statistics",
+          "line": 15,
+          "kind": "function"
+        },
+        {
+          "name": "snapshot_group_rows",
+          "line": 39,
+          "kind": "function"
+        },
+        {
+          "name": "geo_occupancy_row",
+          "line": 73,
+          "kind": "function"
+        },
+        {
+          "name": "_read",
+          "line": 81,
+          "kind": "function"
+        },
+        {
+          "name": "analyze_geo_edge",
+          "line": 86,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/isl.py",
+      "bytes": 3351,
+      "sha256": "31d448d5293a1ae2490e475497562899fef455375daab7e86ca09a1e51191cf9",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "segment_clear_of_sphere",
+          "line": 11,
+          "kind": "function"
+        },
+        {
+          "name": "build_isl_graph",
+          "line": 21,
+          "kind": "function"
+        },
+        {
+          "name": "shortest_route",
+          "line": 37,
+          "kind": "function"
+        },
+        {
+          "name": "compute_routes",
+          "line": 64,
+          "kind": "function"
+        },
+        {
+          "name": "route_delay_s",
+          "line": 85,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/metrics.py",
+      "bytes": 2925,
+      "sha256": "c3acb427a852441a25dad7b17bc4a1028c38c6bc2089424a6861c669339fb005",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "running_mean",
+          "line": 9,
+          "kind": "function"
+        },
+        {
+          "name": "regrouping_overhead",
+          "line": 16,
+          "kind": "function"
+        },
+        {
+          "name": "advance_trace_hash",
+          "line": 29,
+          "kind": "function"
+        },
+        {
+          "name": "AssignmentTracker",
+          "line": 39,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/models.py",
+      "bytes": 1929,
+      "sha256": "88fc68997ff45cb91b17824e92e29d706177a9325a40c96bff676d7327f08699",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "DeviceTable",
+          "line": 10,
+          "kind": "class"
+        },
+        {
+          "name": "SubscriptionTable",
+          "line": 21,
+          "kind": "class"
+        },
+        {
+          "name": "SatelliteElement",
+          "line": 29,
+          "kind": "class"
+        },
+        {
+          "name": "Group",
+          "line": 37,
+          "kind": "class"
+        },
+        {
+          "name": "GroupPartitionEntry",
+          "line": 62,
+          "kind": "class"
+        },
+        {
+          "name": "AssociationDecision",
+          "line": 74,
+          "kind": "class"
+        },
+        {
+          "name": "Route",
+          "line": 85,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/orbit.py",
+      "bytes": 4352,
+      "sha256": "f920bb44c49c8134c81148865916a88e0d4a384adfca0eabb4f3ce751ae872a6",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_rz",
+          "line": 12,
+          "kind": "function"
+        },
+        {
+          "name": "_rx",
+          "line": 18,
+          "kind": "function"
+        },
+        {
+          "name": "gmst_rad",
+          "line": 24,
+          "kind": "function"
+        },
+        {
+          "name": "SyntheticConstellation",
+          "line": 38,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/orbit_visualization.py",
+      "bytes": 17154,
+      "sha256": "9a1369a6c9df7bcf330fd7da74f9ccb782ce5f006b1c5621b0c7c87a0e80bb91",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "sample_eci_trajectory",
+          "line": 17,
+          "kind": "function"
+        },
+        {
+          "name": "_load_matplotlib",
+          "line": 29,
+          "kind": "function"
+        },
+        {
+          "name": "_apply_presentation_fonts",
+          "line": 43,
+          "kind": "function"
+        },
+        {
+          "name": "_study_center_eci",
+          "line": 57,
+          "kind": "function"
+        },
+        {
+          "name": "_camera_angles",
+          "line": 71,
+          "kind": "function"
+        },
+        {
+          "name": "_earth_surface",
+          "line": 78,
+          "kind": "function"
+        },
+        {
+          "name": "_format_3d_axes",
+          "line": 98,
+          "kind": "function"
+        },
+        {
+          "name": "_full_plane_paths",
+          "line": 115,
+          "kind": "function"
+        },
+        {
+          "name": "_break_longitude_wrap",
+          "line": 129,
+          "kind": "function"
+        },
+        {
+          "name": "create_orbit_plot",
+          "line": 138,
+          "kind": "function"
+        },
+        {
+          "name": "create_orbit_animation",
+          "line": 275,
+          "kind": "function"
+        },
+        {
+          "name": "generate_orbit_visuals",
+          "line": 401,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/p1_ablation.py",
+      "bytes": 26181,
+      "sha256": "1a632ff87306f418ba44415c720ed4467547590f8a95c263f0b02178b683e208",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "experiment_matrix",
+          "line": 32,
+          "kind": "function"
+        },
+        {
+          "name": "check_common_environment",
+          "line": 38,
+          "kind": "function"
+        },
+        {
+          "name": "read_and_validate_run",
+          "line": 50,
+          "kind": "function"
+        },
+        {
+          "name": "_csv_summary",
+          "line": 135,
+          "kind": "function"
+        },
+        {
+          "name": "_comparison_artifacts",
+          "line": 152,
+          "kind": "function"
+        },
+        {
+          "name": "_write_provenance",
+          "line": 217,
+          "kind": "function"
+        },
+        {
+          "name": "run_p1_ablation",
+          "line": 228,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/p1_metrics.py",
+      "bytes": 1656,
+      "sha256": "70d637e088e164af2dfc1a6bc0a0db31dcea1be22e4a9e759b5505bf6958f942",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "p1_slot_value",
+          "line": 7,
+          "kind": "function"
+        },
+        {
+          "name": "objective_summary",
+          "line": 13,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/paper_results.py",
+      "bytes": 25894,
+      "sha256": "00109a8be2e3777e4274b08b4aaa7729a1e6b8078e717c52a9467c9d261ca697",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_read_csv",
+          "line": 29,
+          "kind": "function"
+        },
+        {
+          "name": "summarize_trace",
+          "line": 34,
+          "kind": "function"
+        },
+        {
+          "name": "check_common_environment",
+          "line": 63,
+          "kind": "function"
+        },
+        {
+          "name": "_validate_run",
+          "line": 75,
+          "kind": "function"
+        },
+        {
+          "name": "plot_convergence",
+          "line": 152,
+          "kind": "function"
+        },
+        {
+          "name": "plot_scheduler_diagnostics",
+          "line": 175,
+          "kind": "function"
+        },
+        {
+          "name": "run_paper_results",
+          "line": 201,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/phi_study.py",
+      "bytes": 22571,
+      "sha256": "d98984e8ecfc3ed8d1498be0f3db622d68e2234bde1f27c14c8665e0f2b01bb2",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "load_B_by_phi",
+          "line": 31,
+          "kind": "function"
+        },
+        {
+          "name": "resolved_phi_config",
+          "line": 45,
+          "kind": "function"
+        },
+        {
+          "name": "_summary_row",
+          "line": 66,
+          "kind": "function"
+        },
+        {
+          "name": "select_phi_theta",
+          "line": 99,
+          "kind": "function"
+        },
+        {
+          "name": "run_phi_validation_sweep",
+          "line": 181,
+          "kind": "function"
+        },
+        {
+          "name": "_read_csv",
+          "line": 271,
+          "kind": "function"
+        },
+        {
+          "name": "write_phi_report",
+          "line": 278,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/plotting.py",
+      "bytes": 15127,
+      "sha256": "f075124dfb3d5874485669ec0dbaed511f94fe135a0cd998f0309265f1a0c8da",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_libraries",
+          "line": 15,
+          "kind": "function"
+        },
+        {
+          "name": "_save",
+          "line": 26,
+          "kind": "function"
+        },
+        {
+          "name": "_service_square",
+          "line": 32,
+          "kind": "function"
+        },
+        {
+          "name": "plot_geometry",
+          "line": 41,
+          "kind": "function"
+        },
+        {
+          "name": "plot_parameter_comparisons",
+          "line": 138,
+          "kind": "function"
+        },
+        {
+          "name": "generate_all_plots",
+          "line": 205,
+          "kind": "function"
+        },
+        {
+          "name": "load_phi_aoi_trace",
+          "line": 209,
+          "kind": "function"
+        },
+        {
+          "name": "plot_phi_study_results",
+          "line": 237,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/power_diagnostics.py",
+      "bytes": 6429,
+      "sha256": "6e4b92f142e0f0e8841c34cdba860daa85ed4bff4c493f56b6aa8f6cbd6d8e80",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "scan_pilot_power",
+          "line": 19,
+          "kind": "function"
+        },
+        {
+          "name": "main",
+          "line": 101,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/protected_power.py",
+      "bytes": 10909,
+      "sha256": "0b1e2067af30936493d79e495d432b395a759cbef895e5fc18ddaef3c566df8d",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_order",
+          "line": 18,
+          "kind": "function"
+        },
+        {
+          "name": "classify_power_pools",
+          "line": 22,
+          "kind": "function"
+        },
+        {
+          "name": "_violations",
+          "line": 43,
+          "kind": "function"
+        },
+        {
+          "name": "_project_l1",
+          "line": 50,
+          "kind": "function"
+        },
+        {
+          "name": "allocate_csi_expanded_protected_power",
+          "line": 94,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/regrouping.py",
+      "bytes": 4494,
+      "sha256": "c0973712b526b5669ea352aa868438feb838fa1c7549052a8877d4fe1190d941",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "initial_epoch_state",
+          "line": 11,
+          "kind": "function"
+        },
+        {
+          "name": "partition_hash",
+          "line": 27,
+          "kind": "function"
+        },
+        {
+          "name": "groups_for_slot",
+          "line": 34,
+          "kind": "function"
+        },
+        {
+          "name": "observe_slot_reward",
+          "line": 82,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/requirements.txt",
+      "bytes": 62,
+      "sha256": "baf15fa2d9598f82c6f7da5391ffe492f4ddf3ac3867d1539cc48e4af46c58a0",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915"
+    },
+    {
+      "path": "mira_leo_study/reward_pilot.py",
+      "bytes": 10711,
+      "sha256": "14d3fbf630951e80f0e7928a9001bd5a4f9b4b409c213458290cef7acdc8350d",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "reward_context",
+          "line": 22,
+          "kind": "function"
+        },
+        {
+          "name": "apply_reward_bounds",
+          "line": 38,
+          "kind": "function"
+        },
+        {
+          "name": "load_reward_bounds_file",
+          "line": 53,
+          "kind": "function"
+        },
+        {
+          "name": "run_reward_bounds_pilot",
+          "line": 83,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/scenario.py",
+      "bytes": 2012,
+      "sha256": "66032a5a0f78b652f2cb7a3c09cd70bb46ccef86a86eb3705ad7852eba685273",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "generate_subscriptions",
+          "line": 12,
+          "kind": "function"
+        },
+        {
+          "name": "StudyScenario",
+          "line": 40,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/simulation.py",
+      "bytes": 63827,
+      "sha256": "eb0647193309082baea5a0f952e0157ec9dd743b4e2390b541142afcec4a6cda",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "canonical_policy_name",
+          "line": 55,
+          "kind": "function"
+        },
+        {
+          "name": "_random_action",
+          "line": 65,
+          "kind": "function"
+        },
+        {
+          "name": "select_grouping_action",
+          "line": 72,
+          "kind": "function"
+        },
+        {
+          "name": "serialize_power_diagnostic",
+          "line": 85,
+          "kind": "function"
+        },
+        {
+          "name": "build_parameter_snapshot",
+          "line": 97,
+          "kind": "function"
+        },
+        {
+          "name": "_membership_hash",
+          "line": 163,
+          "kind": "function"
+        },
+        {
+          "name": "_new_normalizers",
+          "line": 172,
+          "kind": "function"
+        },
+        {
+          "name": "_all_routes",
+          "line": 193,
+          "kind": "function"
+        },
+        {
+          "name": "_routes_are_valid",
+          "line": 206,
+          "kind": "function"
+        },
+        {
+          "name": "_initial_state",
+          "line": 216,
+          "kind": "function"
+        },
+        {
+          "name": "validate_checkpoint_identity",
+          "line": 307,
+          "kind": "function"
+        },
+        {
+          "name": "_flush_geo_traces",
+          "line": 318,
+          "kind": "function"
+        },
+        {
+          "name": "run_simulation",
+          "line": 324,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/sources.py",
+      "bytes": 4640,
+      "sha256": "a79efcc037788afbacdb0b7122f3308c987af8a103a8db5347fa7c9c85942e46",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_walk",
+          "line": 59,
+          "kind": "function"
+        },
+        {
+          "name": "build_source_registry",
+          "line": 68,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/storage.py",
+      "bytes": 6169,
+      "sha256": "4b061d3216c2412b885c1fc107b0f0723fb97a8a5ee7c7f10ded8a85d819f177",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "recover_trace_file",
+          "line": 16,
+          "kind": "function"
+        },
+        {
+          "name": "atomic_write_json",
+          "line": 27,
+          "kind": "function"
+        },
+        {
+          "name": "write_csv",
+          "line": 39,
+          "kind": "function"
+        },
+        {
+          "name": "AppendCsvWriter",
+          "line": 52,
+          "kind": "class"
+        },
+        {
+          "name": "csv_to_parquet",
+          "line": 80,
+          "kind": "function"
+        },
+        {
+          "name": "write_parquet",
+          "line": 107,
+          "kind": "function"
+        },
+        {
+          "name": "atomic_pickle",
+          "line": 122,
+          "kind": "function"
+        },
+        {
+          "name": "load_pickle",
+          "line": 131,
+          "kind": "function"
+        },
+        {
+          "name": "recover_csv_before_slot",
+          "line": 136,
+          "kind": "function"
+        },
+        {
+          "name": "write_npz",
+          "line": 157,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/study.py",
+      "bytes": 14315,
+      "sha256": "70466d5cd9328a7704d0c841b4abf4b509b9f6b067f249936bf1fea6d92f2692",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_apply_candidate",
+          "line": 19,
+          "kind": "function"
+        },
+        {
+          "name": "_resolve_candidate",
+          "line": 39,
+          "kind": "function"
+        },
+        {
+          "name": "_run_resolved",
+          "line": 54,
+          "kind": "function"
+        },
+        {
+          "name": "screen_parameters",
+          "line": 75,
+          "kind": "function"
+        },
+        {
+          "name": "_top_values_from_screen",
+          "line": 109,
+          "kind": "function"
+        },
+        {
+          "name": "joint_search",
+          "line": 133,
+          "kind": "function"
+        },
+        {
+          "name": "evaluate_selection",
+          "line": 195,
+          "kind": "function"
+        },
+        {
+          "name": "run_robustness",
+          "line": 213,
+          "kind": "function"
+        },
+        {
+          "name": "write_report",
+          "line": 263,
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_algorithms.py",
+      "bytes": 9213,
+      "sha256": "82b98e44aba4e9501f57ca4ccf0cc3e99c0eff1e7718aa2dfc91bb859801d49a",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group",
+          "line": 31,
+          "kind": "function"
+        },
+        {
+          "name": "AlgorithmTests",
+          "line": 46,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_association.py",
+      "bytes": 1477,
+      "sha256": "4f6befb334d0e3152467f4239e4f72c04bf21e1416732ff967dac1f6329e2438",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "AssociationTests",
+          "line": 15,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_channel_time.py",
+      "bytes": 2760,
+      "sha256": "648c2dc4c965bd5ea8512f45da1788ca4a2f035bb7d1274c4504b71a612c01ed",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "ChannelTimeTests",
+          "line": 18,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_diagnostics.py",
+      "bytes": 19539,
+      "sha256": "a2022bca40b4e654e35874cd58b79b7d0c4db99ffc2d931e29b95d8b99a1676e",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group",
+          "line": 32,
+          "kind": "function"
+        },
+        {
+          "name": "OutcomeTests",
+          "line": 37,
+          "kind": "class"
+        },
+        {
+          "name": "artificial_trace",
+          "line": 140,
+          "kind": "function"
+        },
+        {
+          "name": "DiagnosticPipelineTests",
+          "line": 195,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_fixed_results.py",
+      "bytes": 19318,
+      "sha256": "07fef5fbf46bfd8a6ce291c7d9aa9146bd0656d7f8dad811f3eaf6b32270f7d3",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group",
+          "line": 33,
+          "kind": "function"
+        },
+        {
+          "name": "StrictAlgorithm2Tests",
+          "line": 39,
+          "kind": "class"
+        },
+        {
+          "name": "FixedMetricsTests",
+          "line": 127,
+          "kind": "class"
+        },
+        {
+          "name": "FormalPackagingTests",
+          "line": 209,
+          "kind": "class"
+        },
+        {
+          "name": "SimulationFairnessTests",
+          "line": 294,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_geometry_orbit.py",
+      "bytes": 4867,
+      "sha256": "569866357fa7551dc268aa4fb7e25496f3da331da85036e21754a5881d78f42e",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "GeometryOrbitTests",
+          "line": 24,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_new_power_pools.py",
+      "bytes": 14875,
+      "sha256": "5dafcb92aa9b6644d7101cbb09d21aacb391f7b8273b46e51d34594e7e7bc9bd",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group",
+          "line": 29,
+          "kind": "function"
+        },
+        {
+          "name": "NewPowerPoolTests",
+          "line": 33,
+          "kind": "class"
+        },
+        {
+          "name": "P1AndGeometryTests",
+          "line": 186,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_orbit_visualization.py",
+      "bytes": 1260,
+      "sha256": "2080132586086edb1649f8a18ad585e6ded76f89c9df876a445f14af2ae54750",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "OrbitVisualizationTests",
+          "line": 15,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_p1_ablation.py",
+      "bytes": 10761,
+      "sha256": "fedbea39a9511806cb8edb1554ad334c0fa34ecbe1fb20dc1a8e9a61b6bbf2f7",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "artificial_pilot",
+          "line": 34,
+          "kind": "function"
+        },
+        {
+          "name": "artificial_csv_run",
+          "line": 42,
+          "kind": "function"
+        },
+        {
+          "name": "P1PackagingTests",
+          "line": 120,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_phi_study.py",
+      "bytes": 13201,
+      "sha256": "08fe498da24d68bd1421c1e291c417c67862273f47c17153db86e364cb10e98d",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "PhiStudyTests",
+          "line": 42,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_power_outage.py",
+      "bytes": 9602,
+      "sha256": "99013797288f10728c7ea9f489f03cb879bc566ff1d95d0ed3738a2ab1d640f5",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "group",
+          "line": 23,
+          "kind": "function"
+        },
+        {
+          "name": "incompatible_groups",
+          "line": 28,
+          "kind": "function"
+        },
+        {
+          "name": "PowerOutageTests",
+          "line": 33,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_protocol_and_simulation.py",
+      "bytes": 4351,
+      "sha256": "ff00675d7d0fbf9ab3cdb4c55a8ff3ed2c0219975e2fe9e1734974c55ecf3a89",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "ProtocolSimulationTests",
+          "line": 17,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_regrouping_strict.py",
+      "bytes": 21397,
+      "sha256": "cca612e4b8ad8819b5b1e92e9524cb1c42384d0ec5d8ad82945a250db6068fee",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "small_group",
+          "line": 34,
+          "kind": "function"
+        },
+        {
+          "name": "component_state",
+          "line": 39,
+          "kind": "function"
+        },
+        {
+          "name": "RegroupingConfigTests",
+          "line": 50,
+          "kind": "class"
+        },
+        {
+          "name": "PartitionAndEpochTests",
+          "line": 90,
+          "kind": "class"
+        },
+        {
+          "name": "TwcPowerTests",
+          "line": 231,
+          "kind": "class"
+        },
+        {
+          "name": "FormalConsistencyTests",
+          "line": 320,
+          "kind": "class"
+        },
+        {
+          "name": "EpochSimulationIntegrationTests",
+          "line": 347,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_reward_bounds_io.py",
+      "bytes": 4897,
+      "sha256": "6e0cd261503c5d6e6a476b3893731b76daa69a7e51528fcadf23edf5361920b6",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "RewardBoundsIOTests",
+          "line": 16,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_serving_csi_diagnostic.py",
+      "bytes": 10888,
+      "sha256": "b66a5b09e2f46842f7abf741631687895f843f4005f19602c3668eff9d1bc8cc",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "artificial_metric",
+          "line": 27,
+          "kind": "function"
+        },
+        {
+          "name": "ServingCsiDiagnosticTests",
+          "line": 38,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/test_single_serving_interference.py",
+      "bytes": 15561,
+      "sha256": "c25f34b04bc8e3267e7c2a73d6b1059e73e6a1876671915bbffe1d7b94bde95a",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "SinglePopulationTests",
+          "line": 33,
+          "kind": "class"
+        },
+        {
+          "name": "SingleAssociationTests",
+          "line": 157,
+          "kind": "class"
+        },
+        {
+          "name": "ExpectedInterferenceTests",
+          "line": 201,
+          "kind": "class"
+        }
+      ]
+    },
+    {
+      "path": "mira_leo_study/tests/__init__.py",
+      "bytes": 329,
+      "sha256": "8b0014fb205df9a3b925c409316bd0b835c8afa8b9d2663691105d9ef2fe702f",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": []
+    },
+    {
+      "path": "mira_leo_study/__init__.py",
+      "bytes": 180,
+      "sha256": "087f5ee8b5b6399142b4ce2be58fa7358d11942ef908ee37e69b7019ec46427b",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": []
+    },
+    {
+      "path": "mira_leo_study/__main__.py",
+      "bytes": 7707,
+      "sha256": "e54c99b8074e3c6af556d7b1e297da95a2d2b3fda7212eb9eab0320943c8c380",
+      "matches_repository_source_commit": "55c8d0a5e1de37b8ffcc88677148535a31163915",
+      "definitions": [
+        {
+          "name": "_common_config",
+          "line": 18,
+          "kind": "function"
+        },
+        {
+          "name": "build_parser",
+          "line": 23,
+          "kind": "function"
+        },
+        {
+          "name": "main",
+          "line": 71,
+          "kind": "function"
+        }
+      ]
+    }
+  ],
+  "archive_root_document_paths": [
+    "mira_leo_study/DIAGNOSTIC_MODIFICATION_REPORT.md",
+    "mira_leo_study/IMPLEMENTATION_STATUS.md",
+    "mira_leo_study/MODIFICATION_REPORT.md",
+    "mira_leo_study/MODIFICATION_REPORT_120UE_SINGLE_SERVING.md",
+    "mira_leo_study/MODIFICATION_REPORT_P1_ABLATION.md",
+    "mira_leo_study/PATH_MIGRATION_CHECK_REPORT.md",
+    "mira_leo_study/PHI20_POWER_OUTAGE_MODIFICATION_REPORT.md",
+    "mira_leo_study/PHI30_POWER_OUTAGE_MODIFICATION_REPORT.md",
+    "mira_leo_study/README.md",
+    "mira_leo_study/REGROUPING_1S_COMPACT_MODIFICATION_REPORT.md",
+    "mira_leo_study/SERVING_CSI_DIAGNOSTIC_REPORT.md"
+  ],
+  "archive_file_inventory": [
+    {
+      "path": "mira_leo_study/algorithms.py",
+      "bytes": 26890,
+      "crc32": "4598fa65"
+    },
+    {
+      "path": "mira_leo_study/analysis.py",
+      "bytes": 8267,
+      "crc32": "94ff4c19"
+    },
+    {
+      "path": "mira_leo_study/association.py",
+      "bytes": 4763,
+      "crc32": "81786000"
+    },
+    {
+      "path": "mira_leo_study/calibration.py",
+      "bytes": 23689,
+      "crc32": "d2261702"
+    },
+    {
+      "path": "mira_leo_study/channel.py",
+      "bytes": 4771,
+      "crc32": "1cb999b5"
+    },
+    {
+      "path": "mira_leo_study/config.py",
+      "bytes": 22721,
+      "crc32": "85f06e45"
+    },
+    {
+      "path": "mira_leo_study/configs/base.yaml",
+      "bytes": 4516,
+      "crc32": "8f25afeb"
+    },
+    {
+      "path": "mira_leo_study/configs/p1_source_provenance.yaml",
+      "bytes": 6733,
+      "crc32": "9f593aa5"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_no_interference.py",
+      "bytes": 31273,
+      "crc32": "82aea034"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_serving_satellite.py",
+      "bytes": 20442,
+      "crc32": "1ce20e5e"
+    },
+    {
+      "path": "mira_leo_study/csi_elevation_with_interference.py",
+      "bytes": 715,
+      "crc32": "917f7e79"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_phi30_seed0_all_candidates/infeasible_cases.json",
+      "bytes": 668045,
+      "crc32": "7c84a3f2"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_phi30_seed0_all_candidates/power_cases.csv",
+      "bytes": 107343,
+      "crc32": "05f25fca"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_phi30_seed0_all_candidates/README.md",
+      "bytes": 930,
+      "crc32": "fceb90b5"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_phi30_seed0_all_candidates/summary.json",
+      "bytes": 1717,
+      "crc32": "e9c62c10"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_seed0_all_candidates/infeasible_cases.json",
+      "bytes": 55003,
+      "crc32": "63934191"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_seed0_all_candidates/power_cases.csv",
+      "bytes": 114348,
+      "crc32": "3c4d782a"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_seed0_all_candidates/README.md",
+      "bytes": 1302,
+      "crc32": "a9153bd9"
+    },
+    {
+      "path": "mira_leo_study/diagnostics/pilot_power_seed0_all_candidates/summary.json",
+      "bytes": 1072,
+      "crc32": "78d5ca6a"
+    },
+    {
+      "path": "mira_leo_study/diagnostics.py",
+      "bytes": 31497,
+      "crc32": "afec303b"
+    },
+    {
+      "path": "mira_leo_study/DIAGNOSTIC_MODIFICATION_REPORT.md",
+      "bytes": 10155,
+      "crc32": "e4d718d1"
+    },
+    {
+      "path": "mira_leo_study/diagnostic_plots.py",
+      "bytes": 21907,
+      "crc32": "79815ad1"
+    },
+    {
+      "path": "mira_leo_study/diagnostic_trace.py",
+      "bytes": 13647,
+      "crc32": "9f4e4cba"
+    },
+    {
+      "path": "mira_leo_study/errors.py",
+      "bytes": 706,
+      "crc32": "80ee1f0c"
+    },
+    {
+      "path": "mira_leo_study/geometry.py",
+      "bytes": 5877,
+      "crc32": "888f6a20"
+    },
+    {
+      "path": "mira_leo_study/geometry_export.py",
+      "bytes": 7900,
+      "crc32": "c1159187"
+    },
+    {
+      "path": "mira_leo_study/geo_edge.py",
+      "bytes": 14215,
+      "crc32": "82ff8390"
+    },
+    {
+      "path": "mira_leo_study/IMPLEMENTATION_STATUS.md",
+      "bytes": 2733,
+      "crc32": "ee0d9179"
+    },
+    {
+      "path": "mira_leo_study/isl.py",
+      "bytes": 3351,
+      "crc32": "e2585dae"
+    },
+    {
+      "path": "mira_leo_study/metrics.py",
+      "bytes": 2925,
+      "crc32": "d4552a2e"
+    },
+    {
+      "path": "mira_leo_study/models.py",
+      "bytes": 1929,
+      "crc32": "b1d806ad"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT.md",
+      "bytes": 9245,
+      "crc32": "f82d9d40"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT_120UE_SINGLE_SERVING.md",
+      "bytes": 10643,
+      "crc32": "48d2587c"
+    },
+    {
+      "path": "mira_leo_study/MODIFICATION_REPORT_P1_ABLATION.md",
+      "bytes": 6905,
+      "crc32": "0523a4d2"
+    },
+    {
+      "path": "mira_leo_study/orbit.py",
+      "bytes": 4352,
+      "crc32": "b7c6e63c"
+    },
+    {
+      "path": "mira_leo_study/orbit_visualization.py",
+      "bytes": 17154,
+      "crc32": "3716f5ad"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/01_elevation_vs_gain.png",
+      "bytes": 445644,
+      "crc32": "41c7b373"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/02_bottom20_fraction_by_elevation.png",
+      "bytes": 112951,
+      "crc32": "02fa7359"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/03_bottom30_fraction_by_elevation.png",
+      "bytes": 115181,
+      "crc32": "9d8604b4"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/association_trace.csv",
+      "bytes": 6315115,
+      "crc32": "a0616bbf"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/bottom20_bottom30_angle_distribution.csv",
+      "bytes": 6282,
+      "crc32": "f343ff6a"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/BOTTOM20_BOTTOM30_ANGLE_DISTRIBUTION_ZH_TW.md",
+      "bytes": 5877,
+      "crc32": "931b8aaa"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/BOTTOM20_BOTTOM30_RATIOS_ZH_TW.md",
+      "bytes": 8296,
+      "crc32": "7da97afd"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/elevation_bin_statistics.csv",
+      "bytes": 8575,
+      "crc32": "47fde728"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/run_summary.json",
+      "bytes": 6010,
+      "crc32": "759e42c1"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/sampled_scatter_points.csv",
+      "bytes": 7608239,
+      "crc32": "f0d67df8"
+    },
+    {
+      "path": "mira_leo_study/outputs/csi_elevation_16min_serving_only/weak_csi_angle_distribution_comparison.png",
+      "bytes": 190026,
+      "crc32": "0fd32689"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/association.parquet",
+      "bytes": 1954257,
+      "crc32": "12ea8264"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/constellation.csv",
+      "bytes": 1364,
+      "crc32": "97355317"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/devices.csv",
+      "bytes": 61357,
+      "crc32": "9403bef7"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/device_geometry_1s.parquet",
+      "bytes": 21956854,
+      "crc32": "25599193"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/geometry_summary.json",
+      "bytes": 425,
+      "crc32": "d04e5fce"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/grid_coverage.npz",
+      "bytes": 18996,
+      "crc32": "f2649843"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/handover_events.csv",
+      "bytes": 443,
+      "crc32": "b5e55dac"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/isl_routes.parquet",
+      "bytes": 33287,
+      "crc32": "25a8ed32"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/satellites_1s.parquet",
+      "bytes": 212626,
+      "crc32": "85173d1d"
+    },
+    {
+      "path": "mira_leo_study/outputs/geometry/subscriptions.csv",
+      "bytes": 23650,
+      "crc32": "d566b13d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi13/reward_bounds/pilot_reward_samples.csv",
+      "bytes": 56671,
+      "crc32": "10d249dc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi13/reward_bounds/resolved_config.json",
+      "bytes": 5812,
+      "crc32": "9dc20d62"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi13/reward_bounds/reward_bounds.json",
+      "bytes": 1237,
+      "crc32": "8b4a9f99"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi15/reward_bounds/pilot_reward_samples.csv",
+      "bytes": 56671,
+      "crc32": "10d249dc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi15/reward_bounds/resolved_config.json",
+      "bytes": 5812,
+      "crc32": "0ff1c330"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi15/reward_bounds/reward_bounds.json",
+      "bytes": 1237,
+      "crc32": "46936de5"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi20/reward_bounds/pilot_reward_samples.csv",
+      "bytes": 56671,
+      "crc32": "10d249dc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi20/reward_bounds/resolved_config.json",
+      "bytes": 5812,
+      "crc32": "260935fb"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi20/reward_bounds/reward_bounds.json",
+      "bytes": 1237,
+      "crc32": "2abda321"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi25/reward_bounds/pilot_reward_samples.csv",
+      "bytes": 56671,
+      "crc32": "6bc54605"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi25/reward_bounds/resolved_config.json",
+      "bytes": 5812,
+      "crc32": "710de457"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/calibration/phi25/reward_bounds/reward_bounds.json",
+      "bytes": 1237,
+      "crc32": "b5b0609f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/ablation_mira_13_15_20_25.csv",
+      "bytes": 8628,
+      "crc32": "e00beebf"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/ablation_summary.json",
+      "bytes": 25219,
+      "crc32": "3d75a831"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/all_six_runs.csv",
+      "bytes": 11252,
+      "crc32": "3fab9b0d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/baselines_phi15.csv",
+      "bytes": 5653,
+      "crc32": "1ff59f69"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/edge_geo_summary_phi15.csv",
+      "bytes": 507,
+      "crc32": "ee134fa4"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/environment_identity_check.json",
+      "bytes": 846,
+      "crc32": "6a9d5cd4"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/p1_objective_decomposition.csv",
+      "bytes": 664,
+      "crc32": "31b4dfe5"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/p1_running_objective.csv",
+      "bytes": 40988657,
+      "crc32": "201e3493"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/paired_absolute_differences_phi15.csv",
+      "bytes": 207,
+      "crc32": "b052cb0a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/comparison/pool_and_feasibility_summary.csv",
+      "bytes": 704,
+      "crc32": "8cdf07a0"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_convergence_aoi.png",
+      "bytes": 87849,
+      "crc32": "ccea346f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_convergence_p1.png",
+      "bytes": 77436,
+      "crc32": "aee4a2b3"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_vs_capacity_goodput.png",
+      "bytes": 30281,
+      "crc32": "7b51483a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_vs_group_success.png",
+      "bytes": 28215,
+      "crc32": "9baf1253"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_vs_p1_objective.png",
+      "bytes": 33187,
+      "crc32": "f00cb813"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_vs_power_outage.png",
+      "bytes": 29940,
+      "crc32": "c3f2e77d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ablation_phi_vs_weighted_aoi.png",
+      "bytes": 32791,
+      "crc32": "b897fa0e"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_capacity_goodput.png",
+      "bytes": 29358,
+      "crc32": "d1ba704e"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_convergence_aoi.png",
+      "bytes": 72552,
+      "crc32": "cf1d914a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_convergence_p1.png",
+      "bytes": 92667,
+      "crc32": "d771244f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_group_success.png",
+      "bytes": 27090,
+      "crc32": "77aea339"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_p1_objective.png",
+      "bytes": 32900,
+      "crc32": "78c74f8b"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_power_outage.png",
+      "bytes": 29096,
+      "crc32": "c5c0ee63"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/baseline_phi15_weighted_aoi.png",
+      "bytes": 32224,
+      "crc32": "aaa49c75"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/geo_edge_phi15_map.png",
+      "bytes": 114741,
+      "crc32": "1ae9cb08"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/geo_edge_phi15_spread_distribution.png",
+      "bytes": 89015,
+      "crc32": "12e8da05"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/geo_edge_phi15_time_occupancy.png",
+      "bytes": 36426,
+      "crc32": "2044c31c"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/power_pool_allocation_and_sic.png",
+      "bytes": 65038,
+      "crc32": "ea7cbccb"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/power_pool_group_counts.png",
+      "bytes": 37874,
+      "crc32": "64cb28fc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/figures/ue_below_15deg_map.png",
+      "bytes": 230399,
+      "crc32": "619d3da1"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/FIGURE_INTERPRETATION_ZH_TW.md",
+      "bytes": 22295,
+      "crc32": "84512414"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/edge_group_snapshots.csv",
+      "bytes": 3906990,
+      "crc32": "d20b818a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/edge_member_positions.csv",
+      "bytes": 12851883,
+      "crc32": "bc76cd6a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/geo_edge_centroid_distances.csv",
+      "bytes": 78,
+      "crc32": "f8494903"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/geo_edge_spatial_summary.csv",
+      "bytes": 1060,
+      "crc32": "350e11ea"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/geo_edge_time_distribution.csv",
+      "bytes": 1542398,
+      "crc32": "c60431cc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/report_geo_edge_phi15.md",
+      "bytes": 3365,
+      "crc32": "5f554eb9"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/summary.json",
+      "bytes": 2946,
+      "crc32": "f7244334"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/ue_below_15deg_map_metadata.json",
+      "bytes": 1202,
+      "crc32": "432389d9"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/ue_min_elevation_1s_snapshots.csv",
+      "bytes": 10278,
+      "crc32": "bfbce067"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/ue_min_elevation_all_slots.csv",
+      "bytes": 10373,
+      "crc32": "b86d58c4"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/geo_edge_phi15/ue_min_elevation_all_slots_summary.json",
+      "bytes": 1387,
+      "crc32": "d2ac450d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/implementation_verification.json",
+      "bytes": 663,
+      "crc32": "f727ea04"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/manifest.json",
+      "bytes": 9244,
+      "crc32": "38cd082c"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/provenance.json",
+      "bytes": 10541,
+      "crc32": "0d264e6e"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/report.md",
+      "bytes": 2057,
+      "crc32": "646912df"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/bandit_observations.csv",
+      "bytes": 56,
+      "crc32": "5163bb59"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "0ff1c330"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11521299,
+      "crc32": "32237409"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/parameter_snapshot.json",
+      "bytes": 2671,
+      "crc32": "8cdaa025"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/slot_metrics.csv",
+      "bytes": 24402567,
+      "crc32": "bfe50b80"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/slot_metrics.parquet",
+      "bytes": 2966414,
+      "crc32": "89cfdaff"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/fixed_phi15/seed_0/summary.json",
+      "bytes": 6595,
+      "crc32": "9202e60d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/bandit_observations.csv",
+      "bytes": 15369,
+      "crc32": "2354eba7"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "9dc20d62"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11346034,
+      "crc32": "f5b97b1f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/parameter_snapshot.json",
+      "bytes": 2668,
+      "crc32": "b403970b"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/slot_metrics.csv",
+      "bytes": 25007926,
+      "crc32": "ab6be249"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/slot_metrics.parquet",
+      "bytes": 3441041,
+      "crc32": "15d817a2"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi13/seed_0/summary.json",
+      "bytes": 82751,
+      "crc32": "8bd6b132"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/bandit_observations.csv",
+      "bytes": 15369,
+      "crc32": "2354eba7"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "0ff1c330"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11346034,
+      "crc32": "f5b97b1f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/geo_edge/edge_group_snapshots.csv",
+      "bytes": 3906990,
+      "crc32": "d20b818a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/geo_edge/edge_member_positions.csv",
+      "bytes": 12851883,
+      "crc32": "bc76cd6a"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/geo_edge/geo_edge_time_distribution.csv",
+      "bytes": 1542398,
+      "crc32": "c60431cc"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/parameter_snapshot.json",
+      "bytes": 2668,
+      "crc32": "1f6be634"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/slot_metrics.csv",
+      "bytes": 25007926,
+      "crc32": "ab6be249"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/slot_metrics.parquet",
+      "bytes": 3441041,
+      "crc32": "15d817a2"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi15/seed_0/summary.json",
+      "bytes": 82754,
+      "crc32": "b99ea2a0"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/bandit_observations.csv",
+      "bytes": 15369,
+      "crc32": "2354eba7"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "260935fb"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11346034,
+      "crc32": "f5b97b1f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/parameter_snapshot.json",
+      "bytes": 2668,
+      "crc32": "3eef8135"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/slot_metrics.csv",
+      "bytes": 25007926,
+      "crc32": "ab6be249"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/slot_metrics.parquet",
+      "bytes": 3441041,
+      "crc32": "15d817a2"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi20/seed_0/summary.json",
+      "bytes": 82754,
+      "crc32": "b67e713f"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/bandit_observations.csv",
+      "bytes": 15370,
+      "crc32": "e6e149a3"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "710de457"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11355034,
+      "crc32": "76522a9c"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/parameter_snapshot.json",
+      "bytes": 2668,
+      "crc32": "8108db68"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/slot_metrics.csv",
+      "bytes": 25068825,
+      "crc32": "cfe2e2d2"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/slot_metrics.parquet",
+      "bytes": 3452993,
+      "crc32": "59e6e34d"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/mira_phi25/seed_0/summary.json",
+      "bytes": 82891,
+      "crc32": "df919e95"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/bandit_observations.csv",
+      "bytes": 56,
+      "crc32": "5163bb59"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/config.json",
+      "bytes": 5812,
+      "crc32": "0ff1c330"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/convergence_slot_metrics.csv",
+      "bytes": 11516888,
+      "crc32": "eccb9981"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/parameter_snapshot.json",
+      "bytes": 2672,
+      "crc32": "a3fafa90"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/slot_metrics.csv",
+      "bytes": 24268142,
+      "crc32": "32d818bf"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/slot_metrics.parquet",
+      "bytes": 3010107,
+      "crc32": "d83176e5"
+    },
+    {
+      "path": "mira_leo_study/outputs/p1_ablation_13_15_20_25/runs/random_phi15/seed_0/summary.json",
+      "bytes": 8335,
+      "crc32": "701fa9d2"
+    },
+    {
+      "path": "mira_leo_study/outputs/source_registry.json",
+      "bytes": 23012,
+      "crc32": "de86de24"
+    },
+    {
+      "path": "mira_leo_study/p1_ablation.py",
+      "bytes": 26181,
+      "crc32": "1078a650"
+    },
+    {
+      "path": "mira_leo_study/p1_metrics.py",
+      "bytes": 1656,
+      "crc32": "ecc672d4"
+    },
+    {
+      "path": "mira_leo_study/paper_results.py",
+      "bytes": 25894,
+      "crc32": "7af43a5f"
+    },
+    {
+      "path": "mira_leo_study/PATH_MIGRATION_CHECK_REPORT.md",
+      "bytes": 3178,
+      "crc32": "76f097f0"
+    },
+    {
+      "path": "mira_leo_study/PHI20_POWER_OUTAGE_MODIFICATION_REPORT.md",
+      "bytes": 2831,
+      "crc32": "7b4335a1"
+    },
+    {
+      "path": "mira_leo_study/PHI30_POWER_OUTAGE_MODIFICATION_REPORT.md",
+      "bytes": 8570,
+      "crc32": "98a3e508"
+    },
+    {
+      "path": "mira_leo_study/phi_study.py",
+      "bytes": 22571,
+      "crc32": "e81fbc0b"
+    },
+    {
+      "path": "mira_leo_study/plotting.py",
+      "bytes": 15127,
+      "crc32": "f02c610a"
+    },
+    {
+      "path": "mira_leo_study/power_diagnostics.py",
+      "bytes": 6429,
+      "crc32": "52d73e69"
+    },
+    {
+      "path": "mira_leo_study/protected_power.py",
+      "bytes": 10909,
+      "crc32": "cf7640e3"
+    },
+    {
+      "path": "mira_leo_study/pyproject.toml",
+      "bytes": 505,
+      "crc32": "ff1931ba"
+    },
+    {
+      "path": "mira_leo_study/README.md",
+      "bytes": 9785,
+      "crc32": "28996102"
+    },
+    {
+      "path": "mira_leo_study/regrouping.py",
+      "bytes": 4494,
+      "crc32": "5d61af06"
+    },
+    {
+      "path": "mira_leo_study/REGROUPING_1S_COMPACT_MODIFICATION_REPORT.md",
+      "bytes": 15644,
+      "crc32": "3528ca79"
+    },
+    {
+      "path": "mira_leo_study/requirements.txt",
+      "bytes": 62,
+      "crc32": "ca6cba61"
+    },
+    {
+      "path": "mira_leo_study/reward_pilot.py",
+      "bytes": 10711,
+      "crc32": "22ded5d9"
+    },
+    {
+      "path": "mira_leo_study/scenario.py",
+      "bytes": 2012,
+      "crc32": "d1584a6e"
+    },
+    {
+      "path": "mira_leo_study/SERVING_CSI_DIAGNOSTIC_REPORT.md",
+      "bytes": 4059,
+      "crc32": "e387277c"
+    },
+    {
+      "path": "mira_leo_study/simulation.py",
+      "bytes": 63827,
+      "crc32": "e3e005f0"
+    },
+    {
+      "path": "mira_leo_study/sources.py",
+      "bytes": 4640,
+      "crc32": "2188329c"
+    },
+    {
+      "path": "mira_leo_study/storage.py",
+      "bytes": 6169,
+      "crc32": "94f6055b"
+    },
+    {
+      "path": "mira_leo_study/study.py",
+      "bytes": 14315,
+      "crc32": "42d7b990"
+    },
+    {
+      "path": "mira_leo_study/tests/test_algorithms.py",
+      "bytes": 9213,
+      "crc32": "3374d7a6"
+    },
+    {
+      "path": "mira_leo_study/tests/test_association.py",
+      "bytes": 1477,
+      "crc32": "c82ab38f"
+    },
+    {
+      "path": "mira_leo_study/tests/test_channel_time.py",
+      "bytes": 2760,
+      "crc32": "086dc590"
+    },
+    {
+      "path": "mira_leo_study/tests/test_diagnostics.py",
+      "bytes": 19539,
+      "crc32": "3ba79d8b"
+    },
+    {
+      "path": "mira_leo_study/tests/test_fixed_results.py",
+      "bytes": 19318,
+      "crc32": "7bc413a7"
+    },
+    {
+      "path": "mira_leo_study/tests/test_geometry_orbit.py",
+      "bytes": 4867,
+      "crc32": "6fb6b51e"
+    },
+    {
+      "path": "mira_leo_study/tests/test_new_power_pools.py",
+      "bytes": 14875,
+      "crc32": "172a60b7"
+    },
+    {
+      "path": "mira_leo_study/tests/test_orbit_visualization.py",
+      "bytes": 1260,
+      "crc32": "326e8b31"
+    },
+    {
+      "path": "mira_leo_study/tests/test_p1_ablation.py",
+      "bytes": 10761,
+      "crc32": "2d13776d"
+    },
+    {
+      "path": "mira_leo_study/tests/test_phi_study.py",
+      "bytes": 13201,
+      "crc32": "88d4b488"
+    },
+    {
+      "path": "mira_leo_study/tests/test_power_outage.py",
+      "bytes": 9602,
+      "crc32": "352bfecb"
+    },
+    {
+      "path": "mira_leo_study/tests/test_protocol_and_simulation.py",
+      "bytes": 4351,
+      "crc32": "fc43225f"
+    },
+    {
+      "path": "mira_leo_study/tests/test_regrouping_strict.py",
+      "bytes": 21397,
+      "crc32": "aba665b4"
+    },
+    {
+      "path": "mira_leo_study/tests/test_reward_bounds_io.py",
+      "bytes": 4897,
+      "crc32": "9f7723b9"
+    },
+    {
+      "path": "mira_leo_study/tests/test_serving_csi_diagnostic.py",
+      "bytes": 10888,
+      "crc32": "a5dcd6a3"
+    },
+    {
+      "path": "mira_leo_study/tests/test_single_serving_interference.py",
+      "bytes": 15561,
+      "crc32": "c61f7798"
+    },
+    {
+      "path": "mira_leo_study/tests/__init__.py",
+      "bytes": 329,
+      "crc32": "a4385f9a"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_algorithms.cpython-312.pyc",
+      "bytes": 14618,
+      "crc32": "d3e13bfd"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_algorithms.cpython-314.pyc",
+      "bytes": 15738,
+      "crc32": "b67f20aa"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_association.cpython-312.pyc",
+      "bytes": 2897,
+      "crc32": "066b74c9"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_association.cpython-314.pyc",
+      "bytes": 3002,
+      "crc32": "2731ec6b"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_channel_time.cpython-312.pyc",
+      "bytes": 5396,
+      "crc32": "4462bd0c"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_channel_time.cpython-314.pyc",
+      "bytes": 5553,
+      "crc32": "58f46542"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_diagnostics.cpython-314.pyc",
+      "bytes": 36436,
+      "crc32": "d75dd13d"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_fixed_results.cpython-314.pyc",
+      "bytes": 34919,
+      "crc32": "2787b926"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_geometry_orbit.cpython-312.pyc",
+      "bytes": 9051,
+      "crc32": "df451ef5"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_geometry_orbit.cpython-314.pyc",
+      "bytes": 9934,
+      "crc32": "fa54ec26"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_orbit_visualization.cpython-312.pyc",
+      "bytes": 2759,
+      "crc32": "af46d380"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_orbit_visualization.cpython-314.pyc",
+      "bytes": 3376,
+      "crc32": "9918b6ef"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_phi_study.cpython-312.pyc",
+      "bytes": 17752,
+      "crc32": "88a68298"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_phi_study.cpython-314.pyc",
+      "bytes": 19423,
+      "crc32": "e5647291"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_power_outage.cpython-314.pyc",
+      "bytes": 16320,
+      "crc32": "f04788e6"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_protocol_and_simulation.cpython-312.pyc",
+      "bytes": 5953,
+      "crc32": "63b5331a"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_protocol_and_simulation.cpython-314.pyc",
+      "bytes": 6551,
+      "crc32": "643a36b5"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_regrouping_strict.cpython-314.pyc",
+      "bytes": 37864,
+      "crc32": "364ea37a"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_reward_bounds_io.cpython-314.pyc",
+      "bytes": 10560,
+      "crc32": "a4c7b7fe"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/test_single_serving_interference.cpython-314.pyc",
+      "bytes": 30497,
+      "crc32": "3519dc70"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 185,
+      "crc32": "50a7b1d1"
+    },
+    {
+      "path": "mira_leo_study/tests/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 551,
+      "crc32": "ae084fc5"
+    },
+    {
+      "path": "mira_leo_study/__init__.py",
+      "bytes": 180,
+      "crc32": "00ffaa70"
+    },
+    {
+      "path": "mira_leo_study/__main__.py",
+      "bytes": 7707,
+      "crc32": "1e824a57"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/algorithms.cpython-312.pyc",
+      "bytes": 31569,
+      "crc32": "1f804d46"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/algorithms.cpython-314.pyc",
+      "bytes": 45444,
+      "crc32": "d71486d0"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/analysis.cpython-312.pyc",
+      "bytes": 11038,
+      "crc32": "c213b9f1"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/analysis.cpython-314.pyc",
+      "bytes": 13117,
+      "crc32": "ba2c63fb"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/association.cpython-312.pyc",
+      "bytes": 8000,
+      "crc32": "bdddd263"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/association.cpython-314.pyc",
+      "bytes": 7541,
+      "crc32": "12559f83"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/calibration.cpython-312.pyc",
+      "bytes": 26130,
+      "crc32": "ebc5be6f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/calibration.cpython-314.pyc",
+      "bytes": 29252,
+      "crc32": "23dbd491"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/channel.cpython-312.pyc",
+      "bytes": 4397,
+      "crc32": "828454c1"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/channel.cpython-314.pyc",
+      "bytes": 8819,
+      "crc32": "63854036"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/config.cpython-312.pyc",
+      "bytes": 18016,
+      "crc32": "1d31ab76"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/config.cpython-314.pyc",
+      "bytes": 34441,
+      "crc32": "6787a260"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/csi_elevation_no_interference.cpython-314.pyc",
+      "bytes": 47811,
+      "crc32": "6e9f16bd"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/csi_elevation_serving_satellite.cpython-314.pyc",
+      "bytes": 30879,
+      "crc32": "5084c890"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/csi_elevation_with_interference.cpython-314.pyc",
+      "bytes": 1180,
+      "crc32": "8a07b371"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/diagnostics.cpython-314.pyc",
+      "bytes": 50273,
+      "crc32": "d32684fb"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/diagnostic_plots.cpython-314.pyc",
+      "bytes": 39138,
+      "crc32": "77f1e64b"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/diagnostic_trace.cpython-314.pyc",
+      "bytes": 20336,
+      "crc32": "fc918457"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/errors.cpython-312.pyc",
+      "bytes": 1325,
+      "crc32": "92f510e1"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/errors.cpython-314.pyc",
+      "bytes": 1716,
+      "crc32": "b8231a3c"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/geometry.cpython-312.pyc",
+      "bytes": 11078,
+      "crc32": "842fe873"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/geometry.cpython-314.pyc",
+      "bytes": 12814,
+      "crc32": "ceb5116e"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/geometry_export.cpython-312.pyc",
+      "bytes": 10387,
+      "crc32": "7badb63d"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/geometry_export.cpython-314.pyc",
+      "bytes": 10761,
+      "crc32": "256cacc9"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/geo_edge.cpython-314.pyc",
+      "bytes": 24719,
+      "crc32": "7e2bc37f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/isl.cpython-312.pyc",
+      "bytes": 5082,
+      "crc32": "8b5e34db"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/isl.cpython-314.pyc",
+      "bytes": 6039,
+      "crc32": "52d2e753"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/metrics.cpython-314.pyc",
+      "bytes": 5541,
+      "crc32": "ede5cc24"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/models.cpython-312.pyc",
+      "bytes": 3524,
+      "crc32": "246f811c"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/models.cpython-314.pyc",
+      "bytes": 4154,
+      "crc32": "1a2c4682"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/orbit.cpython-312.pyc",
+      "bytes": 7992,
+      "crc32": "4599309e"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/orbit.cpython-314.pyc",
+      "bytes": 9280,
+      "crc32": "21f62509"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/orbit_visualization.cpython-312.pyc",
+      "bytes": 24977,
+      "crc32": "01475b05"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/orbit_visualization.cpython-314.pyc",
+      "bytes": 27355,
+      "crc32": "438adb6f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/p1_ablation.cpython-314.pyc",
+      "bytes": 38720,
+      "crc32": "12095c39"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/p1_metrics.cpython-314.pyc",
+      "bytes": 2182,
+      "crc32": "f1e919b8"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/paper_results.cpython-314.pyc",
+      "bytes": 36381,
+      "crc32": "17c74e6f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/phi_study.cpython-312.pyc",
+      "bytes": 25960,
+      "crc32": "4923b01e"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/phi_study.cpython-314.pyc",
+      "bytes": 28413,
+      "crc32": "4c244cae"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/plotting.cpython-312.pyc",
+      "bytes": 22290,
+      "crc32": "78286c73"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/plotting.cpython-314.pyc",
+      "bytes": 23986,
+      "crc32": "2b103e47"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/power_diagnostics.cpython-314.pyc",
+      "bytes": 10030,
+      "crc32": "ae9bc11f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/protected_power.cpython-314.pyc",
+      "bytes": 18510,
+      "crc32": "ee81a10c"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/regrouping.cpython-314.pyc",
+      "bytes": 5946,
+      "crc32": "6788a625"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/reward_pilot.cpython-314.pyc",
+      "bytes": 16060,
+      "crc32": "86d03f52"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/scenario.cpython-312.pyc",
+      "bytes": 4068,
+      "crc32": "358c9768"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/scenario.cpython-314.pyc",
+      "bytes": 3907,
+      "crc32": "84e4570d"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/simulation.cpython-312.pyc",
+      "bytes": 43273,
+      "crc32": "a838cbd2"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/simulation.cpython-314.pyc",
+      "bytes": 80127,
+      "crc32": "4f4a42d2"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/sources.cpython-312.pyc",
+      "bytes": 4541,
+      "crc32": "1dd5388f"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/sources.cpython-314.pyc",
+      "bytes": 5495,
+      "crc32": "62f564a9"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/storage.cpython-312.pyc",
+      "bytes": 7986,
+      "crc32": "f5794bce"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/storage.cpython-314.pyc",
+      "bytes": 12599,
+      "crc32": "39e68e9e"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/study.cpython-312.pyc",
+      "bytes": 16420,
+      "crc32": "ecf0576c"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/study.cpython-314.pyc",
+      "bytes": 18977,
+      "crc32": "ebdc9209"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/__init__.cpython-312.pyc",
+      "bytes": 398,
+      "crc32": "06076f7a"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 377,
+      "crc32": "2c1bb855"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/__main__.cpython-312.pyc",
+      "bytes": 8994,
+      "crc32": "592cd657"
+    },
+    {
+      "path": "mira_leo_study/__pycache__/__main__.cpython-314.pyc",
+      "bytes": 10981,
+      "crc32": "537600f0"
+    }
+  ],
+  "verification": {
+    "all_57_repository_source_files_identical_to_archive": true,
+    "all_54_python_files_compile": true,
+    "all_37_root_modules_documented": true,
+    "all_17_test_files_documented": true,
+    "all_11_root_documents_indexed": true,
+    "linked_source_paths_exist": true,
+    "documented_function_identifiers_exist": true,
+    "simulation_executed": false,
+    "reward_pilot_executed": false
+  }
+}
